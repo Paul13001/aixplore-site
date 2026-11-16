@@ -16,14 +16,15 @@
   <link rel="alternate stylesheet" href="css/alternate.css" title="Style alternatif">
 </head>
 
-  <body>
-  <header class="site-header">
+<body>
+  <header class="site-header" id="header">
+      
     <a href="index.html" class="logo-link">
-      <!-- Mettre le logo à la place de logo.png -->
-      <img src="logo.png" alt="Accueil du site" class="logo">
+      <!-- Mettre le chemin du logo apres img/ -->
+      <img src="img/" alt="Accueil du site" class="logo">
     </a>
     <!-- Permet de changer le style -->
-    <a href="#style" class="style-switch"> Changer de style </a>
+    <button type="button" class="style-switch">Changer de style</button>
 
     <!-- Navigation principale du site -->
     <nav class="main-nav">
@@ -31,27 +32,28 @@
         <!-- Liste regroupant nos 5 pages -->
         <li><a href="index.html">Accueil</a></li>
 
-        <li><a href="page2.html">Page 2</a></li>
+        <li><a href="nightlife.html">Soirées</a></li>
 
-        <li><a href="page3.html">Page 3</a></li>
+        <li><a href="sports.html">Sports</a></li>
 
-        <li><a href="page4.html">Page 4</a></li>
+        <li><a href="deals.html">Bons plans</a></li>
 
-        <li><a href="page5.html">Page 5</a></li>
+        <li><a href="links.html">Liens utiles</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Contenu principale de la page-->
+  <!-- Contenu principal de la page-->
   <main class="main-content">
     <!-- Le contenu sera ici -->
   </main>
 
   <!-- Remonter en haut de la page -->
-  <a href="#top" class="back-to-top"> Haut </a>
+  <a href="#header" class="back-to-top"> Haut </a>
 
-  <!-- Bas de la page contenant les info pour nous contacter-->
+  <!-- Bas de la page contenant les infos pour nous contacter-->
   <footer class="site-footer">
-    <p> Nous contacter : <a href="mailto:contact@exemple.com">contact@exemple.com</a></p>
+    <p> Nous contacter : <a href="mailto:aixplore.contact@gmail.com">aixplore.contact@gmail.com</a></p>
   </footer>
 </body>
+</html>
