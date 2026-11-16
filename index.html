@@ -1,8 +1,57 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <!-- Permet d'utiliser les caractères spéciaux -->
   <meta charset="UTF-8">
+
+  <!-- Permet de scale le site pour autre appareil -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aixplore</title>
-  <link rel="stylesheet" href="css/style.css">
+
+  <title>Accueil | Aixplore</title>
+
+  <!-- Feuille de style principale -->
+  <link rel="stylesheet" href="css/style.css" title="Style par défaut">
+
+  <!-- Feuille de style alternative -->
+  <link rel="alternate stylesheet" href="css/alternate.css" title="Style alternatif">
 </head>
+
+  <body>
+  <header class="site-header">
+    <a href="index.html" class="logo-link">
+      <!-- Mettre le logo à la place de logo.png -->
+      <img src="logo.png" alt="Accueil du site" class="logo">
+    </a>
+    <!-- Permet de changer le style -->
+    <a href="#style" class="style-switch"> Changer de style </a>
+
+    <!-- Navigation principale du site -->
+    <nav class="main-nav">
+      <ul>
+        <!-- Liste regroupant nos 5 pages -->
+        <li><a href="index.html">Accueil</a></li>
+
+        <li><a href="page2.html">Page 2</a></li>
+
+        <li><a href="page3.html">Page 3</a></li>
+
+        <li><a href="page4.html">Page 4</a></li>
+
+        <li><a href="page5.html">Page 5</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenu principale de la page-->
+  <main class="main-content">
+    <!-- Le contenu sera ici -->
+  </main>
+
+  <!-- Remonter en haut de la page -->
+  <a href="#top" class="back-to-top"> Haut </a>
+
+  <!-- Bas de la page contenant les info pour nous contacter-->
+  <footer class="site-footer">
+    <p> Nous contacter : <a href="mailto:contact@exemple.com">contact@exemple.com</a></p>
+  </footer>
+</body>
