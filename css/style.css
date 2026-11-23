@@ -5,6 +5,7 @@
   --bg-color : #ffffff; /* Couleur de fond générale de la page*/
   --text-color : #1e293b; /* Couleur principale du texte */
   --primary-color : #0f172a; /* Couleur principale */
+  --header-text-color : #f8fafc; /* Couleur claire pour le header */
   --accent-color : #2563eb; /* Couleur d'accent (liens au survol) */
   --font-family : system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; /* Police principale */
   --header-height : 60px; /* Hauteur de l'en-tête */
@@ -22,3 +23,29 @@ body {
   color: var(--text-color); /* Applique la couleur de texte */
   background-color: var(--bg-color); /* Applique la couleur du fond */
 }
+
+.site-header {
+  height: var(--header-height);
+  background-color: var(--primary-color);
+  color: var(--header-text-color);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-inline: 20px;
+}
+
+.site-header a,
+.site-header button {
+  color: inherit;
+}
+
+.main-nav {
+  margin-left: auto;
+}
+
+.logo {
+  display: block;
+  max-height: calc(var(--header-height) - 16px);
+  width: auto;
+}
+  
