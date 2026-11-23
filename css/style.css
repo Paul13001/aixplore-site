@@ -9,3 +9,16 @@
   --font-family : system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; /* Police principale */
   --header-height : 60px; /* Hauteur de l'en-tête */
 }
+
+*, /* Selectionne tous les elements HTML de la page */
+*::before, /* Permet de crée un faux enfants tout au debut de l'element cible */
+*::after { /* Permet de crée un faux enfants tout a la fin de l'element cible */
+  box-sizing: border-box; /* Inclut la bordure et le padding dans la largeur et hauteur calculees a chaque element */
+}
+
+body {
+  margin : 0; /* Supprime la marge exterieure par defaut que le navigateur ajoute autour du body */
+  font-family: var(--font-family); /* Applique la police */
+  color: var(--text-color); /* Applique la couleur de texte */
+  background-color: var(--bg-color); /* Applique la couleur du fond */
+}
