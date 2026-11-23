@@ -1,3 +1,6 @@
 /* Code css qui permet de faire le style principale du site (couleur, typographie, dimensions) et la structure visuelle de base */
 
-:root
+:root {
+  /* Valeurs provisoires */
+  --bg-color : #ffff; /* Couleur de fond générale de la page*/
+  --text-color : #1e293b; /* Couleur principale du texte
