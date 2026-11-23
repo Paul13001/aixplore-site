@@ -3,4 +3,9 @@
 :root {
   /* Valeurs provisoires */
   --bg-color : #ffff; /* Couleur de fond générale de la page*/
-  --text-color : #1e293b; /* Couleur principale du texte
+  --text-color : #1e293b; /* Couleur principale du texte */
+  --primary-color : #0f172a; /* Couleur principale */
+  --accent-color : #2563eb; /* Couleur d'accent (liens au survol) */
+  --font-family : system-ui, -apple-system, BlindMacSystemFont, "Segoe UI", Roboto, sans-serif; /* Police principale */
+  --header-height : 60px; /* Hauteur de l'en-tête */
+}
