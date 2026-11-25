@@ -120,6 +120,85 @@ button:focus { /* Bouton sélectionné au clavier */
   padding: 24px var(--page-padding); /* Espace en haut, en bas et sur les côtés */
 }
 
+h1 { /* Titre principal de la page */
+  margin-top: 0; /* Enlève la marge au-dessus du titre */
+  font-weight: normal; /* Titre sans gras comme sur la maquette */
+  text-transform: uppercase; /* Titre en majuscules */
+}
+
+.intro { /* Texte de présentation de l'accueil */
+  margin-bottom: 24px; /* Espace sous le texte */
+}
+
+.home-video { /* Vidéo de présentation */
+  display: block; /* Enlève l'espace vide sous la vidéo */
+  width: 100%; /* Prend toute la largeur disponible */
+  max-width: 600px; /* Sans dépasser 600px */
+  height: auto; /* Garde les proportions de la vidéo */
+  background-color: #000000; /* Fond noir avant le chargement */
+}
+
+.page-cards { /* Raccourcis vers les 4 pages */
+  display: grid; /* Active la grille */
+  grid-template-columns: repeat(4, 1fr); /* 4 colonnes de même largeur */
+  gap: 12px; /* Espace entre les cartes */
+  margin-top: 16px; /* Espace au-dessus des cartes */
+  margin-bottom: 32px; /* Espace sous les cartes */
+}
+
+.page-card { /* Une carte vers une page */
+  display: block; /* Toute la carte est cliquable */
+  padding: 16px; /* Espace autour du texte */
+  min-height: 60px; /* Hauteur minimale de la carte */
+  border: 1px solid var(--primary-color); /* Bordure foncée */
+  border-radius: 4px; /* Coins arrondis */
+  color: var(--text-color); /* Texte de la couleur normale */
+  text-decoration: none; /* Enlève le soulignement */
+}
+
+.page-card:hover { /* Survol d'une carte */
+  background-color: var(--primary-color); /* Fond foncé au survol */
+  color: var(--header-text-color); /* Texte clair au survol */
+}
+
+.review-form { /* Formulaire d'avis */
+  display: flex; /* Active flexbox */
+  flex-direction: column; /* Champs les uns sous les autres */
+  gap: 6px; /* Espace entre les éléments */
+  max-width: 460px; /* Largeur maximale du formulaire */
+}
+
+.review-form label { /* Nom de chaque champ */
+  margin-top: 8px; /* Espace au-dessus de chaque champ */
+}
+
+.review-form input, /* Champs texte, e-mail et nombre */
+.review-form select, /* Liste des rubriques */
+.review-form textarea { /* Zone du message */
+  padding: 8px; /* Espace à l'intérieur du champ */
+  font-family: inherit; /* Même police que le reste du site */
+  font-size: 1rem; /* Taille de texte normale */
+  border: 1px solid var(--primary-color); /* Bordure foncée */
+  border-radius: 4px; /* Coins arrondis */
+}
+
+.submit-button { /* Bouton envoyer */
+  align-self: flex-start; /* Le bouton garde sa taille au lieu de prendre toute la largeur */
+  margin-top: 12px; /* Espace au-dessus du bouton */
+  padding: 8px 24px; /* Espace autour du texte */
+  font-family: inherit; /* Même police que le reste du site */
+  font-size: 1rem; /* Taille de texte normale */
+  background-color: var(--primary-color); /* Fond foncé */
+  color: var(--header-text-color); /* Texte clair */
+  border: none; /* Enlève la bordure par défaut */
+  border-radius: 4px; /* Coins arrondis */
+  cursor: pointer; /* Curseur en forme de main au survol */
+}
+
+.submit-button:hover { /* Survol du bouton envoyer */
+  background-color: var(--accent-color); /* Fond bleu au survol */
+}
+
 .back-to-top { /* Lien pour remonter en haut */
   position: fixed; /* Reste au même endroit de l'écran quand on scrolle */
   right: 20px; /* À 20px du bord droit de l'écran */
