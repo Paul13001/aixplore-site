@@ -316,3 +316,58 @@ h1 { /* Titre principal de la page */
     grid-template-columns: 1fr; /* 1 seule colonne */
   }
 }
+
+.links-grid { /* Grille des liens utiles */
+  list-style: none; /* Enlève les puces */
+  margin: 0 0 32px; /* Espace sous la grille */
+  padding: 0; /* Enlève le décalage à gauche par défaut */
+  display: grid; /* Active la grille */
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes sur ordinateur */
+  gap: 12px; /* Espace entre les liens */
+}
+
+.link-card { /* Un lien utile */
+  display: flex; /* Active flexbox */
+  flex-direction: column; /* Titre au-dessus de la description */
+  height: 100%; /* Toutes les cartes d'une ligne ont la même hauteur */
+  padding: 12px 16px; /* Espace à l'intérieur de la carte */
+  border: 1px solid var(--primary-color); /* Bordure foncée */
+  border-radius: 6px; /* Coins arrondis */
+  color: var(--text-color); /* Texte de la couleur normale */
+  text-decoration: none; /* Enlève le soulignement */
+}
+
+.link-card:hover { /* Survol d'un lien utile */
+  background-color: var(--primary-color); /* Fond foncé au survol */
+  color: var(--header-text-color); /* Texte clair au survol */
+}
+
+.link-title { /* Nom du site */
+  font-weight: bold; /* Texte en gras */
+  margin-bottom: 4px; /* Espace sous le nom */
+}
+
+.link-description { /* Description du site */
+  font-size: 0.9rem; /* Texte un peu plus petit */
+}
+
+.sources h3 { /* Sous-titres des sources */
+  margin-bottom: 8px; /* Espace sous le sous-titre */
+}
+
+.sources-list { /* Liste des sources */
+  margin-top: 0; /* Enlève l'espace au-dessus de la liste */
+  font-size: 0.9rem; /* Texte un peu plus petit */
+}
+
+@media (max-width: 900px) { /* Tablette : écran de 900px ou moins */
+  .links-grid { /* Grille des liens */
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
+  }
+}
+
+@media (max-width: 600px) { /* Téléphone : écran de 600px ou moins */
+  .links-grid { /* Grille des liens */
+    grid-template-columns: 1fr; /* 1 seule colonne */
+  }
+}
