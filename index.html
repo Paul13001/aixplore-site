@@ -4,9 +4,10 @@
   <!-- Permet d'utiliser les caractères spéciaux -->
   <meta charset="UTF-8">
 
-  <!-- Permet de scale le site pour autre appareil -->
+  <!-- Permet d'adapter l'affichage à la taille de l'écran -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Titre de la page : "Nom de la page | Aixplore" -->
   <title>Accueil | Aixplore</title>
 
   <!-- Feuille de style principale -->
@@ -17,22 +18,24 @@
 </head>
 
 <body>
+  <!-- En-tête commun à toutes les pages : ne pas modifier -->
   <header class="site-header" id="header">
-      
+
+    <!-- Logo qui ramène à l'accueil -->
     <a href="index.html" class="logo-link">
-      <!-- Mettre le chemin du logo apres img/ -->
-      <img src="aixplore-logo.png" alt="Accueil du site" class="logo">
+      <img src="img/aixplore-logo.png" alt="Accueil du site" class="logo">
     </a>
+
     <!-- Permet de changer le style -->
     <button type="button" class="theme-toggle">
-      <img src="aixplore-style-pilule-09-clic.png" alt="Changer de mode">
+      <img src="img/aixplore-style-pilule-09-clic.png" alt="Changer de mode">
     </button>
 
     <!-- Navigation principale du site -->
     <nav class="main-nav">
       <ul>
-        <!-- Liste regroupant nos 5 pages -->
-        <li><a href="index.html">Accueil</a></li>
+        <!-- Liste regroupant nos 5 pages (aria-current indique la page en cours) -->
+        <li><a href="index.html" aria-current="page">Accueil</a></li>
 
         <li><a href="nightlife.html">Soirées</a></li>
 
@@ -45,19 +48,79 @@
     </nav>
   </header>
 
-  <!-- Contenu principal de la page-->
+  <!-- Contenu principal de la page -->
   <main class="main-content">
-    <!-- Le contenu sera ici -->
+    <!-- Titre de la page -->
+    <h1>Accueil</h1>
+
+    <!-- Texte de présentation du site -->
+    <p class="intro">
+      lorem ipsum
+    </p>
+
+    <!-- Vidéo de présentation avec sous-titres -->
+    <video class="home-video" controls>
+      <source src="video/aix-capitale-etudiante.mp4" type="video/mp4">
+      <!-- Fichier de sous-titres en français -->
+      <track src="video/aix-capitale-etudiante.vtt" kind="subtitles" srclang="fr" label="Français" default>
+      Votre navigateur ne peut pas lire cette vidéo.
+    </video>
+
+    <!-- Raccourcis vers les 4 autres pages -->
+    <nav class="page-cards">
+      <a href="nightlife.html" class="page-card">Soirées</a>
+      <a href="sports.html" class="page-card">Sports</a>
+      <a href="deals.html" class="page-card">Bons plans</a>
+      <a href="links.html" class="page-card">Liens utiles</a>
+    </nav>
+
+    <!-- Section avis des visiteurs -->
+    <section>
+      <h2>Avis</h2>
+
+      <!-- Formulaire d'avis : ouvre la messagerie avec le contenu du formulaire -->
+      <form class="review-form" action="mailto:aixplore.contact@gmail.com" method="post" enctype="text/plain">
+
+        <!-- Nom du visiteur -->
+        <label for="name">Nom</label>
+        <input type="text" id="name" name="name" required>
+
+        <!-- Adresse e-mail du visiteur -->
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required>
+
+        <!-- Rubrique concernée par l'avis -->
+        <label for="category">Rubrique</label>
+        <select id="category" name="category" required>
+          <option value="">-- Choisir une rubrique --</option>
+          <option value="nightlife">Soirées</option>
+          <option value="sports">Sports</option>
+          <option value="deals">Bons plans</option>
+          <option value="links">Liens utiles</option>
+        </select>
+
+        <!-- Note de 1 à 5 -->
+        <label for="rating">Note (de 1 à 5)</label>
+        <input type="number" id="rating" name="rating" min="1" max="5" required>
+
+        <!-- Message de l'avis -->
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <!-- Bouton d'envoi -->
+        <button type="submit" class="submit-button">Envoyer</button>
+      </form>
+    </section>
   </main>
 
   <!-- Image cliquable pour remonter en haut de la page -->
   <a href="#header" class="back-to-top">
-    <img src="aixplore-top-09-clic.png" alt="Remonter en haut de la page">
+    <img src="img/aixplore-top-09-clic.png" alt="Remonter en haut de la page">
   </a>
-  
-  <!-- Bas de la page contenant les infos pour nous contacter-->
+
+  <!-- Bas de la page contenant les infos pour nous contacter -->
   <footer class="site-footer">
-    <p> Nous contacter : <a href="mailto:aixplore.contact@gmail.com">aixplore.contact@gmail.com</a></p>
+    <p>Nous contacter : <a href="mailto:aixplore.contact@gmail.com">aixplore.contact@gmail.com</a></p>
   </footer>
 </body>
 </html>
