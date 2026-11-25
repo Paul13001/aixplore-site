@@ -1,4 +1,210 @@
-<!-- Deals page (bons plans) -->
-  <a href="#header" class="exit-link">
-    <img src="aixplore-top-09-clic.png" alt="Retour au début de la page">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Permet d'utiliser les caractères spéciaux -->
+  <meta charset="UTF-8">
+
+  <!-- Permet d'adapter l'affichage à la taille de l'écran -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Titre de la page : "Nom de la page | Aixplore" -->
+  <title>Bons plans | Aixplore</title>
+
+  <!-- Feuille de style principale -->
+  <link rel="stylesheet" href="css/style.css" title="Style par défaut">
+
+  <!-- Feuille de style alternative -->
+  <link rel="alternate stylesheet" href="css/alternate.css" title="Style alternatif">
+</head>
+
+<body>
+  <!-- En-tête commun à toutes les pages : ne pas modifier -->
+  <header class="site-header" id="header">
+
+    <!-- Logo qui ramène à l'accueil -->
+    <a href="index.html" class="logo-link">
+      <img src="aixplore-logo.png" alt="Accueil du site" class="logo">
+    </a>
+
+    <!-- Permet de changer le style -->
+    <button type="button" class="theme-toggle">
+      <img src="aixplore-style-pilule-09-clic.png" alt="Changer de mode">
+    </button>
+
+    <!-- Navigation principale du site -->
+    <nav class="main-nav">
+      <ul>
+        <!-- Liste regroupant nos 5 pages (aria-current indique la page en cours) -->
+        <li><a href="index.html">Accueil</a></li>
+
+        <li><a href="nightlife.html">Soirées</a></li>
+
+        <li><a href="sports.html">Sports</a></li>
+
+        <li><a href="deals.html" aria-current="page">Bons plans</a></li>
+
+        <li><a href="links.html">Liens utiles</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenu principal de la page -->
+  <main class="main-content">
+    <!-- Titre de la page -->
+    <h1>Bons plans</h1>
+
+    <!-- Texte d'introduction -->
+    <p class="intro">
+      Se loger, manger, se déplacer et sortir sans se ruiner : voici les meilleures aides et réductions pour les étudiants à Aix-en-Provence.
+      Utilise les filtres pour n'afficher qu'une catégorie.
+    </p>
+
+    <!-- Boutons de filtre : data-filter indique la catégorie à afficher -->
+    <div class="filters" role="group" aria-labelledby="filters-label">
+      <span class="filters-label" id="filters-label">Filtres :</span>
+      <button type="button" class="filter-button" data-filter="all" aria-pressed="true">Tous</button>
+      <button type="button" class="filter-button" data-filter="housing" aria-pressed="false">Logement</button>
+      <button type="button" class="filter-button" data-filter="food" aria-pressed="false">Manger</button>
+      <button type="button" class="filter-button" data-filter="transport" aria-pressed="false">Se déplacer</button>
+      <button type="button" class="filter-button" data-filter="culture" aria-pressed="false">Culture</button>
+    </div>
+
+    <!-- Grille des bons plans : data-category indique la catégorie de chaque carte -->
+    <section class="deals-grid" aria-label="Liste des bons plans">
+
+      <article class="deal-card" data-category="housing">
+        <p class="deal-tag">Logement</p>
+        <h2>Garantie Visale</h2>
+        <p>Une caution locative 100 % gratuite d'Action Logement, qui remplace le garant (parents, proches) pour les moins de 30 ans. Elle rassure le propriétaire et renforce ton dossier.</p>
+        <p class="deal-price">Gratuit</p>
+        <a href="https://www.visale.fr" class="deal-link" target="_blank" rel="noopener">En savoir plus</a>
+      </article>
+
+      <article class="deal-card" data-category="housing">
+        <p class="deal-tag">Logement</p>
+        <h2>Résidences du Crous</h2>
+        <p>Des chambres et studios en résidence universitaire, souvent moins chers que dans le privé. Les demandes se font en ligne, le plus tôt possible avant la rentrée.</p>
+        <p class="deal-price">Loyers étudiants</p>
+        <a href="https://trouverunlogement.lescrous.fr" class="deal-link" target="_blank" rel="noopener">En savoir plus</a>
+      </article>
+
+      <article class="deal-card" data-category="housing">
+        <p class="deal-tag">Logement</p>
+        <h2>Aide au logement de la CAF</h2>
+        <p>Locataire d'un logement, même en résidence ou en colocation ? Fais une simulation sur le site de la CAF : une partie de ton loyer peut être prise en charge.</p>
+        <p class="deal-price">Aide mensuelle</p>
+        <a href="https://www.caf.fr" class="deal-link" target="_blank" rel="noopener">En savoir plus</a>
+      </article>
+
+      <article class="deal-card" data-category="housing">
+        <p class="deal-tag">Logement</p>
+        <h2>Le Repère étudiant</h2>
+        <p>Le point info jeunesse de la Ville d'Aix, au 37 boulevard Aristide Briand : conseils pour le logement, les jobs, la santé et toutes les démarches.</p>
+        <p class="deal-price">Gratuit</p>
+        <a href="https://www.aixenprovence.fr" class="deal-link" target="_blank" rel="noopener">En savoir plus</a>
+      </article>
+
+      <article class="deal-card" data-category="food">
+        <p class="deal-tag">Manger</p>
+        <h2>Restos U à 1 €</h2>
+        <p>Depuis mai 2026, le repas au restaurant universitaire coûte 1 € pour tous les étudiants, boursiers ou non, midi et soir. Il suffit de payer avec son compte Izly.</p>
+        <p class="deal-price">1 € le repas</p>
+        <a href="https://www.lescrous.fr" class="deal-link" target="_blank" rel="noopener">En savoir plus</a>
+      </article>
+
+      <article class="deal-card" data-category="food">
+        <p class="deal-tag">Manger</p>
+        <h2>Épicerie solidaire Agoraé</h2>
+        <p>L'épicerie gérée par des étudiants (FAMI et Aix-Marseille Université) propose des courses à prix très réduits aux étudiants en difficulté, sur dossier avec le service social du Crous.</p>
+        <p class="deal-price">Prix très réduits</p>
+        <a href="https://www.univ-amu.fr" class="deal-link" target="_blank" rel="noopener">En savoir plus</a>
+      </article>
+
+      <article class="deal-card" data-category="food">
+        <p class="deal-tag">Manger</p>
+        <h2>Paniers anti-gaspi</h2>
+        <p>Avec l'application Too Good To Go, récupère les invendus du jour des boulangeries, restaurants et supermarchés d'Aix pour environ un tiers de leur prix.</p>
+        <p class="deal-price">≈ 1/3 du prix</p>
+        <a href="https://www.toogoodtogo.com/fr" class="deal-link" target="_blank" rel="noopener">En savoir plus</a>
+      </article>
+
+      <article class="deal-card" data-category="transport">
+        <p class="deal-tag">Se déplacer</p>
+        <h2>Abonnement solidaire à 20 €</h2>
+        <p>Depuis le 1er novembre 2026, les jeunes boursiers de 11 à 25 ans peuvent circuler en illimité sur le réseau de la Métropole Aix-Marseille-Provence pour 20 € par an.</p>
+        <p class="deal-price">20 € / an</p>
+        <a href="https://www.lametropolemobilite.fr" class="deal-link" target="_blank" rel="noopener">En savoir plus</a>
+      </article>
+
+      <article class="deal-card" data-category="transport">
+        <p class="deal-tag">Se déplacer</p>
+        <h2>Pass ZOU ! Études</h2>
+        <p>Pour les moins de 26 ans : un abonnement pour voyager en illimité dans les bus et les trains ZOU ! de toute la région Sud. Pratique pour rentrer le week-end.</p>
+        <p class="deal-price">Illimité</p>
+        <a href="https://www.ter.sncf.com/sud-provence-alpes-cote-d-azur/tarifs-cartes/cartes-reduction/pass-zou-etudes" class="deal-link" target="_blank" rel="noopener">En savoir plus</a>
+      </article>
+
+      <article class="deal-card" data-category="transport">
+        <p class="deal-tag">Se déplacer</p>
+        <h2>Carte ZOU ! Malin</h2>
+        <p>Tu prends le train de temps en temps ? Pour 20 € par an, la carte donne 30 % de réduction sur les TER et bus ZOU !, pour toi et une personne qui t'accompagne.</p>
+        <p class="deal-price">-30 % pour 20 €</p>
+        <a href="https://www.ter.sncf.com/sud-provence-alpes-cote-d-azur/tarifs-cartes/cartes-reduction/carte-zou-malin" class="deal-link" target="_blank" rel="noopener">En savoir plus</a>
+      </article>
+
+      <article class="deal-card" data-category="transport">
+        <p class="deal-tag">Se déplacer</p>
+        <h2>levélo+</h2>
+        <p>Le service de la Métropole pour louer un vélo électrique sur la longue durée. Sa boutique d'Aix est au Patio Cézanne, 520 avenue Henri-Mauriat.</p>
+        <p class="deal-price">Location longue durée</p>
+        <a href="https://www.leveloplus.com" class="deal-link" target="_blank" rel="noopener">En savoir plus</a>
+      </article>
+
+      <article class="deal-card" data-category="culture">
+        <p class="deal-tag">Culture</p>
+        <h2>Musée Granet</h2>
+        <p>Le grand musée des beaux-arts d'Aix, avec des œuvres de Cézanne, est gratuit pour les étudiants de moins de 26 ans, sur présentation de la carte étudiante.</p>
+        <p class="deal-price">Gratuit</p>
+        <a href="https://www.museegranet-aixenprovence.fr" class="deal-link" target="_blank" rel="noopener">En savoir plus</a>
+      </article>
+
+      <article class="deal-card" data-category="culture">
+        <p class="deal-tag">Culture</p>
+        <h2>Bibliothèques Méjanes</h2>
+        <p>L'inscription est gratuite pour tous dans les bibliothèques de la ville : livres, BD, films, ressources numériques et grands espaces de travail.</p>
+        <p class="deal-price">Inscription gratuite</p>
+        <a href="https://www.citedulivre-aix.com" class="deal-link" target="_blank" rel="noopener">En savoir plus</a>
+      </article>
+
+      <article class="deal-card" data-category="culture">
+        <p class="deal-tag">Culture</p>
+        <h2>Pass Culture</h2>
+        <p>À 18 ans, le pass Culture donne 150 € à dépenser en livres, places de concert, cinéma ou cours, utilisables jusqu'à la veille de tes 21 ans.</p>
+        <p class="deal-price">150 € à 18 ans</p>
+        <a href="https://pass.culture.fr" class="deal-link" target="_blank" rel="noopener">En savoir plus</a>
+      </article>
+
+
+      <article class="deal-card" data-category="culture">
+        <p class="deal-tag">Culture</p>
+        <h2>Cinémas art et essai</h2>
+        <p>Le Mazarin et Le Renoir, en centre-ville, proposent un tarif étudiant. Les films étrangers y sont en version originale sous-titrée.</p>
+        <p class="deal-price">Tarif étudiant</p>
+        <a href="https://www.pathe.fr/cinemas/ville/aix-en-provence" class="deal-link" target="_blank" rel="noopener">En savoir plus</a>
+      </article>
+    </section>
+  </main>
+
+  <!-- Image cliquable pour remonter en haut de la page -->
+  <a href="#header" class="back-to-top">
+    <img src="aixplore-top-09-clic.png" alt="Remonter en haut de la page">
   </a>
+
+  <!-- Bas de la page contenant les infos pour nous contacter -->
+  <footer class="site-footer">
+    <p>Nous contacter : <a href="mailto:aixplore.contact@gmail.com">aixplore.contact@gmail.com</a></p>
+  </footer>
+  <!-- Script des filtres de la page -->
+  <script src="js/deals-filter.js"></script>
+</body>
+</html>
