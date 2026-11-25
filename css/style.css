@@ -68,18 +68,21 @@ button:focus { /* Bouton sélectionné au clavier */
   width: auto; /* Garde les proportions de l'image */
 }
 
-.style-switch { /* Bouton changer de style */
-  padding: 6px 12px; /* Espace autour du texte */
-  font-family: inherit; /* Même police que le reste du site */
-  font-size: 0.9rem; /* Texte un peu plus petit */
+.theme-toggle { /* Bouton changer de style */
+  padding: 0; /* Enlève l'espace intérieur par défaut */
   background-color: transparent; /* Enlève le fond gris par défaut */
-  border: 1px solid currentColor; /* Bordure de la même couleur que le texte */
-  border-radius: 4px; /* Coins arrondis */
+  border: none; /* Enlève la bordure par défaut */
   cursor: pointer; /* Curseur en forme de main au survol */
 }
 
-.style-switch:hover { /* Survol du bouton changer de style */
-  color: var(--header-accent-color); /* Change la couleur au survol */
+.theme-toggle img { /* Image du bouton changer de style */
+  display: block; /* Enlève l'espace vide sous l'image */
+  height: 36px; /* Hauteur de l'image pour tenir dans le header */
+  width: auto; /* Garde les proportions de l'image */
+}
+
+.theme-toggle:hover { /* Survol du bouton changer de style */
+  opacity: 0.8; /* Image un peu transparente au survol */
 }
 
 .main-nav { /* Menu de navigation */
@@ -126,7 +129,7 @@ button:focus { /* Bouton sélectionné au clavier */
 
 .back-to-top img { /* Image du bouton haut */
   display: block; /* Enlève l'espace vide sous l'image */
-  width: 50px; /* Largeur de l'image */
+  width: 70px; /* Largeur de l'image */
   height: auto; /* Garde les proportions de l'image */
 }
 
