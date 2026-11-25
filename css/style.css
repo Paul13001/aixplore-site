@@ -2,227 +2,77 @@
 
 :root {
   /* Valeurs provisoires */
-  --bg-color: #ffffff; /* Couleur de fond générale de la page */
-  --text-color: #1e293b; /* Couleur principale du texte */
-  --primary-color: #0f172a; /* Couleur principale (header et footer) */
-  --header-text-color: #f8fafc; /* Couleur claire pour le texte du header et du footer */
-  --accent-color: #2563eb; /* Couleur d'accent sur fond clair (liens du contenu) */
-  --header-accent-color: #93c5fd; /* Couleur d'accent sur fond foncé (survol du menu) */
-  --font-family: system-ui, "Segoe UI", Roboto, sans-serif; /* Police principale */
-  --header-height: 60px; /* Hauteur de l'en-tête */
-  --page-padding: 20px; /* Espace à gauche et à droite des blocs */
-  --content-max-width: 1100px; /* Largeur maximale du contenu */
+  --bg-color : #ffffff; /* Couleur de fond générale de la page*/
+  --text-color : #1e293b; /* Couleur principale du texte */
+  --primary-color : #0f172a; /* Couleur principale */
+  --header-text-color : #f8fafc; /* Couleur claire pour le header */
+  --accent-color : #2563eb; /* Couleur d'accent (liens au survol) */
+  --font-family : system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; /* Police principale */
+  --header-height : 80px; /* Hauteur de l'en-tête */
 }
 
-*, /* Sélectionne tous les éléments HTML de la page */
-*::before, /* Faux enfant ajouté au début de l'élément */
-*::after { /* Faux enfant ajouté à la fin de l'élément */
-  box-sizing: border-box; /* Inclut la bordure et le padding dans la largeur et la hauteur */
+*, /* Selectionne tous les elements HTML de la page */
+*::before, /* Permet de crée un faux enfants tout au debut de l'element cible */
+*::after { /* Permet de crée un faux enfants tout a la fin de l'element cible */
+  box-sizing: border-box; /* Inclut la bordure et le padding dans la largeur et hauteur calculees a chaque element */
 }
 
 body {
-  margin: 0; /* Supprime la marge par défaut du navigateur autour du body */
+  margin : 0; /* Supprime la marge exterieure par defaut que le navigateur ajoute autour du body */
   font-family: var(--font-family); /* Applique la police */
-  line-height: 1.5; /* Espace entre les lignes pour mieux lire */
-  color: var(--text-color); /* Applique la couleur du texte */
+  color: var(--text-color); /* Applique la couleur de texte */
   background-color: var(--bg-color); /* Applique la couleur du fond */
-  min-height: 100vh; /* Le body fait au moins toute la hauteur de l'écran */
-  display: flex; /* Active flexbox sur le body */
-  flex-direction: column; /* Header, main et footer empilés les uns sous les autres */
 }
 
-a { /* Tous les liens */
-  color: var(--accent-color); /* Couleur d'accent pour les liens */
+.site-header {
+  min-height: var(--header-height);
+  background-color: var(--primary-color);
+  /* L'image de fond et ses propriétés vont ici */
+  background-image: url("../aixplore-header-background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  color: var(--header-text-color);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-inline: 20px;
+} 
+
+.site-header img {
+  /* Ces propriétés s'appliquent uniquement au logo à l'intérieur du header */
+  height: 100px; 
+  width: auto;
+}
+.site-header a,
+.site-header button {
+  color: inherit;
 }
 
-a:focus, /* Lien sélectionné au clavier */
-button:focus { /* Bouton sélectionné au clavier */
-  outline: 2px solid var(--accent-color); /* Contour visible pour la navigation au clavier */
-  outline-offset: 2px; /* Espace entre l'élément et son contour */
+.main-nav {
+  margin-left: auto;
 }
 
-.site-header { /* En-tête du site */
-  height: var(--header-height); /* Hauteur de 60px */
-  padding-left: var(--page-padding); /* Espace à gauche */
-  padding-right: var(--page-padding); /* Espace à droite */
-  background-color: var(--primary-color); /* Fond foncé */
-  color: var(--header-text-color); /* Texte clair */
-  display: flex; /* Met le logo, le bouton et le menu côte à côte */
-  align-items: center; /* Centre les éléments verticalement */
-  gap: 16px; /* Espace entre les éléments */
+.logo {
+  display: block;
+  max-height: calc(var(--header-height) - 16px);
+  width: auto;
+}
+  
+.menu-icon img {
+  height: 35px; 
 }
 
-.site-header a, /* Liens du header */
-.site-header button { /* Bouton du header */
-  color: inherit; /* Prend la couleur claire du header */
+.theme-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  line-height: 0;
 }
-
-.logo-link { /* Lien autour du logo */
-  display: block; /* Le lien prend la taille du logo */
-  text-decoration: none; /* Enlève le soulignement */
-}
-
-.logo { /* Image du logo */
-  display: block; /* Enlève l'espace vide sous l'image */
-  max-height: calc(var(--header-height) - 16px); /* Le logo ne dépasse jamais du header */
-  width: auto; /* Garde les proportions de l'image */
-}
-
-.theme-toggle { /* Bouton changer de style */
-  padding: 0; /* Enlève l'espace intérieur par défaut */
-  background-color: transparent; /* Enlève le fond gris par défaut */
-  border: none; /* Enlève la bordure par défaut */
-  cursor: pointer; /* Curseur en forme de main au survol */
-}
-
-.theme-toggle img { /* Image du bouton changer de style */
-  display: block; /* Enlève l'espace vide sous l'image */
-  height: 36px; /* Hauteur de l'image pour tenir dans le header */
-  width: auto; /* Garde les proportions de l'image */
-}
-
-.theme-toggle:hover { /* Survol du bouton changer de style */
-  opacity: 0.8; /* Image un peu transparente au survol */
-}
-
-.main-nav { /* Menu de navigation */
-  margin-left: auto; /* Prend tout l'espace libre à gauche, donc pousse le menu à droite */
-}
-
-.main-nav ul { /* Liste du menu */
-  list-style: none; /* Enlève les puces */
-  margin: 0; /* Enlève la marge par défaut */
-  padding: 0; /* Enlève le décalage à gauche par défaut */
-  display: flex; /* Met les liens en ligne */
-  gap: 8px; /* Espace entre les liens */
-}
-
-.main-nav a { /* Liens du menu */
-  display: block; /* Toute la zone du lien est cliquable */
-  padding: 6px 10px; /* Espace autour du texte */
-  text-decoration: none; /* Enlève le soulignement */
-}
-
-.main-nav a:hover { /* Survol d'un lien du menu */
-  color: var(--header-accent-color); /* Change la couleur au survol */
-}
-
-.main-nav a[aria-current="page"] { /* Lien de la page où on se trouve */
-  font-weight: bold; /* Texte en gras */
-  border-bottom: 2px solid var(--header-accent-color); /* Trait sous le lien */
-}
-
-.main-content { /* Contenu principal de la page */
-  flex: 1; /* Prend toute la place libre, donc pousse le footer en bas */
-  width: 100%; /* Prend toute la largeur disponible */
-  max-width: var(--content-max-width); /* Sans dépasser la largeur maximale */
-  margin: 0 auto; /* Centre le contenu horizontalement */
-  padding: 24px var(--page-padding); /* Espace en haut, en bas et sur les côtés */
-}
-
-h1 { /* Titre principal de la page */
-  margin-top: 0; /* Enlève la marge au-dessus du titre */
-  font-weight: normal; /* Titre sans gras comme sur la maquette */
-  text-transform: uppercase; /* Titre en majuscules */
-}
-
-.intro { /* Texte de présentation de l'accueil */
-  margin-bottom: 24px; /* Espace sous le texte */
-}
-
-.home-video { /* Vidéo de présentation */
-  display: block; /* Enlève l'espace vide sous la vidéo */
-  width: 100%; /* Prend toute la largeur disponible */
-  max-width: 600px; /* Sans dépasser 600px */
-  height: auto; /* Garde les proportions de la vidéo */
-  background-color: #000000; /* Fond noir avant le chargement */
-}
-
-.page-cards { /* Raccourcis vers les 4 pages */
-  display: grid; /* Active la grille */
-  grid-template-columns: repeat(4, 1fr); /* 4 colonnes de même largeur */
-  gap: 12px; /* Espace entre les cartes */
-  margin-top: 16px; /* Espace au-dessus des cartes */
-  margin-bottom: 32px; /* Espace sous les cartes */
-}
-
-.page-card { /* Une carte vers une page */
-  display: block; /* Toute la carte est cliquable */
-  padding: 16px; /* Espace autour du texte */
-  min-height: 60px; /* Hauteur minimale de la carte */
-  border: 1px solid var(--primary-color); /* Bordure foncée */
-  border-radius: 4px; /* Coins arrondis */
-  color: var(--text-color); /* Texte de la couleur normale */
-  text-decoration: none; /* Enlève le soulignement */
-}
-
-.page-card:hover { /* Survol d'une carte */
-  background-color: var(--primary-color); /* Fond foncé au survol */
-  color: var(--header-text-color); /* Texte clair au survol */
-}
-
-.review-form { /* Formulaire d'avis */
-  display: flex; /* Active flexbox */
-  flex-direction: column; /* Champs les uns sous les autres */
-  gap: 6px; /* Espace entre les éléments */
-  max-width: 460px; /* Largeur maximale du formulaire */
-}
-
-.review-form label { /* Nom de chaque champ */
-  margin-top: 8px; /* Espace au-dessus de chaque champ */
-}
-
-.review-form input, /* Champs texte, e-mail et nombre */
-.review-form select, /* Liste des rubriques */
-.review-form textarea { /* Zone du message */
-  padding: 8px; /* Espace à l'intérieur du champ */
-  font-family: inherit; /* Même police que le reste du site */
-  font-size: 1rem; /* Taille de texte normale */
-  border: 1px solid var(--primary-color); /* Bordure foncée */
-  border-radius: 4px; /* Coins arrondis */
-}
-
-.submit-button { /* Bouton envoyer */
-  align-self: flex-start; /* Le bouton garde sa taille au lieu de prendre toute la largeur */
-  margin-top: 12px; /* Espace au-dessus du bouton */
-  padding: 8px 24px; /* Espace autour du texte */
-  font-family: inherit; /* Même police que le reste du site */
-  font-size: 1rem; /* Taille de texte normale */
-  background-color: var(--primary-color); /* Fond foncé */
-  color: var(--header-text-color); /* Texte clair */
-  border: none; /* Enlève la bordure par défaut */
-  border-radius: 4px; /* Coins arrondis */
-  cursor: pointer; /* Curseur en forme de main au survol */
-}
-
-.submit-button:hover { /* Survol du bouton envoyer */
-  background-color: var(--accent-color); /* Fond bleu au survol */
-}
-
-.back-to-top { /* Lien pour remonter en haut */
-  position: fixed; /* Reste au même endroit de l'écran quand on scrolle */
-  right: 20px; /* À 20px du bord droit de l'écran */
-  bottom: 20px; /* À 20px du bas de l'écran */
-  display: block; /* Le lien prend la taille de l'image */
-}
-
-.back-to-top img { /* Image du bouton haut */
-  display: block; /* Enlève l'espace vide sous l'image */
-  width: 70px; /* Largeur de l'image */
-  height: auto; /* Garde les proportions de l'image */
-}
-
-.site-footer { /* Pied de page */
-  padding: 16px var(--page-padding); /* Espace autour du texte */
-  background-color: var(--primary-color); /* Fond foncé */
-  color: var(--header-text-color); /* Texte clair */
-  text-align: center; /* Centre le texte */
-}
-
-.site-footer p { /* Paragraphe du pied de page */
-  margin: 0; /* Enlève la marge par défaut */
-}
-
-.site-footer a { /* Lien e-mail du pied de page */
-  color: var(--header-accent-color); /* Couleur lisible sur le fond foncé */
+.theme-toggle img {
+  display: block;
+  width: 150px;
+  height: auto;
 }
