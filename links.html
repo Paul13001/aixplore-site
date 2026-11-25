@@ -1,4 +1,187 @@
-<!-- Useful links page (liens utiles) -->
-  <a href="#header" class="exit-link">
-    <img src="aixplore-top-09-clic.png" alt="Retour au début de la page">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Permet d'utiliser les caractères spéciaux -->
+  <meta charset="UTF-8">
+
+  <!-- Permet d'adapter l'affichage à la taille de l'écran -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Titre de la page : "Nom de la page | Aixplore" -->
+  <title>Liens utiles | Aixplore</title>
+
+  <!-- Feuille de style principale -->
+  <link rel="stylesheet" href="css/style.css" title="Style par défaut">
+
+  <!-- Feuille de style alternative -->
+  <link rel="alternate stylesheet" href="css/alternate.css" title="Style alternatif">
+</head>
+
+<body>
+  <!-- En-tête commun à toutes les pages : ne pas modifier -->
+  <header class="site-header" id="header">
+
+    <!-- Logo qui ramène à l'accueil -->
+    <a href="index.html" class="logo-link">
+      <img src="img/aixplore-logo.png" alt="Accueil du site" class="logo">
+    </a>
+
+    <!-- Permet de changer le style -->
+    <button type="button" class="theme-toggle">
+      <img src="img/aixplore-style-pilule-09-clic.png" alt="Changer de mode">
+    </button>
+
+    <!-- Navigation principale du site -->
+    <nav class="main-nav">
+      <ul>
+        <!-- Liste regroupant nos 5 pages (aria-current indique la page en cours) -->
+        <li><a href="index.html">Accueil</a></li>
+
+        <li><a href="nightlife.html">Soirées</a></li>
+
+        <li><a href="sports.html">Sports</a></li>
+
+        <li><a href="deals.html">Bons plans</a></li>
+
+        <li><a href="links.html" aria-current="page">Liens utiles</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenu principal de la page -->
+  <main class="main-content">
+    <!-- Titre de la page -->
+    <h1>Liens utiles</h1>
+
+    <!-- Texte d'introduction -->
+    <p class="intro">
+      Université, logement, transports, sorties ou job étudiant : voici les sites officiels à garder sous la main quand on étudie à Aix-en-Provence.
+      Chaque lien s'ouvre dans un nouvel onglet.
+    </p>
+
+    <!-- Grille des liens utiles -->
+    <ul class="links-grid">
+      <li>
+        <a href="https://www.univ-amu.fr" class="link-card" target="_blank" rel="noopener">
+          <span class="link-title">Aix-Marseille Université</span>
+          <span class="link-description">Le site de l'université : formations, scolarité, vie de campus et services aux étudiants.</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://iut.univ-amu.fr" class="link-card" target="_blank" rel="noopener">
+          <span class="link-title">IUT d'Aix-Marseille</span>
+          <span class="link-description">Le site de l'IUT : départements, emplois du temps, stages et actualités.</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.crous-aix-marseille.fr" class="link-card" target="_blank" rel="noopener">
+          <span class="link-title">Crous Aix-Marseille-Avignon</span>
+          <span class="link-description">Logement en résidence, restos U, bourses et aide sociale pour les étudiants de l'académie.</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://messervices.etudiant.gouv.fr" class="link-card" target="_blank" rel="noopener">
+          <span class="link-title">MesServices.étudiant.gouv.fr</span>
+          <span class="link-description">Le portail national pour demander sa bourse et son logement Crous (dossier social étudiant).</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.caf.fr" class="link-card" target="_blank" rel="noopener">
+          <span class="link-title">CAF</span>
+          <span class="link-description">Simuler et demander l'aide au logement, même en résidence ou en colocation.</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.izly.fr" class="link-card" target="_blank" rel="noopener">
+          <span class="link-title">Izly</span>
+          <span class="link-description">Le compte pour payer ses repas au restaurant universitaire et à la cafétéria du Crous.</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.aixenprovence.fr" class="link-card" target="_blank" rel="noopener">
+          <span class="link-title">Ville d'Aix-en-Provence</span>
+          <span class="link-description">Toutes les infos pratiques de la ville : démarches, événements, équipements et Le Repère étudiant.</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.lametropolemobilite.fr" class="link-card" target="_blank" rel="noopener">
+          <span class="link-title">La Métropole Mobilité</span>
+          <span class="link-description">Horaires, plans et abonnements des bus d'Aix et de toute la métropole Aix-Marseille-Provence.</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.ter.sncf.com/sud-provence-alpes-cote-d-azur" class="link-card" target="_blank" rel="noopener">
+          <span class="link-title">TER ZOU ! Région Sud</span>
+          <span class="link-description">Horaires et tarifs des trains et cars régionaux, avec les réductions pour les moins de 26 ans.</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.aixenprovencetourism.com" class="link-card" target="_blank" rel="noopener">
+          <span class="link-title">Office de tourisme d'Aix</span>
+          <span class="link-description">L'agenda des sorties, des expositions et des événements à Aix et dans le Pays d'Aix.</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.citedulivre-aix.com" class="link-card" target="_blank" rel="noopener">
+          <span class="link-title">Bibliothèques Méjanes</span>
+          <span class="link-description">Catalogue, horaires et inscription gratuite aux bibliothèques de la ville.</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.1jeune1solution.gouv.fr" class="link-card" target="_blank" rel="noopener">
+          <span class="link-title">1jeune1solution</span>
+          <span class="link-description">La plateforme de l'État pour trouver un job étudiant, un stage ou une alternance.</span>
+        </a>
+      </li>
+    </ul>
+
+    <!-- Sources des contenus du site -->
+    <section class="sources">
+      <h2>Sources</h2>
+
+      <!-- Sources des textes -->
+      <h3>Textes</h3>
+      <p>Les informations de la page Bons plans ont été vérifiées en novembre 2026 sur les sites suivants :</p>
+      <ul class="sources-list">
+          <li><a href="https://www.info.gouv.fr/actualite/repas-a-1-euro-une-mesure-etendue-a-tous-les-etudiants" target="_blank" rel="noopener">Repas à 1 euro pour tous les étudiants - info.gouv.fr</a></li>
+          <li><a href="https://madeinmarseille.net/?p=212614" target="_blank" rel="noopener">Abonnement à 20 € pour les jeunes boursiers - Made in Marseille</a></li>
+          <li><a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F18493" target="_blank" rel="noopener">Garantie Visale - Service-Public.fr</a></li>
+          <li><a href="https://www.ter.sncf.com/sud-provence-alpes-cote-d-azur/tarifs-cartes/cartes-reduction/pass-zou-etudes" target="_blank" rel="noopener">Pass ZOU ! Études - TER Sud</a></li>
+          <li><a href="https://www.ter.sncf.com/sud-provence-alpes-cote-d-azur/tarifs-cartes/cartes-reduction/carte-zou-malin" target="_blank" rel="noopener">Carte ZOU ! Malin - TER Sud</a></li>
+          <li><a href="https://www.rtm.fr/sites/default/files/2026-03/CP_boutique_leveloPlusAix_030226.pdf" target="_blank" rel="noopener">Ouverture de la boutique levélo+ à Aix - RTM</a></li>
+          <li><a href="https://www.infoconcert.com/salle/musee-granet-a-aix-en-provence-24868/presentation" target="_blank" rel="noopener">Musée Granet, tarifs et gratuités - Infoconcert</a></li>
+          <li><a href="https://provence-alpes-cotedazur.com/que-faire/detente-et-loisirs/toutes-les-activites-detente-et-loisirs/bibliotheque-mejanes-halle-aux-grains-aix-en-provence-fr-2884069/" target="_blank" rel="noopener">Bibliothèques Méjanes, inscription gratuite - Provence-Alpes-Côte d'Azur Tourisme</a></li>
+          <li><a href="https://www.service-public.gouv.fr/particuliers/actualites/A18112?lang=fr" target="_blank" rel="noopener">Pass Culture, nouveaux montants - Service-Public.fr</a></li>
+          <li><a href="https://madeinmarseille.net/125527-epicerie-solidaire-etudiants-magasin-connecte/" target="_blank" rel="noopener">Épiceries solidaires Agoraé - Made in Marseille</a></li>
+          <li><a href="https://www.info.gouv.fr/actualite/too-good-to-go-l-application-contre-le-gaspillage-alimentaire" target="_blank" rel="noopener">Too Good To Go - info.gouv.fr</a></li>
+          <li><a href="https://www.aixenprovencetourism.com/en/fiche/cinema-renoir-5230791" target="_blank" rel="noopener">Cinéma Le Renoir - Office de tourisme d'Aix</a></li>
+      </ul>
+      <!-- Ajouter ici les sources des textes des pages Soirées et Sports -->
+
+      <!-- Sources des images -->
+      <h3>Images</h3>
+      <ul class="sources-list">
+        <!-- Indiquer pour chaque image son auteur ou le site d'où elle vient, par exemple : -->
+        <!-- <li>Logo et icônes : créés par le groupe Aixplore</li> -->
+      </ul>
+
+      <!-- Source de la vidéo -->
+      <h3>Vidéo</h3>
+      <ul class="sources-list">
+        <!-- Indiquer l'auteur ou le site d'où vient la vidéo, par exemple : -->
+        <!-- <li>Aix, capitale étudiante : auteur, site, date</li> -->
+      </ul>
+    </section>
+  </main>
+
+  <!-- Image cliquable pour remonter en haut de la page -->
+  <a href="#header" class="back-to-top">
+    <img src="img/aixplore-top-09-clic.png" alt="Remonter en haut de la page">
   </a>
+
+  <!-- Bas de la page contenant les infos pour nous contacter -->
+  <footer class="site-footer">
+    <p>Nous contacter : <a href="mailto:aixplore.contact@gmail.com">aixplore.contact@gmail.com</a></p>
+  </footer>
+</body>
+</html>
