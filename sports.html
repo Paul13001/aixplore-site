@@ -1,29 +1,45 @@
-<!DOCTYPE html><!-- Page Sports -->
+<!DOCTYPE html>
 <html lang="fr">
 <head>
+  <!-- Permet d'utiliser les caractères spéciaux -->
   <meta charset="UTF-8">
+
+  <!-- Permet d'adapter l'affichage à la taille de l'écran -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Titre de la page : "Nom de la page | Aixplore" -->
   <title>Sports | Aixplore</title>
+
+  <!-- Feuille de style principale -->
+  <link rel="stylesheet" href="css/style.css" title="Style par défaut">
+
+  <!-- Feuille de style alternative -->
+  <link rel="alternate stylesheet" href="css/alternate.css" title="Style alternatif">
 </head>
+
 <body>
+  <!-- En-tête commun à toutes les pages : ne pas modifier -->
   <header class="site-header" id="header">
-      
+
+    <!-- Logo qui ramène à l'accueil -->
     <a href="index.html" class="logo-link">
-      <!-- Mettre le chemin du logo apres img/ -->
-      <img src="aixplore-logo.png" alt="Accueil du site" class="logo">
+      <img src="img/aixplore-logo.png" alt="Accueil du site" class="logo">
     </a>
+
     <!-- Permet de changer le style -->
-    <button type="button" class="style-switch">Changer de style</button>
+    <button type="button" class="theme-toggle">
+      <img src="img/aixplore-style-pilule-09-clic.png" alt="Changer de mode">
+    </button>
 
     <!-- Navigation principale du site -->
     <nav class="main-nav">
       <ul>
-        <!-- Liste regroupant nos 5 pages -->
+        <!-- Liste regroupant nos 5 pages (aria-current indique la page en cours) -->
         <li><a href="index.html">Accueil</a></li>
 
         <li><a href="nightlife.html">Soirées</a></li>
 
-        <li><a href="sports.html">Sports</a></li>
+        <li><a href="sports.html" aria-current="page">Sports</a></li>
 
         <li><a href="deals.html">Bons plans</a></li>
 
@@ -31,14 +47,15 @@
       </ul>
     </nav>
   </header>
-    
-  <main>
+
+  <!-- Contenu principal de la page -->
+  <main class="main-content">
     <h1>LE SPORT À AIX-EN-PROVENCE</h1>
     <p>
       lorem ipsum
     </p>
 
-    <!-- Section sports universtaires -->
+    <!-- Section sports universitaires -->
     <section>
       <h2>En tant qu'étudiant</h2>
       <h3>Le SUAPS</h3>
@@ -68,46 +85,47 @@
       </p>
     </section>
 
-    <!-- Dans les salles de sport -->
+    <!-- Section salles de sport -->
     <section>
-      <h2>Keep Cool</h2>
+      <h2>En salle de sport</h2>
+      <h3>Keep Cool</h3>
       <p>
         lorem ipsum
       </p>
-      <h2>Basic Fit</h2>
+      <h3>Basic Fit</h3>
       <p>
         lorem ipsum
       </p>
-      <h2>Fitness Park</h2>
+      <h3>Fitness Park</h3>
       <p>
         lorem ipsum
       </p>
-      <h2>EMPOWERFIT Studio</h2>
+      <h3>EMPOWERFIT Studio</h3>
       <p>
         lorem ipsum
       </p>
-      <h2>One Fitness Club</h2>
+      <h3>One Fitness Club</h3>
       <p>
         lorem ipsum
       </p>
-      <h2>Gaius Hybrid Club</h2>
+      <h3>Gaius Hybrid Club</h3>
       <p>
         lorem ipsum
       </p>
-      <h2>On Air</h2>
+      <h3>On Air</h3>
       <p>
         lorem ipsum
       </p>
-      <h2>Biofitnessclub</h2>
+      <h3>Biofitnessclub</h3>
       <p>
         lorem ipsum
       </p>
-      <h2>Neoness</h2>
+      <h3>Neoness</h3>
       <p>
         lorem ipsum
       </p>
     </section>
-    
+
     <!-- Section sports aquatiques -->
     <section>
       <h2>À la piscine</h2>
@@ -137,16 +155,16 @@
         lorem ipsum
       </p>
     </section>
-  
   </main>
-  <!-- Remonter en haut de la page -->
-  <a href="#header" class="exit-link">
-    <img src="aixplore-top-09-clic.png" alt="Retour au début de la page">
+
+  <!-- Image cliquable pour remonter en haut de la page -->
+  <a href="#header" class="back-to-top">
+    <img src="img/aixplore-top-09-clic.png" alt="Remonter en haut de la page">
   </a>
 
-  <!-- Bas de la page contenant les infos pour nous contacter-->
+  <!-- Bas de la page contenant les infos pour nous contacter -->
   <footer class="site-footer">
-    <p> Nous contacter : <a href="mailto:aixplore.contact@gmail.com">aixplore.contact@gmail.com</a></p>
+    <p>Nous contacter : <a href="mailto:aixplore.contact@gmail.com">aixplore.contact@gmail.com</a></p>
   </footer>
 </body>
 </html>
