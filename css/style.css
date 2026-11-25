@@ -2,75 +2,145 @@
 
 :root {
   /* Valeurs provisoires */
-  --bg-color : #ffffff; /* Couleur de fond générale de la page*/
-  --text-color : #1e293b; /* Couleur principale du texte */
-  --primary-color : #0f172a; /* Couleur principale */
-  --header-text-color : #f8fafc; /* Couleur claire pour le header */
-  --accent-color : #2563eb; /* Couleur d'accent (liens au survol) */
-  --font-family : system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; /* Police principale */
-  --header-height : 80px; /* Hauteur de l'en-tête */
+  --bg-color: #ffffff; /* Couleur de fond générale de la page */
+  --text-color: #1e293b; /* Couleur principale du texte */
+  --primary-color: #0f172a; /* Couleur principale (header et footer) */
+  --header-text-color: #f8fafc; /* Couleur claire pour le texte du header et du footer */
+  --accent-color: #2563eb; /* Couleur d'accent sur fond clair (liens du contenu) */
+  --header-accent-color: #93c5fd; /* Couleur d'accent sur fond foncé (survol du menu) */
+  --font-family: system-ui, "Segoe UI", Roboto, sans-serif; /* Police principale */
+  --header-height: 60px; /* Hauteur de l'en-tête */
+  --page-padding: 20px; /* Espace à gauche et à droite des blocs */
+  --content-max-width: 1100px; /* Largeur maximale du contenu */
 }
 
-*, /* Selectionne tous les elements HTML de la page */
-*::before, /* Permet de crée un faux enfants tout au debut de l'element cible */
-*::after { /* Permet de crée un faux enfants tout a la fin de l'element cible */
-  box-sizing: border-box; /* Inclut la bordure et le padding dans la largeur et hauteur calculees a chaque element */
+*, /* Sélectionne tous les éléments HTML de la page */
+*::before, /* Faux enfant ajouté au début de l'élément */
+*::after { /* Faux enfant ajouté à la fin de l'élément */
+  box-sizing: border-box; /* Inclut la bordure et le padding dans la largeur et la hauteur */
 }
 
 body {
-  margin : 0; /* Supprime la marge exterieure par defaut que le navigateur ajoute autour du body */
+  margin: 0; /* Supprime la marge par défaut du navigateur autour du body */
   font-family: var(--font-family); /* Applique la police */
-  color: var(--text-color); /* Applique la couleur de texte */
+  line-height: 1.5; /* Espace entre les lignes pour mieux lire */
+  color: var(--text-color); /* Applique la couleur du texte */
   background-color: var(--bg-color); /* Applique la couleur du fond */
+  min-height: 100vh; /* Le body fait au moins toute la hauteur de l'écran */
+  display: flex; /* Active flexbox sur le body */
+  flex-direction: column; /* Header, main et footer empilés les uns sous les autres */
 }
 
-.site-header {
-  min-height: var(--header-height);
-  background-color: var(--primary-color);
-  color: var(--header-text-color);
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding-inline: 20px;
+a { /* Tous les liens */
+  color: var(--accent-color); /* Couleur d'accent pour les liens */
 }
 
-.site-header img {
-  height: 400px;
-  width: auto; 
-  background-image: url('aixplore-header-background.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+a:focus, /* Lien sélectionné au clavier */
+button:focus { /* Bouton sélectionné au clavier */
+  outline: 2px solid var(--accent-color); /* Contour visible pour la navigation au clavier */
+  outline-offset: 2px; /* Espace entre l'élément et son contour */
 }
 
-.site-header a,
-.site-header button {
-  color: inherit;
+.site-header { /* En-tête du site */
+  height: var(--header-height); /* Hauteur de 60px */
+  padding-left: var(--page-padding); /* Espace à gauche */
+  padding-right: var(--page-padding); /* Espace à droite */
+  background-color: var(--primary-color); /* Fond foncé */
+  color: var(--header-text-color); /* Texte clair */
+  display: flex; /* Met le logo, le bouton et le menu côte à côte */
+  align-items: center; /* Centre les éléments verticalement */
+  gap: 16px; /* Espace entre les éléments */
 }
 
-.main-nav {
-  margin-left: auto;
+.site-header a, /* Liens du header */
+.site-header button { /* Bouton du header */
+  color: inherit; /* Prend la couleur claire du header */
 }
 
-.logo {
-  display: block;
-  max-height: calc(var(--header-height) - 16px);
-  width: auto;
-}
-  
-.menu-icon img {
-  height: 35px; 
+.logo-link { /* Lien autour du logo */
+  display: block; /* Le lien prend la taille du logo */
+  text-decoration: none; /* Enlève le soulignement */
 }
 
-.theme-toggle {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  line-height: 0;
+.logo { /* Image du logo */
+  display: block; /* Enlève l'espace vide sous l'image */
+  max-height: calc(var(--header-height) - 16px); /* Le logo ne dépasse jamais du header */
+  width: auto; /* Garde les proportions de l'image */
 }
-.theme-toggle img {
-  display: block;
-  width: 150px;
-  height: auto;
+
+.style-switch { /* Bouton changer de style */
+  padding: 6px 12px; /* Espace autour du texte */
+  font-family: inherit; /* Même police que le reste du site */
+  font-size: 0.9rem; /* Texte un peu plus petit */
+  background-color: transparent; /* Enlève le fond gris par défaut */
+  border: 1px solid currentColor; /* Bordure de la même couleur que le texte */
+  border-radius: 4px; /* Coins arrondis */
+  cursor: pointer; /* Curseur en forme de main au survol */
+}
+
+.style-switch:hover { /* Survol du bouton changer de style */
+  color: var(--header-accent-color); /* Change la couleur au survol */
+}
+
+.main-nav { /* Menu de navigation */
+  margin-left: auto; /* Prend tout l'espace libre à gauche, donc pousse le menu à droite */
+}
+
+.main-nav ul { /* Liste du menu */
+  list-style: none; /* Enlève les puces */
+  margin: 0; /* Enlève la marge par défaut */
+  padding: 0; /* Enlève le décalage à gauche par défaut */
+  display: flex; /* Met les liens en ligne */
+  gap: 8px; /* Espace entre les liens */
+}
+
+.main-nav a { /* Liens du menu */
+  display: block; /* Toute la zone du lien est cliquable */
+  padding: 6px 10px; /* Espace autour du texte */
+  text-decoration: none; /* Enlève le soulignement */
+}
+
+.main-nav a:hover { /* Survol d'un lien du menu */
+  color: var(--header-accent-color); /* Change la couleur au survol */
+}
+
+.main-nav a[aria-current="page"] { /* Lien de la page où on se trouve */
+  font-weight: bold; /* Texte en gras */
+  border-bottom: 2px solid var(--header-accent-color); /* Trait sous le lien */
+}
+
+.main-content { /* Contenu principal de la page */
+  flex: 1; /* Prend toute la place libre, donc pousse le footer en bas */
+  width: 100%; /* Prend toute la largeur disponible */
+  max-width: var(--content-max-width); /* Sans dépasser la largeur maximale */
+  margin: 0 auto; /* Centre le contenu horizontalement */
+  padding: 24px var(--page-padding); /* Espace en haut, en bas et sur les côtés */
+}
+
+.back-to-top { /* Lien pour remonter en haut */
+  position: fixed; /* Reste au même endroit de l'écran quand on scrolle */
+  right: 20px; /* À 20px du bord droit de l'écran */
+  bottom: 20px; /* À 20px du bas de l'écran */
+  display: block; /* Le lien prend la taille de l'image */
+}
+
+.back-to-top img { /* Image du bouton haut */
+  display: block; /* Enlève l'espace vide sous l'image */
+  width: 50px; /* Largeur de l'image */
+  height: auto; /* Garde les proportions de l'image */
+}
+
+.site-footer { /* Pied de page */
+  padding: 16px var(--page-padding); /* Espace autour du texte */
+  background-color: var(--primary-color); /* Fond foncé */
+  color: var(--header-text-color); /* Texte clair */
+  text-align: center; /* Centre le texte */
+}
+
+.site-footer p { /* Paragraphe du pied de page */
+  margin: 0; /* Enlève la marge par défaut */
+}
+
+.site-footer a { /* Lien e-mail du pied de page */
+  color: var(--header-accent-color); /* Couleur lisible sur le fond foncé */
 }
