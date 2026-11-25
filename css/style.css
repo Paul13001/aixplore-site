@@ -8,7 +8,7 @@
   --header-text-color : #f8fafc; /* Couleur claire pour le header */
   --accent-color : #2563eb; /* Couleur d'accent (liens au survol) */
   --font-family : system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; /* Police principale */
-  --header-height : 60px; /* Hauteur de l'en-tête */
+  --header-height : 80px; /* Hauteur de l'en-tête */
 }
 
 *, /* Selectionne tous les elements HTML de la page */
@@ -25,13 +25,22 @@ body {
 }
 
 .site-header {
-  height: var(--header-height);
+  min-height: var(--header-height);
   background-color: var(--primary-color);
   color: var(--header-text-color);
   display: flex;
   align-items: center;
   gap: 16px;
   padding-inline: 20px;
+}
+
+.site-header img {
+  height: 400px;
+  width: auto; 
+  background-image: url('aixplore-header-background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .site-header a,
@@ -49,3 +58,19 @@ body {
   width: auto;
 }
   
+.menu-icon img {
+  height: 35px; 
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  line-height: 0;
+}
+.theme-toggle img {
+  display: block;
+  width: 150px;
+  height: auto;
+}
