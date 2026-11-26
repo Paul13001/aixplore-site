@@ -10,15 +10,13 @@ Lien sujet : https://www.mickael-martin-nevot.com/univ-amu/iut/but-informatique/
 
 ```
 index.html, nightlife.html, sports.html, deals.html, links.html   les 5 pages
-noel.html                    page secrète qui active le style de Noël
-                             (le style de Noël s'active aussi avec le lien secret ✦ du pied de page)
 css/style.css                feuille de style par défaut (source commentée)
 css/style.min.css            version minifiée utilisée par les pages
 css/alternate.css            style alternatif « L'Avent à Aix » (source commentée)
 css/alternate.min.css        version minifiée utilisée par les pages
 js/filter.js                 filtres par catégorie (Soirées, Sports, Bons plans, Liens utiles)
 js/review-form.js            met en forme l'e-mail du formulaire d'avis
-js/style-switcher.js         mode sombre (bouton pilule) et style de Noël
+js/style-switcher.js         mode sombre (bouton pilule) et style de Noël (étoile ✦ du pied de page)
 img/aixplore/                logo, boutons, favicon, image de partage
 img/backgrounds/             fonds des pages
 img/sports/                  photos de la page Sports (student, outdoor, gyms, pools, fans)

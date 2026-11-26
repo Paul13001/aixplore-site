@@ -1,73 +1,49 @@
-// Bouton pilule = mode sombre (même présentation, couleurs de nuit)
-// Style alternatif = style de Noël (autre feuille de style : css/alternate.min.css)
-// activé par un lien secret en JavaScript (la petite étoile ✦ du pied de page) ou par la page secrète /noel
-
-// Lit une valeur retenue par le navigateur (try/catch : certains navigateurs bloquent cette mémoire)
-function readValue(key) {
-  try {
-    return localStorage.getItem(key);
-  } catch (error) {
-    return null;
-  }
-}
-
-// Retient une valeur dans le navigateur
-function writeValue(key, value) {
-  try {
-    localStorage.setItem(key, value);
-  } catch (error) {
-    // Mémoire bloquée : tant pis, le style ne sera pas retenu d'une page à l'autre
-  }
-}
+// Changement de style du site
+// - le bouton pilule de l'en-tête allume / éteint le mode sombre
+// - l'étoile cachée du pied de page allume / éteint le style de Noël (l'autre feuille de style : css/alternate.min.css)
+// Les choix sont retenus par le navigateur (localStorage) pour rester actifs sur toutes les pages.
 
 const christmasStyle = document.querySelector('link[href="css/alternate.min.css"]'); // Feuille de style de Noël
+const darkButton = document.querySelector(".theme-toggle"); // Bouton pilule
+const christmasLink = document.querySelector(".secret-link"); // Étoile du pied de page
 
-// On enlève le title de la feuille de Noël pour pouvoir l'allumer nous-mêmes
-// (avec un title, c'est le navigateur qui choisit seul quelle feuille afficher)
-christmasStyle.removeAttribute("title");
+christmasStyle.removeAttribute("title"); // Sans title, c'est nous (et pas le navigateur) qui choisissons quand l'afficher
 
-// Met le bon style sur la page : Noël, sombre ou normal
-function updateStyle() {
-  if (readValue("christmas") === "on") {
+// Applique les choix retenus par le navigateur
+function applyStyle() {
+  const christmasOn = localStorage.getItem("christmas") === "on";
+  const darkOn = localStorage.getItem("dark") === "on";
+
+  if (christmasOn) {
     christmasStyle.rel = "stylesheet"; // La feuille de Noël s'applique
-    document.documentElement.classList.remove("dark"); // Pas de mode sombre pendant Noël
   } else {
     christmasStyle.rel = "alternate stylesheet"; // La feuille de Noël ne s'applique pas
-    if (readValue("dark") === "on") {
-      document.documentElement.classList.add("dark"); // Ajoute la classe "dark" sur <html>
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
+  }
+
+  if (darkOn && !christmasOn) {
+    document.documentElement.classList.add("dark"); // Mode sombre (pas pendant Noël)
+  } else {
+    document.documentElement.classList.remove("dark");
   }
 }
 
-updateStyle(); // Tout de suite, avant l'affichage de la page (le script est dans le <head>)
+// Passe un réglage de "on" à "off" ou de "off" à "on"
+function toggleSetting(name) {
+  if (localStorage.getItem(name) === "on") {
+    localStorage.setItem(name, "off");
+  } else {
+    localStorage.setItem(name, "on");
+  }
+  applyStyle();
+}
 
-// Quand la page est chargée, on branche le bouton pilule
-document.addEventListener("DOMContentLoaded", function () {
-  const styleButton = document.querySelector(".theme-toggle"); // Bouton pilule de l'en-tête
-
-  styleButton.addEventListener("click", function () {
-    if (readValue("christmas") === "on") {
-      writeValue("christmas", "off"); // Pendant Noël, la pilule sert à sortir de Noël
-    } else if (readValue("dark") === "on") {
-      writeValue("dark", "off"); // Repasse en mode clair
-    } else {
-      writeValue("dark", "on"); // Passe en mode sombre
-    }
-    updateStyle();
-  });
-
-  // Lien secret (étoile du pied de page) : allume ou éteint la feuille de style de Noël
-  const secretLink = document.querySelector(".secret-link");
-
-  secretLink.addEventListener("click", function (event) {
-    event.preventDefault(); // Le lien ne recharge pas la page (href="#")
-    if (readValue("christmas") === "on") {
-      writeValue("christmas", "off"); // Éteint Noël
-    } else {
-      writeValue("christmas", "on"); // Allume Noël
-    }
-    updateStyle();
-  });
+darkButton.addEventListener("click", function () {
+  toggleSetting("dark");
 });
+
+christmasLink.addEventListener("click", function (event) {
+  event.preventDefault(); // Le lien ne recharge pas la page
+  toggleSetting("christmas");
+});
+
+applyStyle(); // Au chargement de chaque page

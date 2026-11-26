@@ -1,54 +1,60 @@
-/* Style alternatif : « L'Avent à Aix » (style de Noël, débloqué par la page secrète /noel)
-   But : qu'on ne reconnaisse plus du tout le site. Même HTML, mais :
-   - plus de logo ni de bleu : un titre écrit à la place, rouge / vert sapin / or ;
-   - menu dans une colonne à gauche ;
-   - les cartes deviennent les cases numérotées d'un calendrier de l'Avent ;
-   - les photos deviennent des boules de Noël, le formulaire une lettre au Père Noël ;
-   - polices différentes, neige qui tombe. */
+/* Style alternatif : Noël (activé par l'étoile ✦ du pied de page)
+   Même HTML que le site, mais une présentation différente :
+   menu sur le côté, couleurs de Noël, police à empattements, cadres dorés et neige. */
 
-@import url("https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&family=Lora:ital@0;1&display=swap");
+/* Police d'écriture de Noël pour le titre du menu et les titres de page */
+@import url("https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&display=swap");
 
-:root { /* Couleurs de Noël */
-  --brand-blue: #9e1b1b; /* Rouge velours */
-  --brand-pink: #1f6b3a; /* Vert sapin */
-  --brand-yellow: #e9c46a; /* Or */
-  --xmas-paper: #fdf3e1; /* Papier crème */
-  --xmas-ink: #3b2314; /* Encre marron foncé */
-  --xmas-background: #0f3324; /* Vert très foncé du fond */
-  --font-family: "Lora", Georgia, serif; /* Nouvelle police du texte */
-  --xmas-title-font: "Mountains of Christmas", "Comic Sans MS", cursive; /* Police des titres */
+:root { /* On change les couleurs du site : tout ce qui utilise ces variables change d'un coup */
+  --brand-blue: #9e1b1b; /* Le bleu devient rouge */
+  --brand-pink: #1f6b3a; /* Le rose devient vert sapin */
+  --brand-yellow: #e9c46a; /* Le jaune devient doré */
+  --text-color: #3b2314; /* Texte marron foncé */
+  --bg-color: #fdf3e1; /* Fond crème des cadres */
+  --font-family: Georgia, "Times New Roman", serif; /* Police à empattements */
 }
 
-/* ===== Mise en page : menu dans une colonne à gauche ===== */
+/* ===== Fond vert sapin avec de la neige qui tombe ===== */
 
-body {
-  display: grid; /* Grille : menu à gauche, contenu à droite */
-  grid-template-columns: 250px 1fr;
-  color: var(--xmas-paper); /* Texte crème sur le fond vert */
-}
-
-.page-home, /* Toutes les pages : fond vert sapin */
+.page-home, /* Toutes les pages */
 .page-nightlife,
 .page-sports,
 .page-deals,
 .page-links {
-  background-image: none; /* Enlève les dessins bleus */
-  background-color: var(--xmas-background);
+  background-color: #0f3324; /* Vert sapin foncé */
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.45) 2px, transparent 3px); /* Un flocon = un petit rond blanc */
+  background-size: 60px 60px; /* Un flocon tous les 60px */
+  background-repeat: repeat; /* Flocons sur toute la page */
+  -webkit-animation: snow 6s linear infinite; /* Préfixe pour les anciens Safari */
+  animation: snow 6s linear infinite; /* La neige tombe en boucle */
 }
 
-.site-header { /* L'en-tête devient une colonne à gauche */
+@keyframes snow { /* Animation de la neige */
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 30px 60px; /* Les flocons descendent */
+  }
+}
+
+/* ===== Mise en page : le menu passe dans une colonne à gauche ===== */
+
+body {
+  display: grid; /* Grille : menu à gauche, contenu à droite */
+  grid-template-columns: 240px 1fr;
+}
+
+.site-header { /* L'en-tête devient une colonne rouge */
   grid-column: 1;
-  grid-row: 1 / 3; /* Toute la hauteur */
+  grid-row: 1 / 3; /* Toute la hauteur de la page */
   position: -webkit-sticky; /* Préfixe pour les anciens Safari */
   position: sticky; /* Reste visible quand on descend */
   top: 0;
   height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+  flex-direction: column; /* Titre puis menu, les uns sous les autres */
   padding: 32px 16px;
-  background-color: var(--brand-blue); /* Rouge */
   border-bottom: none;
   border-right: 4px dashed var(--brand-yellow); /* Couture dorée */
 }
@@ -57,208 +63,97 @@ body {
   display: none;
 }
 
-.logo-link::before { /* …et on écrit un autre titre à la place */
-  content: "L'Avent\A à Aix"; /* \A = retour à la ligne */
-  white-space: pre; /* Respecte le retour à la ligne */
+.logo-link::before { /* …et on écrit un titre de Noël à la place */
+  content: "L'Avent à Aix";
   display: block;
   text-align: center;
-  font-family: var(--xmas-title-font);
-  font-size: 2.4rem;
-  line-height: 1;
+  font-family: "Mountains of Christmas", cursive;
+  font-size: 2.2rem;
   color: var(--brand-yellow);
 }
 
-.theme-toggle { /* La pilule devient un petit bouton texte */
-  padding: 4px 12px;
-  background-color: transparent;
-  border: 1px solid var(--brand-yellow);
-  border-radius: 4px;
-}
-
-.theme-toggle img { /* On cache l'image de la pilule… */
+.theme-toggle { /* Pas de mode sombre pendant Noël */
   display: none;
 }
 
-.theme-toggle::after { /* …et on écrit à la place ce que fait le bouton */
-  content: "✕ Quitter Noël";
-  font-family: var(--font-family);
-  color: var(--brand-yellow);
-}
-
-.main-nav {
-  width: 100%;
-}
-
-.main-nav ul { /* Liens les uns sous les autres */
+.main-nav ul { /* Liens du menu les uns sous les autres */
   flex-direction: column;
-  gap: 4px;
 }
 
-.main-nav a {
-  padding: 10px;
+.main-nav a { /* Liens du menu */
   text-align: center;
-  font-style: italic;
 }
 
-.main-nav a[aria-current="page"] { /* Page en cours : étiquette dorée */
-  background-color: var(--brand-yellow);
-  color: var(--brand-blue);
-  border-bottom: none;
-  border-radius: 4px;
-}
-
-.main-content {
-  grid-column: 2;
-  max-width: 980px;
-  padding: 40px 32px;
-}
-
+.main-content, /* Contenu et pied de page dans la colonne de droite */
 .site-footer {
   grid-column: 2;
+}
+
+.site-footer { /* Pied de page sans bandeau */
   background-color: transparent;
   border-top: 4px dashed var(--brand-yellow);
 }
 
-.site-footer p::before { /* Petit mot avant le contact */
-  content: "Joyeux Noël 🎄 — ";
-}
-
 /* ===== Titres ===== */
 
-h1 { /* Titre de la page : grosse écriture de Noël, crème, centré */
+h1 { /* Titre de la page : écriture de Noël, centré, sans pilule */
   display: block;
-  padding: 0;
   text-align: center;
-  font-family: var(--xmas-title-font);
-  font-size: 3.6rem;
-  font-weight: 700;
+  font-family: "Mountains of Christmas", cursive;
+  font-size: 3.4rem;
   text-transform: none;
-  color: var(--xmas-paper);
+  color: var(--bg-color);
   background-color: transparent;
-  border-radius: 0;
   box-shadow: none;
   -webkit-transform: none;
   -ms-transform: none;
   transform: none;
-  text-shadow: 3px 3px 0 var(--brand-blue); /* Ombre rouge */
 }
 
-h1::after { /* Remplace l'étoile */
-  content: "";
+h1::after { /* Un sapin à la place de l'étoile */
+  content: " 🎄";
 }
 
-section > h2 { /* Titres des parties : ruban vert */
+section > h2 { /* Titres des parties : bandeau vert */
   display: block;
-  padding: 8px 16px;
   text-align: center;
-  font-family: var(--xmas-title-font);
-  font-size: 2rem;
-  color: var(--xmas-paper);
+  color: var(--bg-color);
   background-color: var(--brand-pink);
   border: none;
-  border-top: 3px solid var(--brand-yellow);
-  border-bottom: 3px solid var(--brand-yellow);
   border-radius: 0;
   -webkit-transform: none;
   -ms-transform: none;
   transform: none;
 }
 
-.place h3, /* Petits titres posés sur le fond */
+.filters-label, /* Textes posés directement sur le fond vert */
+.review-form label,
+.rating legend,
+.place h3,
 .sources h3 {
-  text-align: center;
-  font-family: var(--xmas-title-font);
-  font-size: 1.6rem;
   color: var(--brand-yellow);
 }
 
-/* ===== Textes : papier crème ===== */
+.review-form .rating label { /* Les notes ont un fond crème : texte foncé */
+  color: var(--text-color);
+}
+
+/* ===== Cadres : bordure dorée, angles droits, sans ombre ni rotation ===== */
 
 .intro,
 .main-content > p,
 .main-content section > p,
-.main-content section > ul {
-  color: var(--xmas-ink);
-  background-color: var(--xmas-paper);
-  border: none;
-  border-radius: 4px;
-  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.3); /* Ombre douce en dessous */
-}
-
-.intro {
-  text-align: center;
-  font-style: italic;
-  font-size: 1.1rem;
-}
-
-/* ===== Cartes : cases numérotées d'un calendrier de l'Avent ===== */
-
-.deals-grid, /* Les grilles de cartes */
-.links-grid,
-.page-cards {
-  grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
-  gap: 28px;
-  counter-reset: box; /* Compteur des numéros de case, remis à 0 */
-}
-
+.main-content section > ul,
+.page-card,
 .deal-card,
 .link-card,
-.page-card {
-  position: relative; /* Pour placer le numéro dans le coin */
-  counter-increment: box; /* Chaque carte ajoute 1 au compteur */
-  color: var(--xmas-paper);
-  background-color: var(--brand-blue); /* Rouge velours */
-  border: 3px dashed var(--brand-yellow); /* Couture dorée */
-  border-radius: 12px;
-  box-shadow: none;
-  -webkit-transform: rotate(-1deg);
-  -ms-transform: rotate(-1deg);
-  transform: rotate(-1deg); /* Un peu de travers… */
-}
-
-.deals-grid > :nth-child(even), /* …une carte sur deux dans l'autre sens */
-.links-grid > :nth-child(even) .link-card,
-.page-cards > :nth-child(even) {
-  -webkit-transform: rotate(1deg);
-  -ms-transform: rotate(1deg);
-  transform: rotate(1deg);
-}
-
-.deal-card::before, /* Numéro de la case dans une pastille dorée */
-.link-card::before,
-.page-card::before {
-  content: counter(box); /* Affiche le numéro */
-  position: absolute;
-  top: -16px;
-  right: -12px;
-  width: 44px;
-  height: 44px;
-  line-height: 44px;
-  text-align: center;
-  font-family: var(--xmas-title-font);
-  font-size: 1.5rem;
-  color: var(--brand-blue);
-  background-color: var(--brand-yellow);
-  border-radius: 50%; /* Rond */
-}
-
-.deal-card:hover, /* Survol : la case se redresse et grossit */
-.link-card:hover,
-.page-card:hover {
-  -webkit-transform: rotate(0deg) scale(1.03);
-  -ms-transform: rotate(0deg) scale(1.03);
-  transform: rotate(0deg) scale(1.03);
-  box-shadow: none;
-  background-color: var(--brand-pink); /* Devient verte */
-  color: var(--xmas-paper);
-}
-
-.deal-tag { /* Étiquette : texte doré en italique */
-  padding: 0;
-  font-weight: normal;
-  font-style: italic;
-  color: var(--brand-yellow);
-  background-color: transparent;
+.place-text,
+.place-content > img,
+.home-video,
+.deal-tag,
+.filter-button,
+.submit-button {
+  border: 3px solid var(--brand-yellow);
   border-radius: 0;
   box-shadow: none;
   -webkit-transform: none;
@@ -266,232 +161,45 @@ section > h2 { /* Titres des parties : ruban vert */
   transform: none;
 }
 
-.deal-tag::before {
-  content: "❄ ";
+.page-card:hover, /* Survol des cartes : elles deviennent dorées */
+.deal-card:hover,
+.link-card:hover,
+.filter-button:hover {
+  background-color: var(--brand-yellow);
+  color: var(--text-color);
+  box-shadow: none;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
 }
 
-.deal-price { /* Info importante : étiquette verte */
-  color: var(--xmas-paper);
-  background-color: var(--brand-pink);
-  border-radius: 4px;
+/* ===== Disposition différente ===== */
+
+.deals-grid { /* Cartes Soirées / Bons plans : une seule colonne */
+  grid-template-columns: 1fr;
 }
 
-.deal-link,
-.link-card .link-title {
-  color: var(--brand-yellow);
+.page-cards, /* Raccourcis de l'accueil et liens utiles : 2 colonnes */
+.links-grid {
+  grid-template-columns: repeat(2, 1fr);
 }
 
-/* ===== Page Sports : les photos deviennent des boules de Noël ===== */
-
-.place-content {
+.place-content { /* Page Sports : la photo passe au-dessus du texte */
   flex-direction: column;
   align-items: center;
 }
 
-.place-content > img {
+.place-content > img { /* Photos rondes comme des boules de Noël */
   width: 150px;
   height: 150px;
-  border: 4px solid var(--brand-yellow);
-  border-radius: 50%; /* Rond comme une boule */
-  box-shadow: none;
-  background-color: var(--brand-blue);
-}
-
-.place-text {
-  width: 100%;
-  color: var(--xmas-ink);
-  background-color: var(--xmas-paper);
-  border: none;
-  border-radius: 4px;
-  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.3);
-}
-
-.route-area {
-  text-align: center;
-}
-
-.route-button img { /* On cache l'image du bouton Itinéraire… */
-  display: none;
-}
-
-.route-button::after { /* …et on écrit à la place */
-  content: "🦌 Y aller";
-  display: inline-block;
-  padding: 6px 16px;
-  font-style: italic;
-  color: var(--brand-blue);
-  background-color: var(--brand-yellow);
-  border-radius: 4px;
-}
-
-/* ===== Filtres : étiquettes de cadeau ===== */
-
-.filters {
-  justify-content: center;
-}
-
-.filters-label {
-  font-style: italic;
-  color: var(--brand-yellow);
-}
-
-.filter-button {
-  font-family: var(--font-family);
-  font-weight: normal;
-  font-style: italic;
-  color: var(--xmas-ink);
-  background-color: var(--xmas-paper);
-  border: 2px dashed var(--brand-blue);
-  border-radius: 4px 20px 20px 4px; /* Forme d'étiquette de cadeau */
-  box-shadow: none;
-}
-
-.filter-button:hover {
-  -webkit-transform: none;
-  -ms-transform: none;
-  transform: none;
-  box-shadow: none;
-}
-
-.filter-button[aria-pressed="true"] {
-  color: var(--xmas-paper);
-  background-color: var(--brand-blue);
-}
-
-/* ===== Accueil : vidéo et lettre au Père Noël ===== */
-
-.home-video {
-  margin: 0 auto;
-  border: 4px solid var(--brand-yellow);
-  border-radius: 12px;
-  box-shadow: none;
-}
-
-.review-form { /* Le formulaire devient une lettre sur papier ligné */
-  margin: 0 auto;
-  padding: 24px 32px;
-  max-width: 560px;
-  color: var(--xmas-ink);
-  background-color: var(--xmas-paper);
-  background-image: repeating-linear-gradient(transparent 0, transparent 31px, #e6d3b3 31px, #e6d3b3 32px); /* Lignes du papier */
-  border-radius: 4px;
-  -webkit-transform: rotate(-0.5deg);
-  -ms-transform: rotate(-0.5deg);
-  transform: rotate(-0.5deg);
-}
-
-.review-form::before { /* En-tête de la lettre */
-  content: "Cher Père Noël,";
-  font-family: var(--xmas-title-font);
-  font-size: 2rem;
-  color: var(--brand-blue);
-}
-
-.review-form label,
-.rating legend {
-  color: var(--xmas-ink);
-  font-style: italic;
-}
-
-.review-form input, /* Champs : juste une ligne d'écriture */
-.review-form select,
-.review-form textarea {
-  font-family: var(--font-family);
-  color: var(--xmas-ink);
-  background-color: transparent;
-  border: none;
-  border-bottom: 2px solid var(--brand-blue);
-  border-radius: 0;
-}
-
-.review-form .rating label {
-  color: var(--xmas-ink);
-  background-color: transparent;
-  border: 1px dashed var(--brand-blue);
-  border-radius: 4px;
-}
-
-.review-form .rating input:checked + label {
-  color: var(--xmas-paper);
-  background-color: var(--brand-blue);
-}
-
-.submit-button { /* Bouton envoyer : cachet de cire vert */
-  align-self: center;
-  font-family: var(--xmas-title-font);
-  font-size: 1.4rem;
-  color: var(--xmas-paper);
-  background-color: var(--brand-pink);
-  border-radius: 4px;
-  box-shadow: none;
-}
-
-.submit-button::after {
-  content: " ✉";
-}
-
-.submit-button:hover {
-  background-color: var(--brand-blue);
-  -webkit-transform: none;
-  -ms-transform: none;
-  transform: none;
-}
-
-/* ===== Bouton haut de page : le Père Noël ===== */
-
-.back-to-top img { /* On cache la flèche bleue… */
-  display: none;
-}
-
-.back-to-top::after { /* …et on met le Père Noël */
-  content: "🎅";
-  display: block;
-  width: 64px;
-  height: 64px;
-  line-height: 64px;
-  text-align: center;
-  font-size: 2.2rem;
-  background-color: var(--brand-yellow);
   border-radius: 50%;
-}
-
-/* ===== Neige qui tombe ===== */
-
-.page-home, /* La neige est dessinée sur le fond de la page (derrière le contenu) */
-.page-nightlife,
-.page-sports,
-.page-deals,
-.page-links {
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.45) 2px, transparent 3px); /* Un flocon = un petit rond blanc */
-  background-size: 60px 60px; /* Un flocon tous les 60px */
-  background-repeat: repeat; /* Flocons répétés sur toute la page */
-  -webkit-animation: snow 6s linear infinite;
-  animation: snow 6s linear infinite; /* La neige tombe en boucle */
-}
-
-@-webkit-keyframes snow {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 30px 60px; /* Les flocons descendent */
-  }
-}
-
-@keyframes snow {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 30px 60px; /* Les flocons descendent */
-  }
 }
 
 /* ===== Téléphone et tablette : le menu revient en haut ===== */
 
 @media (max-width: 800px) {
   body {
-    display: block;
+    display: block; /* Plus de colonne à gauche */
   }
 
   .site-header {
@@ -502,14 +210,13 @@ section > h2 { /* Titres des parties : ruban vert */
   }
 
   .main-nav ul {
-    flex-direction: row;
+    flex-direction: row; /* Liens en ligne */
     flex-wrap: wrap;
     justify-content: center;
   }
 
-  .deals-grid,
-  .links-grid,
-  .page-cards {
-    grid-template-columns: 1fr;
+  .page-cards,
+  .links-grid {
+    grid-template-columns: 1fr; /* Une seule colonne */
   }
 }
