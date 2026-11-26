@@ -731,10 +731,27 @@ html.dark { /* Quand la classe "dark" est sur <html>, on change les variables */
 .dark .page-sports,
 .dark .page-deals,
 .dark .page-links {
-  background-color: #0b1029; /* Bleu presque noir */
-  background-image: radial-gradient(#2b3670 2px, transparent 2px); /* Petits points comme sur les fonds clairs */
-  background-size: 48px 48px; /* Un point tous les 48px */
-  background-repeat: repeat; /* Points répétés sur toute la page */
+  background-color: #0b1029; /* Bleu presque noir, visible pendant le chargement de l'image */
+}
+
+.dark .page-home { /* Fond sombre de la page Accueil */
+  background-image: url("../img/aixplore/aixplore-fond-accueil-sombre.png");
+}
+
+.dark .page-nightlife { /* Fond sombre de la page Soirées */
+  background-image: url("../img/aixplore/aixplore-fond-soirees-sombre.png");
+}
+
+.dark .page-sports { /* Fond sombre de la page Sports */
+  background-image: url("../img/aixplore/aixplore-fond-sports-sombre.png");
+}
+
+.dark .page-deals { /* Fond sombre de la page Bons plans */
+  background-image: url("../img/aixplore/aixplore-fond-bons-plans-sombre.png");
+}
+
+.dark .page-links { /* Fond sombre de la page Liens utiles */
+  background-image: url("../img/aixplore/aixplore-fond-liens-utiles-sombre.png");
 }
 
 .dark .site-header, /* En-tête et pied de page */
