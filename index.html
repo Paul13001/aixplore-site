@@ -1,126 +1,40 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <!-- Permet d'utiliser les caractères spéciaux -->
-  <meta charset="UTF-8">
-
-  <!-- Permet d'adapter l'affichage à la taille de l'écran -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Titre de la page : "Nom de la page | Aixplore" -->
-  <title>Accueil | Aixplore</title>
-
-  <!-- Feuille de style principale -->
-  <link rel="stylesheet" href="css/style.css" title="Style par défaut">
-
-  <!-- Feuille de style alternative -->
-  <link rel="alternate stylesheet" href="css/alternate.css" title="Style alternatif">
-</head>
-
-<body>
-  <!-- En-tête commun à toutes les pages : ne pas modifier -->
-  <header class="site-header" id="header">
-
-    <!-- Logo qui ramène à l'accueil -->
-    <a href="index.html" class="logo-link">
-      <img src="aixplore-logo.png" alt="Accueil du site" class="logo">
-    </a>
-
-    <!-- Permet de changer le style -->
-    <button type="button" class="theme-toggle">
-      <img src="aixplore-style-pilule-09-clic.png" alt="Changer de mode">
-    </button>
-
-    <!-- Navigation principale du site -->
-    <nav class="main-nav">
-      <ul>
-        <!-- Liste regroupant nos 5 pages (aria-current indique la page en cours) -->
-        <li><a href="index.html" aria-current="page">Accueil</a></li>
-
-        <li><a href="nightlife.html">Soirées</a></li>
-
-        <li><a href="sports.html">Sports</a></li>
-
-        <li><a href="deals.html">Bons plans</a></li>
-
-        <li><a href="links.html">Liens utiles</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- Contenu principal de la page -->
-  <main class="main-content">
-    <!-- Titre de la page -->
-    <h1>Accueil</h1>
-
-    <!-- Texte de présentation du site -->
-    <p class="intro">
-      lorem ipsum
-    </p>
-
-    <!-- Vidéo de présentation avec sous-titres -->
-    <video class="home-video" controls>
-      <source src="video/aix-capitale-etudiante.mp4" type="video/mp4">
-      <!-- Fichier de sous-titres en français -->
-      <track src="video/aix-capitale-etudiante.vtt" kind="subtitles" srclang="fr" label="Français" default>
-      Votre navigateur ne peut pas lire cette vidéo.
-    </video>
-
-    <!-- Raccourcis vers les 4 autres pages -->
-    <nav class="page-cards">
-      <a href="nightlife.html" class="page-card">Soirées</a>
-      <a href="sports.html" class="page-card">Sports</a>
-      <a href="deals.html" class="page-card">Bons plans</a>
-      <a href="links.html" class="page-card">Liens utiles</a>
-    </nav>
-
-    <!-- Section avis des visiteurs -->
-    <section>
-      <h2>Avis</h2>
-
-      <!-- Formulaire d'avis : ouvre la messagerie avec le contenu du formulaire -->
-      <form class="review-form" action="mailto:aixplore.contact@gmail.com" method="post" enctype="text/plain">
+      <!-- Formulaire d'avis : ouvre la messagerie avec un e-mail déjà rempli -->
+      <!-- ?subject= donne un objet à l'e-mail ; les "name" des champs sont écrits en français car ils apparaissent dans le texte de l'e-mail -->
+      <form class="review-form" action="mailto:aixplore.contact@gmail.com?subject=Avis%20sur%20le%20site%20Aixplore" method="post" enctype="text/plain">
 
         <!-- Nom du visiteur -->
         <label for="name">Nom</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="Nom" placeholder="Camille Martin" autocomplete="name" minlength="2" maxlength="80" required>
 
         <!-- Adresse e-mail du visiteur -->
         <label for="email">E-mail</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="E-mail" placeholder="camille.martin@etu.univ-amu.fr" autocomplete="email" required>
 
         <!-- Rubrique concernée par l'avis -->
         <label for="category">Rubrique</label>
-        <select id="category" name="category" required>
+        <select id="category" name="Rubrique" required>
           <option value="">-- Choisir une rubrique --</option>
-          <option value="nightlife">Soirées</option>
-          <option value="sports">Sports</option>
-          <option value="deals">Bons plans</option>
-          <option value="links">Liens utiles</option>
+          <option value="Accueil">Accueil</option>
+          <option value="Soirées">Soirées</option>
+          <option value="Sports">Sports</option>
+          <option value="Bons plans">Bons plans</option>
+          <option value="Liens utiles">Liens utiles</option>
         </select>
 
-        <!-- Note de 1 à 5 -->
-        <label for="rating">Note (de 1 à 5)</label>
-        <input type="number" id="rating" name="rating" min="1" max="5" required>
+        <!-- Note de 1 à 5 : boutons radio (une seule note possible) regroupés dans un fieldset -->
+        <fieldset class="rating">
+          <legend>Note</legend>
+          <label><input type="radio" name="Note" value="1/5 - Mauvais" required> 1 ★ Mauvais</label>
+          <label><input type="radio" name="Note" value="2/5 - Décevant"> 2 ★ Décevant</label>
+          <label><input type="radio" name="Note" value="3/5 - Moyen"> 3 ★ Moyen</label>
+          <label><input type="radio" name="Note" value="4/5 - Bien"> 4 ★ Bien</label>
+          <label><input type="radio" name="Note" value="5/5 - Excellent"> 5 ★ Excellent</label>
+        </fieldset>
 
         <!-- Message de l'avis -->
         <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
+        <textarea id="message" name="Message" rows="5" placeholder="Ce qui t'a plu, ce qui manque, un bon plan à partager…" minlength="10" maxlength="1000" required></textarea>
 
         <!-- Bouton d'envoi -->
         <button type="submit" class="submit-button">Envoyer</button>
       </form>
-    </section>
-  </main>
-
-  <!-- Image cliquable pour remonter en haut de la page -->
-  <a href="#header" class="back-to-top">
-    <img src="aixplore-top-09-clic.png" alt="Remonter en haut de la page">
-  </a>
-
-  <!-- Bas de la page contenant les infos pour nous contacter -->
-  <footer class="site-footer">
-    <p>Nous contacter : <a href="mailto:aixplore.contact@gmail.com">aixplore.contact@gmail.com</a></p>
-  </footer>
-</body>
-</html>
