@@ -457,19 +457,15 @@ section > h2 { /* Titres des parties : ruban vert */
 
 /* ===== Neige qui tombe ===== */
 
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: radial-gradient(circle, #ffffff 2px, transparent 3px); /* Un flocon = un petit rond blanc */
-  background-size: 60px 60px;
-  opacity: 0.4;
-  pointer-events: none; /* On peut cliquer à travers la neige */
+.page-home, /* La neige est dessinée sur le fond de la page (derrière le contenu) */
+.page-nightlife,
+.page-sports,
+.page-deals,
+.page-links {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.45) 2px, transparent 3px); /* Un flocon = un petit rond blanc */
+  background-size: 60px 60px; /* Un flocon tous les 60px */
   -webkit-animation: snow 6s linear infinite;
-  animation: snow 6s linear infinite;
+  animation: snow 6s linear infinite; /* La neige tombe en boucle */
 }
 
 @-webkit-keyframes snow {
