@@ -1,7 +1,7 @@
-// Script des filtres de la page Bons plans : affiche seulement les cartes de la catégorie choisie
+// Script des filtres (pages Soirées, Sports, Bons plans et Liens utiles) : affiche seulement les éléments de la catégorie choisie
 
 const filterButtons = document.querySelectorAll(".filter-button"); // Récupère tous les boutons de filtre
-const dealCards = document.querySelectorAll(".deal-card"); // Récupère toutes les cartes bon plan
+const dealCards = document.querySelectorAll("[data-category]"); // Récupère tous les éléments filtrables (ceux qui ont un attribut data-category)
 
 // Affiche les cartes de la catégorie choisie et cache les autres
 function filterDeals(category) {

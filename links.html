@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Tu fouilles le code ? Essaie la page /noel. -->
 <html lang="fr">
 <head>
   <!-- Permet d'utiliser les caractères spéciaux -->
@@ -10,14 +11,23 @@
   <!-- Titre de la page : "Nom de la page | Aixplore" -->
   <title>Liens utiles | Aixplore</title>
 
+  <!-- Icône Aixplore affichée dans l'onglet du navigateur -->
+  <link rel="icon" href="img/aixplore/aixplore-favicon.png" type="image/png">
+
+  <!-- Icône Aixplore quand on ajoute le site à l'écran d'accueil d'un téléphone -->
+  <link rel="apple-touch-icon" href="img/aixplore/aixplore-apple-touch-icon.png">
+
   <!-- Feuille de style principale -->
   <link rel="stylesheet" href="css/style.css" title="Style par défaut">
 
   <!-- Feuille de style alternative -->
   <link rel="alternate stylesheet" href="css/alternate.css" title="Style alternatif">
+
+  <!-- Script du mode sombre et du style de Noël (dans le head pour éviter un flash de couleur) -->
+  <script src="js/style-switcher.js"></script>
 </head>
 
-<body>
+<body class="page-liens-utiles">
   <!-- En-tête commun à toutes les pages : ne pas modifier -->
   <header class="site-header" id="header">
 
@@ -58,75 +68,86 @@
       Université, logement, transports, sorties ou job étudiant : voici les sites officiels à garder sous la main quand on étudie à Aix-en-Provence.
     </p>
 
-    <!-- Grille des liens utiles -->
+    <!-- Boutons de filtre : data-filter indique la catégorie à afficher -->
+    <div class="filters" role="group" aria-labelledby="filters-label">
+      <span class="filters-label" id="filters-label">Filtres :</span>
+      <button type="button" class="filter-button" data-filter="all" aria-pressed="true">Tous</button>
+      <button type="button" class="filter-button" data-filter="studies" aria-pressed="false">Études</button>
+      <button type="button" class="filter-button" data-filter="aid" aria-pressed="false">Aides</button>
+      <button type="button" class="filter-button" data-filter="transport" aria-pressed="false">Se déplacer</button>
+      <button type="button" class="filter-button" data-filter="city" aria-pressed="false">En ville</button>
+      <button type="button" class="filter-button" data-filter="jobs" aria-pressed="false">Job et stage</button>
+    </div>
+
+    <!-- Grille des liens utiles : data-category indique la catégorie de chaque lien -->
     <ul class="links-grid">
-      <li>
+      <li data-category="studies">
         <a href="https://www.univ-amu.fr" class="link-card" target="_blank" rel="noopener">
           <span class="link-title">Aix-Marseille Université</span>
           <span class="link-description">Le site de l'université : formations, scolarité, vie de campus et services aux étudiants.</span>
         </a>
       </li>
-      <li>
+      <li data-category="studies">
         <a href="https://iut.univ-amu.fr" class="link-card" target="_blank" rel="noopener">
           <span class="link-title">IUT d'Aix-Marseille</span>
           <span class="link-description">Le site de l'IUT : départements, emplois du temps, stages et actualités.</span>
         </a>
       </li>
-      <li>
+      <li data-category="aid">
         <a href="https://www.crous-aix-marseille.fr" class="link-card" target="_blank" rel="noopener">
           <span class="link-title">Crous Aix-Marseille-Avignon</span>
           <span class="link-description">Logement en résidence, restos U, bourses et aide sociale pour les étudiants de l'académie.</span>
         </a>
       </li>
-      <li>
+      <li data-category="aid">
         <a href="https://messervices.etudiant.gouv.fr" class="link-card" target="_blank" rel="noopener">
           <span class="link-title">MesServices.étudiant.gouv.fr</span>
           <span class="link-description">Le portail national pour demander sa bourse et son logement Crous (dossier social étudiant).</span>
         </a>
       </li>
-      <li>
+      <li data-category="aid">
         <a href="https://www.caf.fr" class="link-card" target="_blank" rel="noopener">
           <span class="link-title">CAF</span>
           <span class="link-description">Simuler et demander l'aide au logement, même en résidence ou en colocation.</span>
         </a>
       </li>
-      <li>
+      <li data-category="aid">
         <a href="https://www.izly.fr" class="link-card" target="_blank" rel="noopener">
           <span class="link-title">Izly</span>
           <span class="link-description">Le compte pour payer ses repas au restaurant universitaire et à la cafétéria du Crous.</span>
         </a>
       </li>
-      <li>
+      <li data-category="city">
         <a href="https://www.aixenprovence.fr" class="link-card" target="_blank" rel="noopener">
           <span class="link-title">Ville d'Aix-en-Provence</span>
           <span class="link-description">Toutes les infos pratiques de la ville : démarches, événements, équipements et Le Repère étudiant.</span>
         </a>
       </li>
-      <li>
+      <li data-category="transport">
         <a href="https://www.lametropolemobilite.fr" class="link-card" target="_blank" rel="noopener">
           <span class="link-title">La Métropole Mobilité</span>
           <span class="link-description">Horaires, plans et abonnements des bus d'Aix et de toute la métropole Aix-Marseille-Provence.</span>
         </a>
       </li>
-      <li>
+      <li data-category="transport">
         <a href="https://www.ter.sncf.com/sud-provence-alpes-cote-d-azur" class="link-card" target="_blank" rel="noopener">
           <span class="link-title">TER ZOU ! Région Sud</span>
           <span class="link-description">Horaires et tarifs des trains et cars régionaux, avec les réductions pour les moins de 26 ans.</span>
         </a>
       </li>
-      <li>
+      <li data-category="city">
         <a href="https://www.aixenprovencetourism.com" class="link-card" target="_blank" rel="noopener">
           <span class="link-title">Office de tourisme d'Aix</span>
           <span class="link-description">L'agenda des sorties, des expositions et des événements à Aix et dans le Pays d'Aix.</span>
         </a>
       </li>
-      <li>
+      <li data-category="city">
         <a href="https://www.citedulivre-aix.com" class="link-card" target="_blank" rel="noopener">
           <span class="link-title">Bibliothèques Méjanes</span>
           <span class="link-description">Catalogue, horaires et inscription gratuite aux bibliothèques de la ville.</span>
         </a>
       </li>
-      <li>
+      <li data-category="jobs">
         <a href="https://www.1jeune1solution.gouv.fr" class="link-card" target="_blank" rel="noopener">
           <span class="link-title">1jeune1solution</span>
           <span class="link-description">La plateforme de l'État pour trouver un job étudiant, un stage ou une alternance.</span>
@@ -182,5 +203,7 @@
   <footer class="site-footer">
     <p>Nous contacter : <a href="mailto:aixplore.contact@gmail.com">aixplore.contact@gmail.com</a></p>
   </footer>
+  <!-- Script des filtres de la page (le même que la page Bons plans) -->
+  <script src="js/deals-filter.js"></script>
 </body>
 </html>

@@ -1,1 +1,337 @@
-/* Alternate stylesheet - Aixplore */
+/* Style alternatif : Noël (débloqué par la page secrète noel.html)
+   La présentation change complètement : menu sur le côté, une seule colonne de cartes,
+   police à empattements, textes centrés, cadres dorés à angles droits, fond de nuit qui neige. */
+
+:root { /* Couleurs de Noël */
+  --brand-blue: #b3121f; /* Rouge Noël */
+  --brand-pink: #1f6b3a; /* Vert sapin */
+  --brand-yellow: #e8c15a; /* Doré */
+  --noel-creme: #fffaf0; /* Crème des cartes */
+  --noel-nuit: #0b2340; /* Bleu nuit du fond */
+}
+
+/* ===== Mise en page : le menu passe sur le côté gauche ===== */
+
+body {
+  display: grid; /* Grille : menu à gauche, contenu à droite */
+  grid-template-columns: 260px 1fr; /* Menu de 260px, le reste pour le contenu */
+  font-family: Georgia, "Times New Roman", serif; /* Police à empattements, style carte de vœux */
+}
+
+.page-accueil, /* Toutes les pages */
+.page-soirees,
+.page-sports,
+.page-bons-plans,
+.page-liens-utiles {
+  background-image: none; /* Enlève les dessins bleus */
+  background-color: var(--noel-nuit); /* Fond bleu nuit */
+}
+
+.site-header { /* L'en-tête devient une colonne à gauche */
+  grid-column: 1; /* Colonne de gauche */
+  grid-row: 1 / 3; /* Prend toute la hauteur (à côté du contenu et du pied de page) */
+  position: sticky; /* Reste visible quand on descend */
+  top: 0;
+  height: 100vh; /* Toute la hauteur de l'écran */
+  display: flex; /* Les éléments les uns sous les autres */
+  flex-direction: column;
+  align-items: center; /* Centrés */
+  gap: 24px; /* Espace entre logo, bouton et menu */
+  padding: 32px 16px;
+  border-bottom: none; /* Enlève le trait du bas */
+  border-right: 6px double var(--brand-yellow); /* Double trait doré à droite */
+}
+
+.main-nav { /* Menu */
+  width: 100%; /* Toute la largeur de la colonne */
+}
+
+.main-nav ul { /* Liste du menu */
+  flex-direction: column; /* Liens les uns sous les autres */
+  gap: 0;
+}
+
+.main-nav a { /* Liens du menu */
+  padding: 12px; /* Plus d'espace */
+  text-align: center; /* Centrés */
+  border-bottom: 1px dashed var(--brand-yellow); /* Pointillés dorés entre les liens */
+}
+
+.main-nav a[aria-current="page"] { /* Page en cours */
+  background-color: var(--brand-yellow); /* Fond doré */
+  color: var(--brand-blue); /* Texte rouge */
+  border-bottom: 1px dashed var(--brand-yellow);
+}
+
+.main-content { /* Contenu */
+  grid-column: 2; /* Colonne de droite */
+  max-width: 860px; /* Plus étroit, comme une lettre */
+  padding: 40px 32px;
+}
+
+.site-footer { /* Pied de page */
+  grid-column: 2; /* Sous le contenu, à droite du menu */
+  background-color: transparent; /* Pas de bandeau */
+  border-top: 3px double var(--brand-yellow); /* Double trait doré */
+  font-style: italic;
+}
+
+/* ===== Titres ===== */
+
+h1 { /* Titre de la page : centré, doré, en italique */
+  display: block; /* Toute la largeur */
+  padding: 0 0 12px;
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: normal;
+  font-style: italic;
+  text-transform: none; /* Plus de majuscules */
+  color: var(--brand-yellow);
+  background-color: transparent;
+  border-bottom: 3px double var(--brand-yellow); /* Double trait doré dessous */
+  border-radius: 0;
+  box-shadow: none;
+  transform: none; /* Plus penché */
+}
+
+h1::after { /* Après le titre */
+  content: " 🎄"; /* Un sapin à la place de l'étoile */
+}
+
+section > h2 { /* Titres des parties */
+  display: block;
+  padding: 0;
+  text-align: center;
+  font-weight: normal;
+  font-style: italic;
+  color: var(--brand-yellow);
+  background-color: transparent;
+  border: none;
+  transform: none;
+}
+
+section > h2::before { /* Flocon avant le titre */
+  content: "❄ ";
+}
+
+section > h2::after { /* Flocon après le titre */
+  content: " ❄";
+}
+
+.lieu h3, /* Petits titres posés sur le fond */
+.sources h3 {
+  text-align: center;
+  color: var(--brand-yellow);
+}
+
+/* ===== Cadres : crème, double bordure dorée, angles droits ===== */
+
+.intro,
+.main-content > p,
+.main-content section > p,
+.main-content section > ul,
+.page-card,
+.deal-card,
+.link-card,
+.lieu-texte,
+.lieu-contenu > img,
+.home-video {
+  background-color: var(--noel-creme); /* Fond crème */
+  border: 4px double var(--brand-yellow); /* Double bordure dorée */
+  border-radius: 0; /* Angles droits */
+  box-shadow: none; /* Plus d'ombre décalée */
+}
+
+.intro { /* Introduction */
+  text-align: center;
+  font-style: italic;
+}
+
+.page-card:hover, /* Survol des cartes */
+.deal-card:hover,
+.link-card:hover {
+  transform: none; /* Ne se soulèvent plus */
+  box-shadow: none;
+  background-color: var(--brand-yellow); /* Deviennent dorées */
+  color: var(--text-color);
+}
+
+/* ===== Grilles : on change la disposition ===== */
+
+.deals-grid { /* Cartes Soirées / Bons plans */
+  grid-template-columns: 1fr; /* Une seule colonne, comme une liste */
+}
+
+.page-cards, /* Raccourcis de l'accueil */
+.links-grid { /* Liens utiles */
+  grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
+}
+
+.link-card,
+.page-card {
+  text-align: center;
+}
+
+.lieu-contenu { /* Page Sports : la photo passe au-dessus du texte */
+  flex-direction: column;
+}
+
+.lieu-contenu > img {
+  width: 100%;
+  height: 220px;
+}
+
+.zone-bouton { /* Bouton Itinéraire centré */
+  text-align: center;
+}
+
+.home-video { /* Vidéo centrée */
+  margin: 0 auto;
+}
+
+/* ===== Étiquettes, filtres, prix ===== */
+
+.deal-tag { /* Étiquette de catégorie : texte rouge encadré, en majuscules */
+  background-color: transparent;
+  color: var(--brand-blue);
+  border: 1px solid var(--brand-blue);
+  border-radius: 0;
+  box-shadow: none;
+  transform: none;
+  text-transform: uppercase;
+  letter-spacing: 2px; /* Lettres espacées */
+}
+
+.deal-price { /* Info importante */
+  background-color: transparent;
+  color: var(--brand-blue);
+  font-style: italic;
+}
+
+.filters { /* Filtres centrés */
+  justify-content: center;
+}
+
+.filters-label { /* Texte "Filtres :" */
+  color: var(--brand-yellow);
+}
+
+.filter-button { /* Boutons de filtre : rectangles crème bordés d'or */
+  font-family: inherit;
+  font-weight: normal;
+  background-color: var(--noel-creme);
+  color: var(--brand-blue);
+  border: 2px solid var(--brand-yellow);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.filter-button:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.filter-button[aria-pressed="true"] { /* Filtre actif */
+  background-color: var(--brand-blue);
+  color: #ffffff;
+}
+
+/* ===== Formulaire ===== */
+
+.review-form { /* Formulaire centré */
+  margin: 0 auto;
+}
+
+.review-form label,
+.rating legend {
+  color: var(--brand-yellow);
+}
+
+.review-form input,
+.review-form select,
+.review-form textarea,
+.review-form .rating label {
+  border: 2px solid var(--brand-yellow);
+  border-radius: 0;
+  font-family: inherit;
+}
+
+.review-form .rating label { /* Notes */
+  color: var(--text-color);
+}
+
+.review-form .rating label:has(input:checked) { /* Note choisie */
+  background-color: var(--brand-blue);
+  color: #ffffff;
+}
+
+.submit-button { /* Bouton envoyer : doré, centré, en majuscules */
+  align-self: center;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-color: var(--brand-yellow);
+  color: var(--brand-blue);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.submit-button:hover {
+  background-color: #ffffff;
+  transform: none;
+}
+
+/* ===== Neige qui tombe ===== */
+
+body::before { /* Couche de neige posée sur toute la page */
+  content: ""; /* Obligatoire pour afficher un ::before */
+  position: fixed; /* Reste sur l'écran pendant le défilement */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, #ffffff 2px, transparent 3px); /* Un flocon = un petit rond blanc */
+  background-size: 60px 60px; /* Un flocon tous les 60px */
+  opacity: 0.5;
+  pointer-events: none; /* On peut cliquer à travers la neige */
+  animation: neige 6s linear infinite; /* La neige tombe en boucle */
+}
+
+@keyframes neige {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 30px 60px; /* Les flocons descendent */
+  }
+}
+
+/* ===== Téléphone et tablette : le menu revient en haut ===== */
+
+@media (max-width: 800px) {
+  body {
+    display: block; /* Plus de colonne à gauche */
+  }
+
+  .site-header {
+    position: static;
+    height: auto;
+    border-right: none;
+    border-bottom: 6px double var(--brand-yellow);
+  }
+
+  .main-nav ul {
+    flex-direction: row; /* Liens en ligne */
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .main-nav a {
+    border-bottom: none;
+  }
+
+  .page-cards,
+  .links-grid {
+    grid-template-columns: 1fr; /* Une seule colonne */
+  }
+}

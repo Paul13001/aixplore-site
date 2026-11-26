@@ -1,5 +1,121 @@
+<!DOCTYPE html>
+<!-- Tu fouilles le code ? Essaie la page /noel. -->
+<html lang="fr">
+<head>
+  <!-- Permet d'utiliser les caractères spéciaux -->
+  <meta charset="UTF-8">
+
+  <!-- Permet d'adapter l'affichage à la taille de l'écran -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Titre de la page : "Nom de la page | Aixplore" -->
+  <title>Accueil | Aixplore</title>
+
+  <!-- Description de la page pour les moteurs de recherche (référencement) -->
+  <meta name="description" content="Aixplore, le guide de la vie étudiante à Aix-en-Provence : soirées, sports, bons plans et liens utiles.">
+
+  <!-- Icône Aixplore affichée dans l'onglet du navigateur -->
+  <link rel="icon" href="img/aixplore/aixplore-favicon.png" type="image/png">
+
+  <!-- Icône Aixplore quand on ajoute le site à l'écran d'accueil d'un téléphone -->
+  <link rel="apple-touch-icon" href="img/aixplore/aixplore-apple-touch-icon.png">
+
+  <!-- Feuille de style principale -->
+  <link rel="stylesheet" href="css/style.css" title="Style par défaut">
+
+  <!-- Feuille de style alternative -->
+  <link rel="alternate stylesheet" href="css/alternate.css" title="Style alternatif">
+
+  <!-- Script du mode sombre et du style de Noël (dans le head pour éviter un flash de couleur) -->
+  <script src="js/style-switcher.js"></script>
+</head>
+
+<body class="page-accueil">
+  <!-- En-tête commun à toutes les pages : ne pas modifier -->
+  <header class="site-header" id="header">
+
+    <!-- Logo qui ramène à l'accueil -->
+    <a href="index.html" class="logo-link">
+      <img src="aixplore-logo.png" alt="Accueil du site" class="logo">
+    </a>
+
+    <!-- Permet de changer le style -->
+    <button type="button" class="theme-toggle">
+      <img src="aixplore-style-pilule-09-clic.png" alt="Changer de mode">
+    </button>
+
+    <!-- Navigation principale du site -->
+    <nav class="main-nav">
+      <ul>
+        <!-- Liste regroupant nos 5 pages (aria-current indique la page en cours) -->
+        <li><a href="index.html" aria-current="page">Accueil</a></li>
+
+        <li><a href="nightlife.html">Soirées</a></li>
+
+        <li><a href="sports.html">Sports</a></li>
+
+        <li><a href="deals.html">Bons plans</a></li>
+
+        <li><a href="links.html">Liens utiles</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenu principal de la page -->
+  <main class="main-content">
+    <!-- Titre de la page -->
+    <h1>Accueil</h1>
+
+    <!-- Texte de présentation du site -->
+    <p class="intro">
+      Bienvenue sur Aixplore, le guide de la vie étudiante à Aix-en-Provence. Une vieille ville faite pour flâner et la Sainte-Victoire à l'horizon : découvre la ville comme ceux qui y vivent.
+    </p>
+
+    <!-- Vidéo de présentation avec sous-titres -->
+    <!-- preload="none" : la vidéo n'est téléchargée que si on appuie sur lecture (page plus légère) -->
+    <video class="home-video" controls preload="none">
+      <source src="video/aix-capitale-etudiante.mp4" type="video/mp4">
+      <!-- Fichier de sous-titres en français -->
+      <track src="video/aix-capitale-etudiante.vtt" kind="subtitles" srclang="fr" label="Français" default>
+      Votre navigateur ne peut pas lire cette vidéo. <a href="video/aix-capitale-etudiante.mp4">Télécharger la vidéo</a>.
+    </video>
+
+    <!-- Source de la vidéo -->
+    <p>
+      « Aix, capitale étudiante », sous-titrée en français. Vidéo de la Ville d'Aix-en-Provence (<a href="https://www.aixenprovence.fr" target="_blank" rel="noopener">aixenprovence.fr</a>).
+    </p>
+
+    <!-- Raccourcis vers les 4 autres pages : titre + phrase qui résume la page -->
+    <nav class="page-cards" aria-label="Les rubriques du site">
+      <a href="nightlife.html" class="page-card">
+        <span class="link-title">Soirées</span><br>
+        <span class="link-description">Places animées, concerts, cinémas et sorties culturelles, sans se ruiner.</span>
+      </a>
+      <a href="sports.html" class="page-card">
+        <span class="link-title">Sports</span><br>
+        <span class="link-description">Le sport à l'université, les salles, les piscines et le plein air autour d'Aix.</span>
+      </a>
+      <a href="deals.html" class="page-card">
+        <span class="link-title">Bons plans</span><br>
+        <span class="link-description">Se loger, manger, se déplacer et se cultiver avec un budget étudiant.</span>
+      </a>
+      <a href="links.html" class="page-card">
+        <span class="link-title">Liens utiles</span><br>
+        <span class="link-description">Les sites officiels à garder sous la main : université, Crous, transports…</span>
+      </a>
+    </nav>
+
+    <!-- Section avis des visiteurs -->
+    <section>
+      <h2>Avis</h2>
+
+      <!-- Explication du fonctionnement du formulaire -->
+      <p>
+        Une idée, un bon plan à partager ou une erreur à signaler ? Remplis le formulaire : ta messagerie s'ouvrira avec un e-mail déjà rédigé, il ne restera qu'à l'envoyer.
+      </p>
+
       <!-- Formulaire d'avis : ouvre la messagerie avec un e-mail déjà rempli -->
-      <!-- ?subject= donne un objet à l'e-mail ; les "name" des champs sont écrits en français car ils apparaissent dans le texte de l'e-mail -->
+      <!-- Le script js/review-form.js met en forme l'e-mail ; action="mailto:..." sert de secours si le JavaScript est désactivé -->
       <form class="review-form" action="mailto:aixplore.contact@gmail.com?subject=Avis%20sur%20le%20site%20Aixplore" method="post" enctype="text/plain">
 
         <!-- Nom du visiteur -->
@@ -38,3 +154,19 @@
         <!-- Bouton d'envoi -->
         <button type="submit" class="submit-button">Envoyer</button>
       </form>
+    </section>
+  </main>
+
+  <!-- Image cliquable pour remonter en haut de la page -->
+  <a href="#header" class="back-to-top">
+    <img src="aixplore-top-09-clic.png" alt="Remonter en haut de la page">
+  </a>
+
+  <!-- Bas de la page contenant les infos pour nous contacter -->
+  <footer class="site-footer">
+    <p>Nous contacter : <a href="mailto:aixplore.contact@gmail.com">aixplore.contact@gmail.com</a></p>
+  </footer>
+  <!-- Script du formulaire d'avis : met en forme l'e-mail -->
+  <script src="js/review-form.js"></script>
+</body>
+</html>

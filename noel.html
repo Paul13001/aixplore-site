@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Page secrète : débloque le style de Noël puis renvoie vers l'accueil -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noël | Aixplore</title>
+  <script>
+    try {
+      localStorage.setItem("noel", "oui"); // Le navigateur retient que le style de Noël est allumé
+    } catch (erreur) {}
+    window.location.href = "index.html"; // Retour à l'accueil, déjà en style de Noël
+  </script>
+</head>
+<body>
+  <!-- S'affiche seulement si le JavaScript est désactivé -->
+  <p>🎄 Joyeux Noël ! <a href="index.html">Retour au site</a></p>
+</body>
+</html>

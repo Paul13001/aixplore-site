@@ -1,32 +1,55 @@
-<!DOCTYPE html><!-- Page Sports -->
+<!DOCTYPE html>
+<!-- Tu fouilles le code ? Essaie la page /noel. -->
 <html lang="fr">
 <head>
+  <!-- Permet d'utiliser les caractères spéciaux -->
   <meta charset="UTF-8">
+
+  <!-- Permet d'adapter l'affichage à la taille de l'écran -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Titre de la page : "Nom de la page | Aixplore" -->
   <title>Sports | Aixplore</title>
-    <!-- Feuille de style principale -->
+
+  <!-- Icône Aixplore affichée dans l'onglet du navigateur -->
+  <link rel="icon" href="img/aixplore/aixplore-favicon.png" type="image/png">
+
+  <!-- Icône Aixplore quand on ajoute le site à l'écran d'accueil d'un téléphone -->
+  <link rel="apple-touch-icon" href="img/aixplore/aixplore-apple-touch-icon.png">
+
+  <!-- Feuille de style principale -->
   <link rel="stylesheet" href="css/style.css" title="Style par défaut">
+
+  <!-- Feuille de style alternative -->
+  <link rel="alternate stylesheet" href="css/alternate.css" title="Style alternatif">
+
+  <!-- Script du mode sombre et du style de Noël (dans le head pour éviter un flash de couleur) -->
+  <script src="js/style-switcher.js"></script>
 </head>
-<body>
+
+<body class="page-sports">
+  <!-- En-tête commun à toutes les pages : ne pas modifier -->
   <header class="site-header" id="header">
-      
+
+    <!-- Logo qui ramène à l'accueil -->
     <a href="index.html" class="logo-link">
-      <img src="img/aixplore/aixplore-icone-1024-pointe-douce.png" alt="Accueil du site" class="logo">
+      <img src="aixplore-logo.png" alt="Accueil du site" class="logo">
     </a>
+
     <!-- Permet de changer le style -->
     <button type="button" class="theme-toggle">
-      <img src="img/aixplore/aixplore-style-pilule-09-clic.png" alt="Changer de mode">
+      <img src="aixplore-style-pilule-09-clic.png" alt="Changer de mode">
     </button>
 
     <!-- Navigation principale du site -->
     <nav class="main-nav">
       <ul>
-        <!-- Liste regroupant nos 5 pages -->
+        <!-- Liste regroupant nos 5 pages (aria-current indique la page en cours) -->
         <li><a href="index.html">Accueil</a></li>
 
         <li><a href="nightlife.html">Soirées</a></li>
 
-        <li><a href="sports.html">Sports</a></li>
+        <li><a href="sports.html" aria-current="page">Sports</a></li>
 
         <li><a href="deals.html">Bons plans</a></li>
 
@@ -34,15 +57,27 @@
       </ul>
     </nav>
   </header>
-    
-  <main class="page-sports">
+
+  <!-- Contenu principal de la page -->
+  <main class="main-content">
     <h1>LE SPORT À AIX-EN-PROVENCE</h1>
     <p class="intro">
       Aix-en-Provence est une ville dynamique où le sport tient une place centrale, offrant un cadre idéal entre nature et infrastructures modernes pour tous les passionnés d'activité physique.
     </p>
 
-    <!-- Section sports universtaires -->
-    <section>
+    <!-- Boutons de filtre : data-filter indique la catégorie à afficher -->
+    <div class="filters" role="group" aria-labelledby="filters-label">
+      <span class="filters-label" id="filters-label">Filtres :</span>
+      <button type="button" class="filter-button" data-filter="all" aria-pressed="true">Tous</button>
+      <button type="button" class="filter-button" data-filter="student" aria-pressed="false">Étudiant</button>
+      <button type="button" class="filter-button" data-filter="outdoor" aria-pressed="false">Plein air</button>
+      <button type="button" class="filter-button" data-filter="gym" aria-pressed="false">Salles de sport</button>
+      <button type="button" class="filter-button" data-filter="pool" aria-pressed="false">Piscines</button>
+      <button type="button" class="filter-button" data-filter="fan" aria-pressed="false">Supporter</button>
+    </div>
+
+    <!-- Section sports universitaires -->
+    <section data-category="student">
       <h2>En tant qu'étudiant</h2>
       <p>
         La vie étudiante à Aix-en-Provence est rythmée par de nombreuses opportunités de bouger, que ce soit pour le loisir ou la compétition.
@@ -76,7 +111,7 @@
     </section>
 
     <!-- Section activités sportives à faire en plein air -->
-    <section>
+    <section data-category="outdoor">
       <h2>En plein air</h2>
       <p>
         Profitez du climat exceptionnel de la Provence pour pratiquer vos activités sportives favorites au grand air.
@@ -125,7 +160,7 @@
     </section>
 
     <!-- Dans les salles de sport -->
-    <section>
+    <section data-category="gym">
       <h2>Dans les salles de sport</h2>
       <div class="lieu">
         <h3>Keep Cool</h3>
@@ -133,7 +168,7 @@
           <img src="img/sports/salles/keepcool.png" alt="Salle Keep Cool">
           <div class="lieu-texte">
             <p>
-              Des salles conviviales et sans complexe, idéales pour s'entraîner à son rythme dans une ambiance détendue
+              Des salles conviviales et sans complexe, idéales pour s'entraîner à son rythme dans une ambiance détendue.
             </p>
             <!-- Lien vers Google Maps pour avoir l'itinéraire -->
             <p class="zone-bouton">
@@ -250,7 +285,7 @@
     </section>
     
     <!-- Section sports aquatiques -->
-    <section>
+    <section data-category="pool">
       <h2>À la piscine</h2>
       <p>
         Plongez au cœur des infrastructures aquatiques de la ville pour nager, vous perfectionner ou vous détendre.
@@ -261,7 +296,7 @@
           <img src="img/sports/piscines/raymond-bochet.png" alt="Piscine Raymond Bochet">
           <div class="lieu-texte">
             <p>
-              La piscine Raymond Bochet est un équipement moderne offrant des installations de qualité pour pratiquer le natation et d'autres activités aquatiques.
+              La piscine Raymond Bochet est un équipement moderne offrant des installations de qualité pour pratiquer la natation et d'autres activités aquatiques.
             </p>
             <!-- Lien vers Google Maps pour avoir l'itinéraire -->
             <p class="zone-bouton">
@@ -303,7 +338,7 @@
     </section>
 
     <!-- Section des clubs d'Aix -->
-    <section>
+    <section data-category="fan">
       <h2>Supporter Aix</h2>
       <div class="lieu">
         <h3>Provence Rugby</h3>
@@ -311,7 +346,7 @@
           <img src="img/sports/supporter/provence-rugby.jpg" alt="Match de Provence Rugby">
           <div class="lieu-texte">
             <p>
-              Le club phare de rugby de la région, qui enflamme le stade Maurice-David à chaque match de Pro D2 dans une super ambiance
+              Le club phare de rugby de la région, qui enflamme le stade Maurice-David à chaque match de Pro D2 dans une super ambiance.
             </p>
             <!-- Lien vers Google Maps pour avoir l'itinéraire -->
             <p class="zone-bouton">
@@ -338,14 +373,16 @@
     </section>
   
   </main>
-  <!-- Remonter en haut de la page -->
-  <a href="#header" class="exit-link">
-    <img src="img/aixplore/aixplore-top-09-clic.png" alt="Retour au début de la page">
+  <!-- Image cliquable pour remonter en haut de la page -->
+  <a href="#header" class="back-to-top">
+    <img src="aixplore-top-09-clic.png" alt="Remonter en haut de la page">
   </a>
 
-  <!-- Bas de la page contenant les infos pour nous contacter-->
+  <!-- Bas de la page contenant les infos pour nous contacter -->
   <footer class="site-footer">
-    <p> Nous contacter : <a href="mailto:aixplore.contact@gmail.com">aixplore.contact@gmail.com</a></p>
+    <p>Nous contacter : <a href="mailto:aixplore.contact@gmail.com">aixplore.contact@gmail.com</a></p>
   </footer>
+  <!-- Script des filtres de la page (le même que la page Bons plans) -->
+  <script src="js/deals-filter.js"></script>
 </body>
 </html>

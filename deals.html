@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Tu fouilles le code ? Essaie la page /noel. -->
 <html lang="fr">
 <head>
   <!-- Permet d'utiliser les caractères spéciaux -->
@@ -10,14 +11,23 @@
   <!-- Titre de la page : "Nom de la page | Aixplore" -->
   <title>Bons plans | Aixplore</title>
 
+  <!-- Icône Aixplore affichée dans l'onglet du navigateur -->
+  <link rel="icon" href="img/aixplore/aixplore-favicon.png" type="image/png">
+
+  <!-- Icône Aixplore quand on ajoute le site à l'écran d'accueil d'un téléphone -->
+  <link rel="apple-touch-icon" href="img/aixplore/aixplore-apple-touch-icon.png">
+
   <!-- Feuille de style principale -->
   <link rel="stylesheet" href="css/style.css" title="Style par défaut">
 
   <!-- Feuille de style alternative -->
   <link rel="alternate stylesheet" href="css/alternate.css" title="Style alternatif">
+
+  <!-- Script du mode sombre et du style de Noël (dans le head pour éviter un flash de couleur) -->
+  <script src="js/style-switcher.js"></script>
 </head>
 
-<body>
+<body class="page-bons-plans">
   <!-- En-tête commun à toutes les pages : ne pas modifier -->
   <header class="site-header" id="header">
 

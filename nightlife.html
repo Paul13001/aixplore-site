@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Tu fouilles le code ? Essaie la page /noel. -->
 <html lang="fr">
 <head>
   <!-- Permet d'utiliser les caractères spéciaux -->
@@ -10,14 +11,23 @@
   <!-- Titre de la page : "Nom de la page | Aixplore" -->
   <title>Soirées | Aixplore</title>
 
+  <!-- Icône Aixplore affichée dans l'onglet du navigateur -->
+  <link rel="icon" href="img/aixplore/aixplore-favicon.png" type="image/png">
+
+  <!-- Icône Aixplore quand on ajoute le site à l'écran d'accueil d'un téléphone -->
+  <link rel="apple-touch-icon" href="img/aixplore/aixplore-apple-touch-icon.png">
+
   <!-- Feuille de style principale -->
   <link rel="stylesheet" href="css/style.css" title="Style par défaut">
 
   <!-- Feuille de style alternative -->
   <link rel="alternate stylesheet" href="css/alternate.css" title="Style alternatif">
+
+  <!-- Script du mode sombre et du style de Noël (dans le head pour éviter un flash de couleur) -->
+  <script src="js/style-switcher.js"></script>
 </head>
 
-<body>
+<body class="page-soirees">
   <!-- En-tête commun à toutes les pages : ne pas modifier -->
   <header class="site-header" id="header">
 
@@ -75,7 +85,10 @@
         <p class="deal-tag">Places</p>
         <h2>Le Cours Mirabeau</h2>
         <p>La grande avenue bordée de platanes est le point de rendez-vous de la ville. Terrasses, fontaines et promenade : idéal pour commencer la soirée.</p>
-        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Cours%20Mirabeau%20Aix-en-Provence" class="deal-link" target="_blank" rel="noopener">Itinéraire</a>
+        <!-- Lien vers Google Maps pour avoir l'itinéraire -->
+        <p class="zone-bouton">
+          <a class="bouton-itineraire" href="https://www.google.com/maps/dir/?api=1&amp;destination=Cours%20Mirabeau%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-bouton-7-itineraire.png" alt="Itinéraire"></a>
+        </p>
       </article>
 
       <article class="deal-card" data-category="squares">
@@ -83,14 +96,20 @@
         <h2>Le Forum des Cardeurs</h2>
         <p>Derrière l'hôtel de ville, cette grande place piétonne est entourée de restaurants aux prix abordables. C'est l'un des lieux préférés des étudiants.</p>
         <p class="deal-price">Prix abordables</p>
-        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Forum%20des%20Cardeurs%20Aix-en-Provence" class="deal-link" target="_blank" rel="noopener">Itinéraire</a>
+        <!-- Lien vers Google Maps pour avoir l'itinéraire -->
+        <p class="zone-bouton">
+          <a class="bouton-itineraire" href="https://www.google.com/maps/dir/?api=1&amp;destination=Forum%20des%20Cardeurs%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-bouton-7-itineraire.png" alt="Itinéraire"></a>
+        </p>
       </article>
 
       <article class="deal-card" data-category="squares">
         <p class="deal-tag">Places</p>
         <h2>La place Richelme</h2>
         <p>Marché de fruits et légumes le matin, terrasses le soir : la place change de visage au fil de la journée.</p>
-        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Place%20Richelme%20Aix-en-Provence" class="deal-link" target="_blank" rel="noopener">Itinéraire</a>
+        <!-- Lien vers Google Maps pour avoir l'itinéraire -->
+        <p class="zone-bouton">
+          <a class="bouton-itineraire" href="https://www.google.com/maps/dir/?api=1&amp;destination=Place%20Richelme%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-bouton-7-itineraire.png" alt="Itinéraire"></a>
+        </p>
       </article>
 
       <article class="deal-card" data-category="music">
@@ -98,7 +117,10 @@
         <h2>Le 6MIC</h2>
         <p>La salle de musiques actuelles du Pays d'Aix accueille concerts, artistes locaux et têtes d'affiche. Consultez la programmation pour les tarifs réduits.</p>
         <p class="deal-price">Tarifs réduits</p>
-        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=6MIC%20Aix-en-Provence" class="deal-link" target="_blank" rel="noopener">Itinéraire</a>
+        <!-- Lien vers Google Maps pour avoir l'itinéraire -->
+        <p class="zone-bouton">
+          <a class="bouton-itineraire" href="https://www.google.com/maps/dir/?api=1&amp;destination=6MIC%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-bouton-7-itineraire.png" alt="Itinéraire"></a>
+        </p>
       </article>
 
       <article class="deal-card" data-category="culture">
@@ -106,7 +128,10 @@
         <h2>Les cinémas du centre-ville</h2>
         <p>Le Mazarin, le Renoir et le Cézanne proposent films récents et versions originales. Pensez à demander le tarif étudiant.</p>
         <p class="deal-price">Tarif étudiant</p>
-        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Cinéma%20Le%20Mazarin%20Aix-en-Provence" class="deal-link" target="_blank" rel="noopener">Itinéraire</a>
+        <!-- Lien vers Google Maps pour avoir l'itinéraire -->
+        <p class="zone-bouton">
+          <a class="bouton-itineraire" href="https://www.google.com/maps/dir/?api=1&amp;destination=Cinéma%20Le%20Mazarin%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-bouton-7-itineraire.png" alt="Itinéraire"></a>
+        </p>
       </article>
 
       <article class="deal-card" data-category="culture">
@@ -114,14 +139,20 @@
         <h2>Le Grand Théâtre de Provence</h2>
         <p>Musique classique, danse et grands spectacles. Des places à tarif réduit existent pour les moins de 26 ans.</p>
         <p class="deal-price">Tarif réduit moins de 26 ans</p>
-        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Grand%20Théâtre%20de%20Provence%20Aix-en-Provence" class="deal-link" target="_blank" rel="noopener">Itinéraire</a>
+        <!-- Lien vers Google Maps pour avoir l'itinéraire -->
+        <p class="zone-bouton">
+          <a class="bouton-itineraire" href="https://www.google.com/maps/dir/?api=1&amp;destination=Grand%20Théâtre%20de%20Provence%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-bouton-7-itineraire.png" alt="Itinéraire"></a>
+        </p>
       </article>
 
       <article class="deal-card" data-category="culture">
         <p class="deal-tag">Culture</p>
         <h2>Le Pavillon Noir</h2>
         <p>Le centre chorégraphique du Ballet Preljocaj, pour découvrir la danse contemporaine.</p>
-        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Pavillon%20Noir%20Aix-en-Provence" class="deal-link" target="_blank" rel="noopener">Itinéraire</a>
+        <!-- Lien vers Google Maps pour avoir l'itinéraire -->
+        <p class="zone-bouton">
+          <a class="bouton-itineraire" href="https://www.google.com/maps/dir/?api=1&amp;destination=Pavillon%20Noir%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-bouton-7-itineraire.png" alt="Itinéraire"></a>
+        </p>
       </article>
 
       <article class="deal-card" data-category="events">
