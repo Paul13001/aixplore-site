@@ -1,6 +1,6 @@
 /* Style alternatif : Noël (activé par l'étoile ✦ du pied de page)
    Même HTML que le site, mais une présentation différente :
-   menu sur le côté, couleurs de Noël, police à empattements, cadres dorés et neige. */
+   menu sur le côté, couleurs de Noël, police à empattements, cadres dorés et flocons. */
 
 /* Police d'écriture de Noël pour le titre du menu et les titres de page */
 @import url("https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&display=swap");
@@ -14,7 +14,7 @@
   --font-family: Georgia, "Times New Roman", serif; /* Police à empattements */
 }
 
-/* ===== Fond vert sapin avec de la neige qui tombe ===== */
+/* ===== Fond vert sapin avec des flocons ===== */
 
 .page-home, /* Toutes les pages */
 .page-nightlife,
@@ -25,17 +25,6 @@
   background-image: radial-gradient(circle, rgba(255, 255, 255, 0.45) 2px, transparent 3px); /* Un flocon = un petit rond blanc */
   background-size: 60px 60px; /* Un flocon tous les 60px */
   background-repeat: repeat; /* Flocons sur toute la page */
-  -webkit-animation: snow 6s linear infinite; /* Préfixe pour les anciens Safari */
-  animation: snow 6s linear infinite; /* La neige tombe en boucle */
-}
-
-@keyframes snow { /* Animation de la neige */
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 30px 60px; /* Les flocons descendent */
-  }
 }
 
 /* ===== Mise en page : le menu passe dans une colonne à gauche ===== */
@@ -120,7 +109,7 @@ section > h2 { /* Titres des parties : bandeau vert */
   color: var(--bg-color);
   background-color: var(--brand-pink);
   border: none;
-  border-radius: 0;
+  border-radius: 12px; /* Coins arrondis */
   -webkit-transform: none;
   -ms-transform: none;
   transform: none;
@@ -138,7 +127,7 @@ section > h2 { /* Titres des parties : bandeau vert */
   color: var(--text-color);
 }
 
-/* ===== Cadres : bordure dorée, angles droits, sans ombre ni rotation ===== */
+/* ===== Cadres : bordure dorée, coins arrondis, sans ombre ni rotation ===== */
 
 .intro,
 .main-content > p,
@@ -154,7 +143,7 @@ section > h2 { /* Titres des parties : bandeau vert */
 .filter-button,
 .submit-button {
   border: 3px solid var(--brand-yellow);
-  border-radius: 0;
+  border-radius: 12px; /* Coins arrondis */
   box-shadow: none;
   -webkit-transform: none;
   -ms-transform: none;
@@ -187,6 +176,12 @@ section > h2 { /* Titres des parties : bandeau vert */
 .place-content { /* Page Sports : la photo passe au-dessus du texte */
   flex-direction: column;
   align-items: center;
+}
+
+.deal-tag, /* Étiquettes, filtres et bouton envoyer : forme de pilule */
+.filter-button,
+.submit-button {
+  border-radius: 30px;
 }
 
 .place-content > img { /* Photos rondes comme des boules de Noël */

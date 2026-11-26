@@ -49,7 +49,15 @@ button:focus { /* Bouton sélectionné au clavier */
   outline-offset: 2px; /* Espace entre l'élément et son contour */
 }
 
+html { /* Toute la page */
+  scroll-padding-top: 110px; /* Quand on saute vers une ancre, le contenu ne se cache pas sous l'en-tête */
+}
+
 .site-header { /* En-tête du site */
+  position: -webkit-sticky; /* Préfixe pour les anciens Safari */
+  position: sticky; /* L'en-tête reste toujours visible en haut quand on descend */
+  top: 0; /* Collé en haut de l'écran */
+  z-index: 5; /* Passe au-dessus du contenu */
   min-height: var(--header-height); /* Hauteur de 80px */
   padding-left: var(--page-padding); /* Espace à gauche */
   padding-right: var(--page-padding); /* Espace à droite */
@@ -802,7 +810,7 @@ html.dark { /* Quand la classe "dark" est sur <html>, on change les variables */
     -webkit-transition: none; /* Préfixe pour les anciens navigateurs */
     transition: none; /* Pas d'animation au survol */
     -webkit-animation: none;
-    animation: none; /* Pas de neige qui tombe */
+    animation: none; /* Pas d'animation */
   }
 }
 
