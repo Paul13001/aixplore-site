@@ -1,11 +1,11 @@
 // Changement de style du site
 // - le bouton pilule de l'en-tête allume / éteint le mode sombre
-// - l'étoile cachée du pied de page allume / éteint le style de Noël (l'autre feuille de style : css/alternate.min.css)
+// - l'étoile cachée du pied de page (lien href="javascript:toggleSetting('christmas')") allume / éteint
+//   le style de Noël (l'autre feuille de style : css/alternate.min.css)
 // Les choix sont retenus par le navigateur (localStorage) pour rester actifs sur toutes les pages.
 
 const christmasStyle = document.querySelector('link[href="css/alternate.min.css"]'); // Feuille de style de Noël
 const darkButton = document.querySelector(".theme-toggle"); // Bouton pilule
-const christmasLink = document.querySelector(".secret-link"); // Étoile du pied de page
 
 christmasStyle.removeAttribute("title"); // Sans title, c'est nous (et pas le navigateur) qui choisissons quand l'afficher
 
@@ -39,11 +39,6 @@ function toggleSetting(name) {
 
 darkButton.addEventListener("click", function () {
   toggleSetting("dark");
-});
-
-christmasLink.addEventListener("click", function (event) {
-  event.preventDefault(); // Le lien ne recharge pas la page
-  toggleSetting("christmas");
 });
 
 applyStyle(); // Au chargement de chaque page
