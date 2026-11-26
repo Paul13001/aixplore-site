@@ -17,11 +17,9 @@
   <!-- Adresse officielle de la page (évite les doublons dans les moteurs de recherche) -->
   <link rel="canonical" href="https://paul13001.github.io/aixplore-site/">
 
-  <!-- Référencement local : Aix-en-Provence (coordonnées du département informatique) -->
+  <!-- Référencement local : Aix-en-Provence -->
   <meta name="geo.region" content="FR-13">
   <meta name="geo.placename" content="Aix-en-Provence">
-  <meta name="geo.position" content="43.514157;5.451468">
-  <meta name="ICBM" content="43.514157, 5.451468">
 
   <!-- Réseaux sociaux : aperçu quand on partage le lien (Open Graph : Facebook, LinkedIn, WhatsApp…) -->
   <meta property="og:type" content="website">
@@ -32,47 +30,6 @@
   <meta property="og:url" content="https://paul13001.github.io/aixplore-site/">
   <meta property="og:image" content="https://paul13001.github.io/aixplore-site/img/aixplore/aixplore-share.jpg">
   <meta property="og:image:alt" content="Logo Aixplore">
-
-  <!-- Réseaux sociaux : aperçu sur X (Twitter) -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Accueil | Aixplore">
-  <meta name="twitter:description" content="Aixplore, le guide de la vie étudiante à Aix-en-Provence : soirées, sports, bons plans et liens utiles.">
-  <meta name="twitter:image" content="https://paul13001.github.io/aixplore-site/img/aixplore/aixplore-share.jpg">
-
-  <!-- Couleur de la barre du navigateur sur téléphone -->
-  <meta name="theme-color" content="#2340d9">
-
-  <!-- Données structurées (schema.org) : le site et l'adresse du département informatique, pour Google -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Aixplore",
-    "url": "https://paul13001.github.io/aixplore-site/",
-    "inLanguage": "fr",
-    "description": "Le guide de la vie étudiante à Aix-en-Provence.",
-    "publisher": {
-      "@type": "CollegeOrUniversity",
-      "name": "IUT d'Aix-Marseille – Département informatique",
-      "email": "iut-aix-informatique@univ-amu.fr",
-      "telephone": "+33 4 13 94 63 79",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "413 avenue Gaston Berger",
-        "postalCode": "13625",
-        "addressLocality": "Aix-en-Provence",
-        "addressRegion": "Provence-Alpes-Côte d'Azur",
-        "addressCountry": "FR"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 43.514157,
-        "longitude": 5.451468
-      }
-    }
-  }
-  </script>
-
 
   <!-- Icône Aixplore affichée dans l'onglet du navigateur -->
   <link rel="icon" href="img/aixplore/aixplore-favicon.png" type="image/png">
@@ -91,8 +48,6 @@
 </head>
 
 <body class="page-home">
-  <!-- Lien d'évitement (accessibilité) : permet d'aller directement au contenu au clavier -->
-  <a class="skip-link" href="#main">Aller au contenu</a>
 
   <!-- En-tête commun à toutes les pages : ne pas modifier -->
   <header class="site-header" id="header">
@@ -183,7 +138,7 @@
 
         <!-- Nom du visiteur -->
         <label for="name">Nom</label>
-        <input type="text" id="name" name="name" placeholder="Camille Martin" autocomplete="name" minlength="2" maxlength="80" pattern="[A-Za-zÀ-ÖØ-öø-ÿ' \-]{2,80}" title="Lettres, espaces, apostrophes et tirets uniquement" required>
+        <input type="text" id="name" name="name" placeholder="Camille Martin" autocomplete="name" minlength="2" maxlength="80" pattern="[A-Za-zÀ-ÿ' \-]+" title="Lettres, espaces, apostrophes et tirets uniquement" required>
 
         <!-- Adresse e-mail du visiteur -->
         <label for="email">E-mail</label>
