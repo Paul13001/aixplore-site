@@ -1,7 +1,5 @@
-/* Code css qui permet de faire le style principal du site (couleur, typographie, dimensions) et la structure visuelle de base */
-
 :root {
-  /* Valeurs provisoires */
+  /* Valeurs de bases */
   --bg-color: #ffffff; /* Couleur de fond générale de la page */
   --text-color: #1e293b; /* Couleur principale du texte */
   --primary-color: #0f172a; /* Couleur principale (header et footer) */
@@ -30,6 +28,8 @@ body {
   margin: 0; /* Supprime la marge par défaut du navigateur autour du body */
   font-family: var(--font-family); /* Applique la police */
   line-height: 1.5; /* Espace entre les lignes pour mieux lire */
+  -webkit-font-smoothing: antialiased; /* Texte plus net sur Mac (Safari, Chrome) */
+  -moz-osx-font-smoothing: grayscale; /* Texte plus net sur Mac (Firefox) */
   color: var(--text-color); /* Applique la couleur du texte */
   background-color: var(--bg-color); /* Applique la couleur du fond */
   min-height: 100vh; /* Le body fait au moins toute la hauteur de l'écran */
@@ -48,10 +48,6 @@ button:focus { /* Bouton sélectionné au clavier */
 }
 
 .site-header { /* En-tête du site */
-  position: -webkit-sticky; /* Préfixe pour les anciens Safari */
-  position: sticky; /* L'en-tête reste toujours visible en haut quand on descend */
-  top: 0; /* Collé en haut de l'écran */
-  z-index: 5; /* Passe au-dessus du contenu */
   min-height: var(--header-height); /* Hauteur de 80px */
   padding-left: var(--page-padding); /* Espace à gauche */
   padding-right: var(--page-padding); /* Espace à droite */
@@ -146,7 +142,7 @@ h1 { /* Titre principal de la page */
   text-transform: uppercase; /* Titre en majuscules */
 }
 
-/* ===== Fonds des pages (image fixe derrière toute la page) ===== */
+/* Fonds des pages (image fixe derrière toute la page) */
 
 .page-home, /* Page Accueil */
 .page-nightlife, /* Page Soirées */
@@ -495,7 +491,7 @@ h1 { /* Titre principal de la page */
   }
 }
 
-/* ===== Page Sports ===== */
+/* Page Sports */
 
 .main-content section { /* Chaque partie de la page */
   margin-bottom: 32px; /* Espace entre les parties */
@@ -564,7 +560,7 @@ h1 { /* Titre principal de la page */
   }
 }
 
-/* ===== Écrans plus petits : en-tête et raccourcis de l'accueil ===== */
+/* Écrans plus petits : en-tête et raccourcis de l'accueil */
 
 @media (max-width: 1000px) { /* Écran de 1000px ou moins : le menu ne tient plus à droite du logo */
   .site-header { /* En-tête */
@@ -605,7 +601,7 @@ h1 { /* Titre principal de la page */
   }
 }
 
-/* ===== Style Gen Z : gros contours bleus, ombres roses décalées, coins bien ronds ===== */
+/* Style principal */
 
 h1 { /* Titre de la page : grosse pilule bleue comme le bouton Itinéraire */
   display: inline-block; /* Le fond bleu prend juste la taille du texte */
@@ -718,7 +714,7 @@ section > h2 { /* Titre d'une partie : style autocollant */
   transform: translate(-2px, -2px); /* Le bouton se soulève */
 }
 
-/* ===== Mode sombre (bouton pilule) : même présentation, couleurs de nuit ===== */
+/* Mode sombre (bouton pilule) : même présentation, couleurs de nuit */
 
 html.dark { /* Quand la classe "dark" est sur <html>, on change les variables */
   --bg-color: #161d42; /* Fond des cadres : bleu nuit */
@@ -777,12 +773,38 @@ html.dark { /* Quand la classe "dark" est sur <html>, on change les variables */
   content: url("../img/aixplore/aixplore-style-toggle-dark.webp");
 }
 
+/*  Accessibilité */
+
+.skip-link { /* Lien "Aller au contenu" : caché hors de l'écran… */
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 10; /* Au-dessus de tout */
+  padding: 8px 16px;
+  color: var(--header-text-color);
+  background-color: var(--brand-blue);
+  border-radius: 30px;
+}
+
+.skip-link:focus { /* …et visible quand on arrive dessus avec la touche Tab */
+  top: 16px;
+}
+
 .site-footer address { /* Adresse du département informatique */
   margin-bottom: 4px; /* Petit espace avant le contact */
   font-style: normal; /* Pas d'italique */
 }
 
-/* ===== Lien secret (easter egg) : petite étoile du pied de page ===== */
+@media (prefers-reduced-motion: reduce) { /* Visiteurs qui ont demandé moins d'animations */
+  * { /* Tous les éléments */
+    -webkit-transition: none; /* Préfixe pour les anciens navigateurs */
+    transition: none; /* Pas d'animation au survol */
+    -webkit-animation: none;
+    animation: none; /* Pas de neige qui tombe */
+  }
+}
+
+/* Lien secret (easter egg) : petite étoile du pied de page */
 
 .site-footer .secret-link { /* Étoile discrète qui active le style de Noël */
   display: inline-block; /* Pour pouvoir la faire tourner */
