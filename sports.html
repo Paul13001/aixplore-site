@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Tu fouilles le code ? Clique sur la petite étoile ✦ du pied de page… -->
+<!-- Indice : clique sur l'étoile en bas de la page -->
 <html lang="fr">
 <head>
   <!-- Permet d'utiliser les caractères spéciaux -->
@@ -11,17 +11,17 @@
   <!-- Titre de la page : "Nom de la page | Aixplore" -->
   <title>Sports | Aixplore</title>
 
-  <!-- Description de la page pour les moteurs de recherche (référencement) -->
+  <!-- Description de la page -->
   <meta name="description" content="Faire du sport à Aix-en-Provence : SUAPS, associations, plein air, salles de sport, piscines et clubs à supporter.">
 
-  <!-- Adresse officielle de la page (évite les doublons dans les moteurs de recherche) -->
+  <!-- Adresse de la page -->
   <link rel="canonical" href="https://paul13001.github.io/aixplore-site/sports.html">
 
-  <!-- Référencement local : Aix-en-Provence -->
+  <!-- Référencement local -->
   <meta name="geo.region" content="FR-13">
   <meta name="geo.placename" content="Aix-en-Provence">
 
-  <!-- Réseaux sociaux : aperçu quand on partage le lien (Open Graph : Facebook, LinkedIn, WhatsApp…) -->
+  <!-- Pour les réseaux sociaux -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Aixplore">
@@ -31,19 +31,19 @@
   <meta property="og:image" content="https://paul13001.github.io/aixplore-site/img/aixplore/aixplore-share.jpg">
   <meta property="og:image:alt" content="Logo Aixplore">
 
-  <!-- Icône Aixplore affichée dans l'onglet du navigateur -->
+  <!-- Favicon -->
   <link rel="icon" href="img/aixplore/aixplore-favicon.png" type="image/png">
 
-  <!-- Icône Aixplore quand on ajoute le site à l'écran d'accueil d'un téléphone -->
+  <!-- Icône pour les téléphones -->
   <link rel="apple-touch-icon" href="img/aixplore/aixplore-apple-touch-icon.png">
 
   <!-- Feuille de style principale -->
   <link rel="stylesheet" href="css/style.min.css" title="Style par défaut">
 
-  <!-- Feuille de style alternative (style de Noël), activée en JavaScript -->
+  <!-- Feuille de style alternative (Noël) -->
   <link rel="alternate stylesheet" href="css/alternate.min.css" title="Style alternatif" id="christmas-css">
 
-  <!-- Script du mode sombre et du style de Noël (defer : lancé quand la page est prête) -->
+  <!-- Script pour changer de style -->
   <script src="js/style-switcher.js" defer></script>
 </head>
 
@@ -52,7 +52,7 @@
   <!-- En-tête commun à toutes les pages : ne pas modifier -->
   <header class="site-header" id="header">
 
-    <!-- Bouton pour passer en mode sombre -->
+    <!-- Bouton mode sombre -->
     <button type="button" class="theme-toggle">
       <img src="img/aixplore/aixplore-style-toggle.webp" alt="Mode sombre">
     </button>
@@ -60,14 +60,14 @@
     <!-- Logo qui ramène à l'accueil -->
     <a href="index.html" class="logo-link">
       <img src="img/aixplore/aixplore-logo.webp" alt="Accueil du site" class="logo">
-      <!-- Titre affiché seulement avec le style de Noël -->
+      <!-- Titre pour le style de Noël -->
       <span class="christmas-title">L'Avent à Aix</span>
     </a>
 
     <!-- Navigation principale du site -->
     <nav class="main-nav">
       <ul>
-        <!-- Liste regroupant nos 5 pages (aria-current indique la page en cours) -->
+        <!-- Liste regroupant nos 5 pages -->
         <li><a href="index.html">Accueil</a></li>
 
         <li><a href="nightlife.html">Soirées</a></li>
@@ -88,7 +88,7 @@
       Aix-en-Provence est une ville dynamique où le sport tient une place centrale, offrant un cadre idéal entre nature et infrastructures modernes pour tous les passionnés d'activité physique.
     </p>
 
-    <!-- Boutons de filtre : data-filter = la catégorie à afficher, "active" = le bouton choisi -->
+    <!-- Boutons pour filtrer -->
     <div class="filters">
       <span class="filters-label">Filtres :</span>
       <button type="button" class="filter-button active" data-filter="all">Tous</button>
@@ -396,23 +396,23 @@
     </section>
   
   </main>
-  <!-- Image cliquable pour remonter en haut de la page (#top = tout en haut de la page) -->
+  <!-- Image cliquable pour remonter en haut de la page -->
   <a href="#top" class="back-to-top">
     <img src="img/aixplore/aixplore-back-to-top.webp" alt="Remonter en haut de la page">
   </a>
 
   <!-- Bas de la page contenant les infos pour nous contacter -->
   <footer class="site-footer">
-    <!-- Adresse du département informatique (référencement local) -->
+    <!-- Adresse du département informatique -->
     <address>
       IUT d'Aix-Marseille – Département informatique<br>
       413 avenue Gaston Berger, 13625 Aix-en-Provence
     </address>
     <p>Nous contacter : <a href="mailto:aixplore.contact@gmail.com">aixplore.contact@gmail.com</a></p>
-    <!-- Lien secret (easter egg) : lien en JavaScript qui active ou désactive l'autre feuille de style (css/alternate.min.css) -->
+    <!-- Lien caché pour le style de Noël -->
     <a href="javascript:toggleChristmas()" class="secret-link" aria-label="Activer ou désactiver le style de Noël">✦</a>
   </footer>
-  <!-- Script des filtres de la page (le même que la page Bons plans) -->
+  <!-- Script des filtres -->
   <script src="js/filter.js"></script>
 </body>
 </html>

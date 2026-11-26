@@ -1,21 +1,18 @@
-// Changer le style du site
-// - le bouton pilule allume ou éteint le mode sombre
-// - l'étoile du bas de page (lien javascript:toggleChristmas()) allume ou éteint le style de Noël
-// Le navigateur retient les choix (localStorage) pour toutes les pages.
+// changement de style : mode sombre (bouton pilule) et style de Noël (étoile en bas de page)
+// localStorage garde le choix quand on change de page
 
-let christmasCss = document.querySelector("#christmas-css"); // la feuille de style de Noël
-let darkButton = document.querySelector(".theme-toggle"); // le bouton pilule
+let christmasCss = document.querySelector("#christmas-css");
+let darkButton = document.querySelector(".theme-toggle");
 
-// on enlève le title pour pouvoir allumer la feuille de Noël nous-mêmes
+// sans le title on peut activer la feuille de Noël nous-mêmes
 christmasCss.removeAttribute("title");
 
-// met le bon style sur la page
 function applyStyle() {
   if (localStorage.getItem("christmas") === "on") {
-    christmasCss.rel = "stylesheet"; // la feuille de Noël s'applique
-    document.documentElement.classList.remove("dark"); // pas de mode sombre à Noël
+    christmasCss.rel = "stylesheet";
+    document.documentElement.classList.remove("dark");
   } else {
-    christmasCss.rel = "alternate stylesheet"; // la feuille de Noël ne s'applique pas
+    christmasCss.rel = "alternate stylesheet";
     if (localStorage.getItem("dark") === "on") {
       document.documentElement.classList.add("dark");
     } else {
@@ -24,7 +21,7 @@ function applyStyle() {
   }
 }
 
-// allume ou éteint le style de Noël (appelé par l'étoile du bas de page)
+// appelée par le lien de l'étoile
 function toggleChristmas() {
   if (localStorage.getItem("christmas") === "on") {
     localStorage.setItem("christmas", "off");
@@ -34,7 +31,6 @@ function toggleChristmas() {
   applyStyle();
 }
 
-// allume ou éteint le mode sombre
 function toggleDark() {
   if (localStorage.getItem("dark") === "on") {
     localStorage.setItem("dark", "off");
@@ -44,6 +40,6 @@ function toggleDark() {
   applyStyle();
 }
 
-darkButton.addEventListener("click", toggleDark); // clic sur le bouton pilule
+darkButton.addEventListener("click", toggleDark);
 
-applyStyle(); // au chargement de la page
+applyStyle();

@@ -1,25 +1,25 @@
-/* Feuille de style principale du site Aixplore */
+/* Style principal du site Aixplore */
 
-/* ---------- Couleurs et police du site ---------- */
+/* Couleurs */
 
 :root {
-  --bg-color: #ffffff; /* fond des cadres */
-  --text-color: #1e293b; /* couleur du texte */
-  --primary-color: #0f172a; /* couleur foncée */
-  --header-text-color: #ffffff; /* texte de l'en-tête et du bas de page */
-  --accent-color: #2563eb; /* couleur des liens */
-  --brand-blue: #2340d9; /* bleu Aixplore */
-  --brand-pink: #ff5fa2; /* rose Aixplore */
-  --brand-yellow: #ffe14d; /* jaune Aixplore */
-  --font-family: system-ui, "Segoe UI", Roboto, sans-serif; /* police du site */
+  --bg-color: #ffffff;
+  --text-color: #1e293b;
+  --primary-color: #0f172a;
+  --header-text-color: #ffffff;
+  --accent-color: #2563eb;
+  --brand-blue: #2340d9; /* bleu aixplore */
+  --brand-pink: #ff5fa2; /* rose */
+  --brand-yellow: #ffe14d; /* jaune */
+  --font-family: system-ui, "Segoe UI", Roboto, sans-serif;
 }
 
-/* ---------- Réglages de base ---------- */
+/* Base */
 
 * {
-  -webkit-box-sizing: border-box; /* préfixe pour les vieux navigateurs */
-  -moz-box-sizing: border-box; /* préfixe pour les vieux Firefox */
-  box-sizing: border-box; /* la bordure et le padding sont compris dans la taille */
+  -webkit-box-sizing: border-box; /* pour les vieux navigateurs */
+  -moz-box-sizing: border-box; /* pour firefox */
+  box-sizing: border-box; /* la bordure compte dans la taille */
 }
 
 body {
@@ -27,16 +27,16 @@ body {
   font-family: var(--font-family);
   line-height: 1.5;
   color: var(--text-color);
-  min-height: 100vh; /* au moins la hauteur de l'écran */
+  min-height: 100vh; /* toute la hauteur de l'écran */
   display: flex;
-  flex-direction: column; /* en-tête, contenu et bas de page les uns sous les autres */
+  flex-direction: column;
 }
 
 a {
   color: var(--accent-color);
 }
 
-/* ---------- Fond de chaque page ---------- */
+/* Fonds des pages */
 
 .page-home,
 .page-nightlife,
@@ -44,10 +44,10 @@ a {
 .page-deals,
 .page-links {
   background-color: #ffffff;
-  background-size: cover; /* l'image remplit l'écran */
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* l'image ne bouge pas quand on descend */
+  background-attachment: fixed; /* le fond ne bouge pas */
 }
 
 .page-home {
@@ -70,15 +70,15 @@ a {
   background-image: url("../img/backgrounds/links.webp");
 }
 
-/* ---------- En-tête ---------- */
+/* Header */
 
 .site-header {
-  position: -webkit-sticky; /* préfixe pour les vieux Safari */
-  position: sticky; /* l'en-tête reste visible en haut quand on descend */
+  position: -webkit-sticky; /* pour safari */
+  position: sticky; /* le header reste en haut */
   top: 0;
-  z-index: 5; /* au-dessus du reste de la page */
+  z-index: 5;
   display: flex;
-  justify-content: space-between; /* bouton à gauche, logo au milieu, menu à droite */
+  justify-content: space-between;
   align-items: center;
   padding: 8px 20px;
   background-color: var(--brand-blue);
@@ -92,7 +92,7 @@ a {
 }
 
 .christmas-title {
-  display: none; /* visible seulement avec le style de Noël */
+  display: none;
 }
 
 .theme-toggle {
@@ -100,7 +100,7 @@ a {
   background-color: #ffffff;
   border: none;
   border-radius: 30px;
-  cursor: pointer; /* main au survol */
+  cursor: pointer;
 }
 
 .theme-toggle img {
@@ -108,14 +108,14 @@ a {
   height: 44px;
 }
 
-/* ---------- Menu ---------- */
+/* Menu */
 
 .main-nav ul {
-  display: flex; /* liens les uns à côté des autres */
+  display: flex;
   gap: 8px;
   margin: 0;
   padding: 0;
-  list-style: none; /* pas de puces */
+  list-style: none;
 }
 
 .main-nav a {
@@ -129,22 +129,22 @@ a {
   color: var(--brand-yellow);
 }
 
-.main-nav a[aria-current="page"] { /* page où on se trouve */
+.main-nav a[aria-current="page"] {
   font-weight: bold;
   border-bottom: 3px solid var(--brand-yellow);
 }
 
-/* ---------- Contenu ---------- */
+/* Contenu */
 
 .main-content {
-  flex: 1; /* prend la place libre, le bas de page reste en bas */
+  flex: 1; /* pousse le footer en bas */
   width: 100%;
   max-width: 1100px;
-  margin: 0 auto; /* centré */
+  margin: 0 auto;
   padding: 24px 20px;
 }
 
-h1 { /* titre de la page dans une pilule bleue */
+h1 {
   display: inline-block;
   margin-top: 0;
   padding: 8px 28px;
@@ -152,10 +152,10 @@ h1 { /* titre de la page dans une pilule bleue */
   color: #ffffff;
   background-color: var(--brand-blue);
   border-radius: 40px;
-  box-shadow: 6px 6px 0 var(--brand-pink); /* ombre rose */
+  box-shadow: 6px 6px 0 var(--brand-pink);
 }
 
-section > h2 { /* titres des parties en jaune */
+section > h2 {
   display: inline-block;
   padding: 4px 16px;
   background-color: var(--brand-yellow);
@@ -180,29 +180,29 @@ section > h2 { /* titres des parties en jaune */
 }
 
 .main-content section > ul {
-  padding-left: 36px; /* place pour les puces */
+  padding-left: 36px;
 }
 
 .intro {
   margin-bottom: 24px;
 }
 
-/* ---------- Accueil ---------- */
+/* Accueil */
 
 .home-video {
   display: block;
   width: 100%;
   max-width: 600px;
-  height: auto; /* garde les proportions de la vidéo */
+  height: auto;
   background-color: #000000;
   border: 2px solid var(--brand-blue);
   border-radius: 16px;
   box-shadow: 6px 6px 0 var(--brand-pink);
 }
 
-.page-cards { /* les 4 raccourcis vers les pages */
+.page-cards {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 colonnes */
+  grid-template-columns: repeat(4, 1fr);
   gap: 12px;
   margin: 16px 0 32px;
 }
@@ -223,11 +223,11 @@ section > h2 { /* titres des parties en jaune */
   background-color: var(--brand-blue);
 }
 
-/* ---------- Formulaire d'avis ---------- */
+/* Formulaire */
 
 .review-form {
   display: flex;
-  flex-direction: column; /* les champs les uns sous les autres */
+  flex-direction: column;
   gap: 6px;
   max-width: 460px;
 }
@@ -246,7 +246,7 @@ section > h2 { /* titres des parties en jaune */
   border-radius: 12px;
 }
 
-.rating { /* groupe des notes */
+.rating {
   margin: 8px 0 0;
   padding: 0;
   border: none;
@@ -259,11 +259,11 @@ section > h2 { /* titres des parties en jaune */
 
 .review-form .rating label {
   display: inline-block;
-  margin: 0 12px 0 0; /* espace entre les notes */
+  margin: 0 12px 0 0;
 }
 
 .submit-button {
-  align-self: flex-start; /* le bouton garde sa taille */
+  align-self: flex-start;
   margin-top: 12px;
   padding: 10px 28px;
   font-family: inherit;
@@ -281,11 +281,11 @@ section > h2 { /* titres des parties en jaune */
   background-color: var(--primary-color);
 }
 
-/* ---------- Filtres ---------- */
+/* Filtres */
 
 .filters {
   display: flex;
-  flex-wrap: wrap; /* passe à la ligne si pas assez de place */
+  flex-wrap: wrap;
   align-items: center;
   gap: 8px;
   margin-bottom: 24px;
@@ -308,16 +308,16 @@ section > h2 { /* titres des parties en jaune */
   color: var(--brand-pink);
 }
 
-.filter-button.active { /* bouton choisi */
+.filter-button.active {
   color: #ffffff;
   background-color: var(--brand-blue);
 }
 
-/* ---------- Cartes (Soirées et Bons plans) ---------- */
+/* Cartes */
 
 .deals-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }
 
@@ -340,7 +340,7 @@ section > h2 { /* titres des parties en jaune */
   margin: 0 0 12px;
 }
 
-.deal-tag { /* étiquette de la catégorie */
+.deal-tag {
   align-self: flex-start;
   padding: 3px 12px;
   font-size: 14px;
@@ -350,7 +350,7 @@ section > h2 { /* titres des parties en jaune */
   border-radius: 30px;
 }
 
-.deal-price { /* info importante surlignée en jaune */
+.deal-price {
   align-self: flex-start;
   padding: 2px 10px;
   font-weight: bold;
@@ -360,14 +360,14 @@ section > h2 { /* titres des parties en jaune */
 }
 
 .deal-link {
-  margin-top: auto; /* lien en bas de la carte */
+  margin-top: auto;
 }
 
-/* ---------- Liens utiles ---------- */
+/* Liens utiles */
 
 .links-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   margin: 0 0 32px;
   padding: 0;
@@ -404,7 +404,7 @@ section > h2 { /* titres des parties en jaune */
   font-size: 14px;
 }
 
-/* ---------- Page Sports ---------- */
+/* Sports */
 
 .place {
   margin-bottom: 24px;
@@ -415,7 +415,7 @@ section > h2 { /* titres des parties en jaune */
   font-size: 19px;
 }
 
-.place-content { /* photo à gauche, texte à droite */
+.place-content {
   display: flex;
   gap: 16px;
 }
@@ -423,14 +423,14 @@ section > h2 { /* titres des parties en jaune */
 .place-content > img {
   width: 212px;
   height: 148px;
-  object-fit: cover; /* la photo remplit le cadre sans être déformée */
+  object-fit: cover; /* l'image n'est pas déformée */
   border: 2px solid var(--brand-blue);
   border-radius: 16px;
   box-shadow: 6px 6px 0 var(--brand-pink);
 }
 
 .place-text {
-  flex: 1; /* prend le reste de la place */
+  flex: 1;
   padding: 16px;
   background-color: var(--bg-color);
   border: 2px solid var(--brand-blue);
@@ -442,23 +442,23 @@ section > h2 { /* titres des parties en jaune */
   margin: 0;
 }
 
-.route-area { /* bouton Itinéraire à droite */
+.route-area {
   margin-top: 12px;
   text-align: right;
 }
 
 .deal-card .route-area {
-  margin-top: auto; /* dans une carte, le bouton reste en bas */
+  margin-top: auto;
 }
 
 .route-button img {
   width: 150px;
 }
 
-/* ---------- Bouton pour remonter en haut ---------- */
+/* Bouton haut de page */
 
 .back-to-top {
-  position: fixed; /* reste au même endroit quand on descend */
+  position: fixed; /* le bouton reste en bas à droite */
   right: 20px;
   bottom: 20px;
 }
@@ -468,7 +468,7 @@ section > h2 { /* titres des parties en jaune */
   width: 70px;
 }
 
-/* ---------- Bas de page ---------- */
+/* Footer */
 
 .site-footer {
   padding: 16px 20px;
@@ -479,7 +479,7 @@ section > h2 { /* titres des parties en jaune */
 }
 
 .site-footer address {
-  font-style: normal; /* pas d'italique */
+  font-style: normal;
 }
 
 .site-footer p {
@@ -490,15 +490,15 @@ section > h2 { /* titres des parties en jaune */
   color: var(--header-text-color);
 }
 
-.site-footer .secret-link { /* petite étoile qui active le style de Noël */
+.site-footer .secret-link {
   font-size: 14px;
   color: var(--brand-yellow);
   text-decoration: none;
 }
 
-/* ---------- Mode sombre (bouton pilule) ---------- */
+/* Mode sombre */
 
-html.dark { /* on change les couleurs */
+html.dark {
   --bg-color: #161d42;
   --text-color: #eef1ff;
   --accent-color: #9db4ff;
@@ -532,7 +532,7 @@ html.dark { /* on change les couleurs */
 
 .dark section > h2,
 .dark .deal-price {
-  color: #1e293b; /* texte foncé sur le jaune */
+  color: #1e293b;
 }
 
 .dark .review-form input,
@@ -542,15 +542,15 @@ html.dark { /* on change les couleurs */
   background-color: #0b1029;
 }
 
-.dark .theme-toggle img { /* image du bouton en version sombre */
+.dark .theme-toggle img {
   content: url("../img/aixplore/aixplore-style-toggle-dark.webp");
 }
 
-/* ---------- Tablette (écran de 1000px ou moins) ---------- */
+/* Tablette */
 
 @media (max-width: 1000px) {
   .site-header {
-    flex-wrap: wrap; /* le menu passe sous le logo */
+    flex-wrap: wrap;
   }
 
   .main-nav {
@@ -565,11 +565,11 @@ html.dark { /* on change les couleurs */
   .page-cards,
   .deals-grid,
   .links-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* ---------- Téléphone (écran de 600px ou moins) ---------- */
+/* Téléphone */
 
 @media (max-width: 600px) {
   .logo {
@@ -583,11 +583,11 @@ html.dark { /* on change les couleurs */
   .page-cards,
   .deals-grid,
   .links-grid {
-    grid-template-columns: 1fr; /* 1 seule colonne */
+    grid-template-columns: 1fr;
   }
 
   .place-content {
-    flex-direction: column; /* la photo passe au-dessus du texte */
+    flex-direction: column;
   }
 
   .place-content > img {
