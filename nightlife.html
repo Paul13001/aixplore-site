@@ -1,14 +1,173 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
+  <!-- Permet d'utiliser les caractères spéciaux -->
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="css/style.css" title="Style par défaut">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Soirées</title>
-</head>
-<body>
-  <a href="#header" class="exit-link">
-    <img src="aixplore-top-09-clic.png" alt="Retour au début de la page">
-  </a>  
-</body>
 
+  <!-- Permet d'adapter l'affichage à la taille de l'écran -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Titre de la page : "Nom de la page | Aixplore" -->
+  <title>Soirées | Aixplore</title>
+
+  <!-- Feuille de style principale -->
+  <link rel="stylesheet" href="css/style.css" title="Style par défaut">
+
+  <!-- Feuille de style alternative -->
+  <link rel="alternate stylesheet" href="css/alternate.css" title="Style alternatif">
+</head>
+
+<body>
+  <!-- En-tête commun à toutes les pages : ne pas modifier -->
+  <header class="site-header" id="header">
+
+    <!-- Logo qui ramène à l'accueil -->
+    <a href="index.html" class="logo-link">
+      <img src="aixplore-logo.png" alt="Accueil du site" class="logo">
+    </a>
+
+    <!-- Permet de changer le style -->
+    <button type="button" class="theme-toggle">
+      <img src="aixplore-style-pilule-09-clic.png" alt="Changer de mode">
+    </button>
+
+    <!-- Navigation principale du site -->
+    <nav class="main-nav">
+      <ul>
+        <!-- Liste regroupant nos 5 pages (aria-current indique la page en cours) -->
+        <li><a href="index.html">Accueil</a></li>
+
+        <li><a href="nightlife.html" aria-current="page">Soirées</a></li>
+
+        <li><a href="sports.html">Sports</a></li>
+
+        <li><a href="deals.html">Bons plans</a></li>
+
+        <li><a href="links.html">Liens utiles</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenu principal de la page -->
+  <main class="main-content">
+    <!-- Titre de la page -->
+    <h1>Soirées</h1>
+
+    <!-- Texte d'introduction -->
+    <p class="intro">
+      Aix est une petite ville, et c'est sa force : presque tout se fait à pied, du Cours Mirabeau aux places de la vieille ville.
+    </p>
+
+    <!-- Boutons de filtre : data-filter indique la catégorie à afficher -->
+    <div class="filters" role="group" aria-labelledby="filters-label">
+      <span class="filters-label" id="filters-label">Filtres :</span>
+      <button type="button" class="filter-button" data-filter="all" aria-pressed="true">Tous</button>
+      <button type="button" class="filter-button" data-filter="squares" aria-pressed="false">Places</button>
+      <button type="button" class="filter-button" data-filter="music" aria-pressed="false">Musique</button>
+      <button type="button" class="filter-button" data-filter="culture" aria-pressed="false">Culture</button>
+      <button type="button" class="filter-button" data-filter="events" aria-pressed="false">Agenda</button>
+    </div>
+
+    <!-- Grille des sorties : data-category indique la catégorie de chaque carte -->
+    <section class="deals-grid" aria-label="Liste des sorties">
+
+      <article class="deal-card" data-category="squares">
+        <p class="deal-tag">Places</p>
+        <h2>Le Cours Mirabeau</h2>
+        <p>La grande avenue bordée de platanes est le point de rendez-vous de la ville. Terrasses, fontaines et promenade : idéal pour commencer la soirée.</p>
+        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Cours%20Mirabeau%20Aix-en-Provence" class="deal-link" target="_blank" rel="noopener">Itinéraire</a>
+      </article>
+
+      <article class="deal-card" data-category="squares">
+        <p class="deal-tag">Places</p>
+        <h2>Le Forum des Cardeurs</h2>
+        <p>Derrière l'hôtel de ville, cette grande place piétonne est entourée de restaurants aux prix abordables. C'est l'un des lieux préférés des étudiants.</p>
+        <p class="deal-price">Prix abordables</p>
+        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Forum%20des%20Cardeurs%20Aix-en-Provence" class="deal-link" target="_blank" rel="noopener">Itinéraire</a>
+      </article>
+
+      <article class="deal-card" data-category="squares">
+        <p class="deal-tag">Places</p>
+        <h2>La place Richelme</h2>
+        <p>Marché de fruits et légumes le matin, terrasses le soir : la place change de visage au fil de la journée.</p>
+        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Place%20Richelme%20Aix-en-Provence" class="deal-link" target="_blank" rel="noopener">Itinéraire</a>
+      </article>
+
+      <article class="deal-card" data-category="music">
+        <p class="deal-tag">Musique</p>
+        <h2>Le 6MIC</h2>
+        <p>La salle de musiques actuelles du Pays d'Aix accueille concerts, artistes locaux et têtes d'affiche. Consultez la programmation pour les tarifs réduits.</p>
+        <p class="deal-price">Tarifs réduits</p>
+        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=6MIC%20Aix-en-Provence" class="deal-link" target="_blank" rel="noopener">Itinéraire</a>
+      </article>
+
+      <article class="deal-card" data-category="culture">
+        <p class="deal-tag">Culture</p>
+        <h2>Les cinémas du centre-ville</h2>
+        <p>Le Mazarin, le Renoir et le Cézanne proposent films récents et versions originales. Pensez à demander le tarif étudiant.</p>
+        <p class="deal-price">Tarif étudiant</p>
+        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Cinéma%20Le%20Mazarin%20Aix-en-Provence" class="deal-link" target="_blank" rel="noopener">Itinéraire</a>
+      </article>
+
+      <article class="deal-card" data-category="culture">
+        <p class="deal-tag">Culture</p>
+        <h2>Le Grand Théâtre de Provence</h2>
+        <p>Musique classique, danse et grands spectacles. Des places à tarif réduit existent pour les moins de 26 ans.</p>
+        <p class="deal-price">Tarif réduit moins de 26 ans</p>
+        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Grand%20Théâtre%20de%20Provence%20Aix-en-Provence" class="deal-link" target="_blank" rel="noopener">Itinéraire</a>
+      </article>
+
+      <article class="deal-card" data-category="culture">
+        <p class="deal-tag">Culture</p>
+        <h2>Le Pavillon Noir</h2>
+        <p>Le centre chorégraphique du Ballet Preljocaj, pour découvrir la danse contemporaine.</p>
+        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Pavillon%20Noir%20Aix-en-Provence" class="deal-link" target="_blank" rel="noopener">Itinéraire</a>
+      </article>
+
+      <article class="deal-card" data-category="events">
+        <p class="deal-tag">Agenda</p>
+        <h2>Soirées d'intégration</h2>
+        <p>À la rentrée, les associations étudiantes organisent des soirées pour accueillir les nouveaux étudiants.</p>
+        <p class="deal-price">Septembre</p>
+      </article>
+
+      <article class="deal-card" data-category="events">
+        <p class="deal-tag">Agenda</p>
+        <h2>La Fête de la musique</h2>
+        <p>Le 21 juin, la vieille ville se remplit de scènes gratuites à chaque coin de rue.</p>
+        <p class="deal-price">21 juin · Gratuit</p>
+      </article>
+
+      <article class="deal-card" data-category="events">
+        <p class="deal-tag">Agenda</p>
+        <h2>Le Festival d'Aix-en-Provence</h2>
+        <p>Opéra et concerts dans toute la ville, avec des offres pour les jeunes.</p>
+        <p class="deal-price">Juillet</p>
+      </article>
+    </section>
+
+    <!-- Conseils pour rentrer en sécurité -->
+    <section>
+      <h2>Rentrer en sécurité</h2>
+      <ul>
+        <li>Organise ton retour avant de sortir : horaires du dernier bus, covoiturage ou nuit chez un ami.</li>
+        <li>Ne laisse jamais ton verre sans surveillance.</li>
+        <li>Si tu as bu, ne prends pas le volant : désignez un conducteur qui ne boit pas.</li>
+        <li>En cas d'urgence, compose le <strong>112</strong> (ou le 15 pour le SAMU, le 17 pour la police).</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Image cliquable pour remonter en haut de la page -->
+  <a href="#header" class="back-to-top">
+    <img src="aixplore-top-09-clic.png" alt="Remonter en haut de la page">
+  </a>
+
+  <!-- Bas de la page contenant les infos pour nous contacter -->
+  <footer class="site-footer">
+    <p>Nous contacter : <a href="mailto:aixplore.contact@gmail.com">aixplore.contact@gmail.com</a></p>
+  </footer>
+  <!-- Script des filtres de la page (le même que la page Bons plans) -->
+  <script src="js/deals-filter.js"></script>
+</body>
+</html>
