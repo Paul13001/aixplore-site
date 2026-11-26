@@ -735,23 +735,23 @@ html.dark { /* Quand la classe "dark" est sur <html>, on change les variables */
 }
 
 .dark .page-home { /* Fond sombre de la page Accueil */
-  background-image: url("../img/aixplore/aixplore-fond-accueil-sombre.png");
+  background-image: url("../img/backgrounds/home-dark.webp");
 }
 
 .dark .page-nightlife { /* Fond sombre de la page Soirées */
-  background-image: url("../img/aixplore/aixplore-fond-soirees-sombre.png");
+  background-image: url("../img/backgrounds/nightlife-dark.webp");
 }
 
 .dark .page-sports { /* Fond sombre de la page Sports */
-  background-image: url("../img/aixplore/aixplore-fond-sports-sombre.png");
+  background-image: url("../img/backgrounds/sports-dark.webp");
 }
 
 .dark .page-deals { /* Fond sombre de la page Bons plans */
-  background-image: url("../img/aixplore/aixplore-fond-bons-plans-sombre.png");
+  background-image: url("../img/backgrounds/deals-dark.webp");
 }
 
 .dark .page-links { /* Fond sombre de la page Liens utiles */
-  background-image: url("../img/aixplore/aixplore-fond-liens-utiles-sombre.png");
+  background-image: url("../img/backgrounds/links-dark.webp");
 }
 
 .dark .site-header, /* En-tête et pied de page */
