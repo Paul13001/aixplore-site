@@ -1,5 +1,6 @@
 // Bouton pilule = mode sombre (même présentation, couleurs de nuit)
-// Style alternatif = style de Noël (autre feuille de style : css/alternate.min.css), activé par la page secrète /noel
+// Style alternatif = style de Noël (autre feuille de style : css/alternate.min.css)
+// activé par un lien secret en JavaScript (la petite étoile ✦ du pied de page) ou par la page secrète /noel
 
 // Lit une valeur retenue par le navigateur (try/catch : certains navigateurs bloquent cette mémoire)
 function readValue(key) {
@@ -53,6 +54,19 @@ document.addEventListener("DOMContentLoaded", function () {
       writeValue("dark", "off"); // Repasse en mode clair
     } else {
       writeValue("dark", "on"); // Passe en mode sombre
+    }
+    updateStyle();
+  });
+
+  // Lien secret (étoile du pied de page) : allume ou éteint la feuille de style de Noël
+  const secretLink = document.querySelector(".secret-link");
+
+  secretLink.addEventListener("click", function (event) {
+    event.preventDefault(); // Le lien ne recharge pas la page (href="#")
+    if (readValue("christmas") === "on") {
+      writeValue("christmas", "off"); // Éteint Noël
+    } else {
+      writeValue("christmas", "on"); // Allume Noël
     }
     updateStyle();
   });

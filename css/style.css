@@ -805,3 +805,21 @@ html.dark { /* Quand la classe "dark" est sur <html>, on change les variables */
     animation: none; /* Pas de neige qui tombe */
   }
 }
+
+/* ===== Lien secret (easter egg) : petite étoile du pied de page ===== */
+
+.site-footer .secret-link { /* Étoile discrète qui active le style de Noël */
+  display: inline-block; /* Pour pouvoir la faire tourner */
+  margin-top: 4px; /* Petit espace au-dessus */
+  font-size: 0.9rem; /* Petite */
+  color: var(--brand-yellow); /* Jaune des étoiles */
+  text-decoration: none; /* Pas de soulignement */
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s; /* Animation douce au survol */
+}
+
+.secret-link:hover { /* Survol : l'étoile tourne et grossit */
+  -webkit-transform: rotate(72deg) scale(1.5);
+  -ms-transform: rotate(72deg) scale(1.5);
+  transform: rotate(72deg) scale(1.5);
+}
