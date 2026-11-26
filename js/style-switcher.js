@@ -1,44 +1,49 @@
-// Changement de style du site
-// - le bouton pilule de l'en-tête allume / éteint le mode sombre
-// - l'étoile cachée du pied de page (lien href="javascript:toggleSetting('christmas')") allume / éteint
-//   le style de Noël (l'autre feuille de style : css/alternate.min.css)
-// Les choix sont retenus par le navigateur (localStorage) pour rester actifs sur toutes les pages.
+// Changer le style du site
+// - le bouton pilule allume ou éteint le mode sombre
+// - l'étoile du bas de page (lien javascript:toggleChristmas()) allume ou éteint le style de Noël
+// Le navigateur retient les choix (localStorage) pour toutes les pages.
 
-const christmasStyle = document.querySelector('link[href="css/alternate.min.css"]'); // Feuille de style de Noël
-const darkButton = document.querySelector(".theme-toggle"); // Bouton pilule
+let christmasCss = document.querySelector("#christmas-css"); // la feuille de style de Noël
+let darkButton = document.querySelector(".theme-toggle"); // le bouton pilule
 
-christmasStyle.removeAttribute("title"); // Sans title, c'est nous (et pas le navigateur) qui choisissons quand l'afficher
+// on enlève le title pour pouvoir allumer la feuille de Noël nous-mêmes
+christmasCss.removeAttribute("title");
 
-// Applique les choix retenus par le navigateur
+// met le bon style sur la page
 function applyStyle() {
-  const christmasOn = localStorage.getItem("christmas") === "on";
-  const darkOn = localStorage.getItem("dark") === "on";
-
-  if (christmasOn) {
-    christmasStyle.rel = "stylesheet"; // La feuille de Noël s'applique
+  if (localStorage.getItem("christmas") === "on") {
+    christmasCss.rel = "stylesheet"; // la feuille de Noël s'applique
+    document.documentElement.classList.remove("dark"); // pas de mode sombre à Noël
   } else {
-    christmasStyle.rel = "alternate stylesheet"; // La feuille de Noël ne s'applique pas
-  }
-
-  if (darkOn && !christmasOn) {
-    document.documentElement.classList.add("dark"); // Mode sombre (pas pendant Noël)
-  } else {
-    document.documentElement.classList.remove("dark");
+    christmasCss.rel = "alternate stylesheet"; // la feuille de Noël ne s'applique pas
+    if (localStorage.getItem("dark") === "on") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
   }
 }
 
-// Passe un réglage de "on" à "off" ou de "off" à "on"
-function toggleSetting(name) {
-  if (localStorage.getItem(name) === "on") {
-    localStorage.setItem(name, "off");
+// allume ou éteint le style de Noël (appelé par l'étoile du bas de page)
+function toggleChristmas() {
+  if (localStorage.getItem("christmas") === "on") {
+    localStorage.setItem("christmas", "off");
   } else {
-    localStorage.setItem(name, "on");
+    localStorage.setItem("christmas", "on");
   }
   applyStyle();
 }
 
-darkButton.addEventListener("click", function () {
-  toggleSetting("dark");
-});
+// allume ou éteint le mode sombre
+function toggleDark() {
+  if (localStorage.getItem("dark") === "on") {
+    localStorage.setItem("dark", "off");
+  } else {
+    localStorage.setItem("dark", "on");
+  }
+  applyStyle();
+}
 
-applyStyle(); // Au chargement de chaque page
+darkButton.addEventListener("click", toggleDark); // clic sur le bouton pilule
+
+applyStyle(); // au chargement de la page

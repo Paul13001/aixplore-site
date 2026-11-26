@@ -1,799 +1,597 @@
+/* Feuille de style principale du site Aixplore */
+
+/* ---------- Couleurs et police du site ---------- */
+
 :root {
-  /* Valeurs de bases */
-  --bg-color: #ffffff; /* Couleur de fond générale de la page */
-  --text-color: #1e293b; /* Couleur principale du texte */
-  --primary-color: #0f172a; /* Couleur principale (header et footer) */
-  --header-text-color: #f8fafc; /* Couleur claire pour le texte du header et du footer */
-  --accent-color: #2563eb; /* Couleur d'accent sur fond clair (liens du contenu) */
-  --header-accent-color: #93c5fd; /* Couleur d'accent sur fond foncé (survol du menu) */
-  --font-family: system-ui, "Segoe UI", Roboto, sans-serif; /* Police principale */
-  --header-height: 80px; /* Hauteur de l'en-tête */
-  --page-padding: 20px; /* Espace à gauche et à droite des blocs */
-  --content-max-width: 1100px; /* Largeur maximale du contenu */
-  --brand-blue: #2340d9; /* Bleu Aixplore (logo, dessins des fonds, en-tête) */
-  --brand-pink: #ff5fa2; /* Rose Aixplore (ombre des dessins) */
-  --brand-yellow: #ffe14d; /* Jaune Aixplore (étoiles) */
-  --box-radius: 6px; /* Coins arrondis des cadres */
+  --bg-color: #ffffff; /* fond des cadres */
+  --text-color: #1e293b; /* couleur du texte */
+  --primary-color: #0f172a; /* couleur foncée */
+  --header-text-color: #ffffff; /* texte de l'en-tête et du bas de page */
+  --accent-color: #2563eb; /* couleur des liens */
+  --brand-blue: #2340d9; /* bleu Aixplore */
+  --brand-pink: #ff5fa2; /* rose Aixplore */
+  --brand-yellow: #ffe14d; /* jaune Aixplore */
+  --font-family: system-ui, "Segoe UI", Roboto, sans-serif; /* police du site */
 }
 
-*, /* Sélectionne tous les éléments HTML de la page */
-*::before, /* Faux enfant ajouté au début de l'élément */
-*::after { /* Faux enfant ajouté à la fin de l'élément */
-  -webkit-box-sizing: border-box; /* Préfixe pour les anciens Safari / Chrome */
-  -moz-box-sizing: border-box; /* Préfixe pour les anciens Firefox */
-  box-sizing: border-box; /* Inclut la bordure et le padding dans la largeur et la hauteur */
+/* ---------- Réglages de base ---------- */
+
+* {
+  -webkit-box-sizing: border-box; /* préfixe pour les vieux navigateurs */
+  -moz-box-sizing: border-box; /* préfixe pour les vieux Firefox */
+  box-sizing: border-box; /* la bordure et le padding sont compris dans la taille */
 }
 
 body {
-  margin: 0; /* Supprime la marge par défaut du navigateur autour du body */
-  font-family: var(--font-family); /* Applique la police */
-  line-height: 1.5; /* Espace entre les lignes pour mieux lire */
-  color: var(--text-color); /* Applique la couleur du texte */
-  background-color: var(--bg-color); /* Applique la couleur du fond */
-  min-height: 100vh; /* Le body fait au moins toute la hauteur de l'écran */
-  display: flex; /* Active flexbox sur le body */
-  flex-direction: column; /* Header, main et footer empilés les uns sous les autres */
+  margin: 0;
+  font-family: var(--font-family);
+  line-height: 1.5;
+  color: var(--text-color);
+  min-height: 100vh; /* au moins la hauteur de l'écran */
+  display: flex;
+  flex-direction: column; /* en-tête, contenu et bas de page les uns sous les autres */
 }
 
-a { /* Tous les liens */
-  color: var(--accent-color); /* Couleur d'accent pour les liens */
+a {
+  color: var(--accent-color);
 }
 
-a:focus, /* Lien sélectionné au clavier */
-button:focus { /* Bouton sélectionné au clavier */
-  outline: 2px solid var(--accent-color); /* Contour visible pour la navigation au clavier */
-  outline-offset: 2px; /* Espace entre l'élément et son contour */
+/* ---------- Fond de chaque page ---------- */
+
+.page-home,
+.page-nightlife,
+.page-sports,
+.page-deals,
+.page-links {
+  background-color: #ffffff;
+  background-size: cover; /* l'image remplit l'écran */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* l'image ne bouge pas quand on descend */
 }
 
-.site-header { /* En-tête du site */
-  position: -webkit-sticky; /* Préfixe pour les anciens Safari */
-  position: sticky; /* L'en-tête reste toujours visible en haut quand on descend */
-  top: 0; /* Collé en haut de l'écran */
-  z-index: 5; /* Passe au-dessus du contenu */
-  min-height: var(--header-height); /* Hauteur de 80px */
-  padding-left: var(--page-padding); /* Espace à gauche */
-  padding-right: var(--page-padding); /* Espace à droite */
-  background-color: var(--brand-blue); /* Fond bleu Aixplore */
-  border-bottom: 4px solid var(--brand-pink); /* Trait rose comme l'ombre des dessins */
-  color: var(--header-text-color); /* Texte clair */
-  display: grid; /* Active la grille : 3 colonnes (bouton | logo | menu) */
-  grid-template-columns: 1fr auto 1fr; /* Les 2 colonnes des côtés font la même largeur, donc le logo est pile au milieu */
-  align-items: center; /* Centre les éléments verticalement */
-  gap: 16px; /* Espace entre les éléments */
-}
-
-.site-header a, /* Liens du header */
-.site-header button { /* Bouton du header */
-  color: inherit; /* Prend la couleur claire du header */
-}
-
-.logo-link { /* Lien autour du logo */
-  grid-column: 2; /* Colonne du milieu */
-  grid-row: 1; /* Première ligne */
-  display: block; /* Le lien prend la taille du logo */
-  text-decoration: none; /* Enlève le soulignement */
-}
-
-.logo { /* Image du logo */
-  display: block; /* Enlève l'espace vide sous l'image */
-  max-height: 64px; /* Le logo ne dépasse jamais du header (80px de haut - 16px de marge) */
-  width: auto; /* Garde les proportions de l'image */
-}
-
-.theme-toggle { /* Bouton changer de style */
-  grid-column: 1; /* Colonne de gauche (à la place du logo) */
-  grid-row: 1; /* Première ligne */
-  justify-self: start; /* Collé à gauche */
-  padding: 2px 8px; /* Petit espace autour de l'image */
-  background-color: var(--bg-color); /* Pastille blanche pour que le bouton bleu se voie sur l'en-tête bleu */
-  border: none; /* Enlève la bordure par défaut */
-  border-radius: 30px; /* Pastille en forme de pilule */
-  cursor: pointer; /* Curseur en forme de main au survol */
-}
-
-.theme-toggle img { /* Image du bouton changer de style */
-  display: block; /* Enlève l'espace vide sous l'image */
-  height: 44px; /* Bouton bien visible, sans dépasser du header */
-  width: auto; /* Garde les proportions de l'image */
-}
-
-.theme-toggle:hover { /* Survol du bouton changer de style */
-  opacity: 0.8; /* Image un peu transparente au survol */
-}
-
-.main-nav { /* Menu de navigation */
-  grid-column: 3; /* Colonne de droite */
-  grid-row: 1; /* Première ligne */
-  justify-self: end; /* Collé à droite */
-}
-
-.main-nav ul { /* Liste du menu */
-  list-style: none; /* Enlève les puces */
-  margin: 0; /* Enlève la marge par défaut */
-  padding: 0; /* Enlève le décalage à gauche par défaut */
-  display: flex; /* Met les liens en ligne */
-  gap: 8px; /* Espace entre les liens */
-}
-
-.main-nav a { /* Liens du menu */
-  display: block; /* Toute la zone du lien est cliquable */
-  padding: 6px 10px; /* Espace autour du texte */
-  text-decoration: none; /* Enlève le soulignement */
-}
-
-.main-nav a:hover { /* Survol d'un lien du menu */
-  color: var(--brand-yellow); /* Jaune des étoiles au survol */
-}
-
-.main-nav a[aria-current="page"] { /* Lien de la page où on se trouve */
-  font-weight: bold; /* Texte en gras */
-  border-bottom: 3px solid var(--brand-yellow); /* Trait jaune sous le lien */
-}
-
-.main-content { /* Contenu principal de la page */
-  flex: 1; /* Prend toute la place libre, donc pousse le footer en bas */
-  width: 100%; /* Prend toute la largeur disponible */
-  max-width: var(--content-max-width); /* Sans dépasser la largeur maximale */
-  margin: 0 auto; /* Centre le contenu horizontalement */
-  padding: 24px var(--page-padding); /* Espace en haut, en bas et sur les côtés */
-}
-
-h1 { /* Titre principal de la page */
-  margin-top: 0; /* Enlève la marge au-dessus du titre */
-  font-weight: normal; /* Titre sans gras comme sur la maquette */
-  text-transform: uppercase; /* Titre en majuscules */
-}
-
-/* Fonds des pages (image fixe derrière toute la page) */
-
-.page-home, /* Page Accueil */
-.page-nightlife, /* Page Soirées */
-.page-sports, /* Page Sports */
-.page-deals, /* Page Bons plans */
-.page-links { /* Page Liens utiles */
-  background-size: cover; /* L'image remplit tout l'écran */
-  background-position: center; /* Image centrée */
-  background-repeat: no-repeat; /* L'image n'est pas répétée */
-  background-attachment: fixed; /* L'image de fond reste fixe lors du défilement */
-}
-
-.page-home { /* Fond de la page Accueil */
+.page-home {
   background-image: url("../img/backgrounds/home.webp");
 }
 
-.page-nightlife { /* Fond de la page Soirées */
+.page-nightlife {
   background-image: url("../img/backgrounds/nightlife.webp");
 }
 
-.page-sports { /* Fond de la page Sports */
+.page-sports {
   background-image: url("../img/backgrounds/sports.webp");
 }
 
-.page-deals { /* Fond de la page Bons plans */
+.page-deals {
   background-image: url("../img/backgrounds/deals.webp");
 }
 
-.page-links { /* Fond de la page Liens utiles */
+.page-links {
   background-image: url("../img/backgrounds/links.webp");
 }
 
-/* Les textes posés sur le fond sont dans un cadre blanc pour rester lisibles */
-.intro, /* Texte d'introduction */
-.main-content > p, /* Paragraphe directement dans la page */
-.main-content section > p, /* Paragraphe d'une partie */
-.main-content section > ul { /* Liste d'une partie */
-  background-color: var(--bg-color); /* Fond blanc pour mieux lire le texte */
-  border: 1px solid var(--primary-color); /* Rectangle autour du texte */
-  border-radius: var(--box-radius); /* Coins arrondis comme les cartes */
-  padding: 12px 16px; /* Espace à l'intérieur du cadre */
-}
-
-.main-content section > ul { /* Liste d'une partie */
-  padding-left: 36px; /* Laisse la place des puces */
-}
-
-.intro { /* Texte d'introduction de chaque page */
-  margin-bottom: 24px; /* Espace sous le texte */
-}
-
-.home-video { /* Vidéo de présentation */
-  display: block; /* Enlève l'espace vide sous la vidéo */
-  width: 100%; /* Prend toute la largeur disponible */
-  max-width: 600px; /* Sans dépasser 600px, comme sur la maquette */
-  height: auto; /* Garde les proportions de la vidéo */
-  background-color: #000000; /* Fond noir avant le chargement */
-}
-
-.page-cards { /* Raccourcis vers les 4 pages */
-  display: grid; /* Active la grille */
-  grid-template-columns: repeat(4, 1fr); /* 4 colonnes de même largeur */
-  gap: 12px; /* Espace entre les cartes */
-  margin-top: 16px; /* Espace au-dessus des cartes */
-  margin-bottom: 32px; /* Espace sous les cartes */
-}
-
-.page-card { /* Une carte vers une page */
-  background-color: var(--bg-color); /* Fond blanc par-dessus le fond de la page */
-  display: block; /* Toute la carte est cliquable */
-  padding: 16px; /* Espace autour du texte */
-  min-height: 60px; /* Hauteur minimale de la carte */
-  border: 1px solid var(--primary-color); /* Bordure foncée */
-  border-radius: 4px; /* Coins arrondis */
-  color: var(--text-color); /* Texte de la couleur normale */
-  text-decoration: none; /* Enlève le soulignement */
-}
-
-.page-card:hover { /* Survol d'une carte */
-  background-color: var(--primary-color); /* Fond foncé au survol */
-  color: var(--header-text-color); /* Texte clair au survol */
-}
-
-.review-form { /* Formulaire d'avis */
-  display: flex; /* Active flexbox */
-  flex-direction: column; /* Champs les uns sous les autres */
-  gap: 6px; /* Espace entre les éléments */
-  max-width: 460px; /* Largeur maximale du formulaire */
-}
-
-.review-form label { /* Nom de chaque champ */
-  margin-top: 8px; /* Espace au-dessus de chaque champ */
-}
-
-.review-form input, /* Champs texte, e-mail et nombre */
-.review-form select, /* Liste des rubriques */
-.review-form textarea { /* Zone du message */
-  padding: 8px; /* Espace à l'intérieur du champ */
-  font-family: inherit; /* Même police que le reste du site */
-  font-size: 16px; /* Taille de texte normale */
-  border: 1px solid var(--primary-color); /* Bordure foncée */
-  border-radius: 4px; /* Coins arrondis */
-}
-
-.rating { /* Groupe des boutons de la note */
-  margin: 8px 0 0; /* Même espace au-dessus que les autres champs */
-  padding: 0; /* Enlève l'espace intérieur par défaut */
-  border: none; /* Enlève le cadre par défaut du fieldset */
-  display: flex; /* Met les notes en ligne */
-  flex-wrap: wrap; /* Passe à la ligne si l'écran est trop étroit */
-  gap: 8px; /* Espace entre les notes */
-}
-
-.rating legend { /* Texte "Note" */
-  padding: 0; /* Aligné à gauche comme les autres noms de champ */
-  margin-bottom: 6px; /* Espace sous le texte */
-}
-
-.review-form .rating label { /* Une note (bouton + texte) */
-  margin-top: 0; /* Annule l'espace prévu pour les autres champs */
-  padding: 6px 12px; /* Espace autour du texte */
-  border: 1px solid var(--primary-color); /* Bordure foncée */
-  border-radius: 20px; /* Forme de pilule comme les filtres */
-  background-color: var(--bg-color); /* Fond blanc par-dessus le fond de la page */
-  cursor: pointer; /* Curseur en forme de main au survol */
-}
-
-.review-form .rating label:hover { /* Survol d'une note */
-  border-color: var(--accent-color); /* Bordure bleue au survol */
-  color: var(--accent-color); /* Texte bleu au survol */
-}
-
-.rating input { /* Bouton radio : caché à l'écran mais toujours utilisable au clavier et par les lecteurs d'écran */
-  position: absolute; /* Sort le bouton du flux */
-  opacity: 0; /* Invisible */
-  width: 1px; /* Tout petit */
-  height: 1px;
-}
-
-.review-form .rating input:checked + label { /* Note choisie (l'étiquette juste après le bouton coché) */
-  background-color: var(--primary-color); /* Fond foncé comme le filtre actif */
-  color: var(--header-text-color); /* Texte clair */
-}
-
-.review-form .rating input:focus + label { /* Note sélectionnée au clavier */
-  outline: 2px solid var(--accent-color); /* Contour visible */
-  outline-offset: 2px;
-}
-
-.submit-button { /* Bouton envoyer */
-  align-self: flex-start; /* Le bouton garde sa taille au lieu de prendre toute la largeur */
-  margin-top: 12px; /* Espace au-dessus du bouton */
-  padding: 8px 24px; /* Espace autour du texte */
-  font-family: inherit; /* Même police que le reste du site */
-  font-size: 16px; /* Taille de texte normale */
-  background-color: var(--primary-color); /* Fond foncé */
-  color: var(--header-text-color); /* Texte clair */
-  border: none; /* Enlève la bordure par défaut */
-  border-radius: 4px; /* Coins arrondis */
-  cursor: pointer; /* Curseur en forme de main au survol */
-}
-
-.submit-button:hover { /* Survol du bouton envoyer */
-  background-color: var(--accent-color); /* Fond bleu au survol */
-}
-
-.back-to-top { /* Lien pour remonter en haut */
-  position: fixed; /* Reste au même endroit de l'écran quand on scrolle */
-  right: 20px; /* À 20px du bord droit de l'écran */
-  bottom: 20px; /* À 20px du bas de l'écran */
-  display: block; /* Le lien prend la taille de l'image */
-}
-
-.back-to-top img { /* Image du bouton haut */
-  display: block; /* Enlève l'espace vide sous l'image */
-  width: 70px; /* Largeur de l'image */
-  height: auto; /* Garde les proportions de l'image */
-}
-
-.site-footer { /* Pied de page */
-  padding: 16px var(--page-padding); /* Espace autour du texte */
-  background-color: var(--brand-blue); /* Fond bleu comme l'en-tête */
-  border-top: 4px solid var(--brand-pink); /* Trait rose comme l'en-tête */
-  color: var(--header-text-color); /* Texte clair */
-  text-align: center; /* Centre le texte */
-}
-
-.site-footer p { /* Paragraphe du pied de page */
-  margin: 0; /* Enlève la marge par défaut */
-}
-
-.site-footer a { /* Lien e-mail du pied de page */
-  color: var(--header-text-color); /* Blanc, lisible sur le fond bleu */
-}
-
-.filters { /* Zone des boutons de filtre */
-  display: flex; /* Met les boutons en ligne */
-  flex-wrap: wrap; /* Passe à la ligne si l'écran est trop étroit */
-  align-items: center; /* Aligne le texte "Filtres :" avec les boutons */
-  gap: 8px; /* Espace entre les boutons */
-  margin-bottom: 24px; /* Espace sous les filtres */
-}
-
-.filters-label { /* Texte "Filtres :" */
-  margin-right: 4px; /* Petit espace avant le premier bouton */
-}
+/* ---------- En-tête ---------- */
 
-.filter-button { /* Un bouton de filtre (même style que le bouton Itinéraire) */
-  padding: 8px 18px; /* Espace autour du texte */
-  font-family: inherit; /* Même police que le reste du site */
-  font-size: 16px; /* Taille de texte normale */
-  font-weight: bold; /* Texte en gras comme sur le bouton Itinéraire */
-  background-color: var(--bg-color); /* Fond blanc */
-  color: var(--brand-blue); /* Texte bleu Aixplore */
-  border: 2px solid var(--brand-blue); /* Bordure bleue Aixplore */
-  border-radius: 30px; /* Bouton en forme de pilule */
-  box-shadow: 4px 4px 0 var(--brand-pink); /* Ombre rose décalée comme sur le bouton Itinéraire */
-  cursor: pointer; /* Curseur en forme de main au survol */
+.site-header {
+  position: -webkit-sticky; /* préfixe pour les vieux Safari */
+  position: sticky; /* l'en-tête reste visible en haut quand on descend */
+  top: 0;
+  z-index: 5; /* au-dessus du reste de la page */
+  display: flex;
+  justify-content: space-between; /* bouton à gauche, logo au milieu, menu à droite */
+  align-items: center;
+  padding: 8px 20px;
+  background-color: var(--brand-blue);
+  border-bottom: 4px solid var(--brand-pink);
+  color: var(--header-text-color);
 }
 
-.filter-button:hover { /* Survol d'un bouton de filtre */
-  -webkit-transform: translate(-1px, -1px);
-  -ms-transform: translate(-1px, -1px);
-  transform: translate(-1px, -1px); /* Le bouton se soulève un peu */
-  box-shadow: 5px 5px 0 var(--brand-pink); /* L'ombre grandit */
+.logo {
+  display: block;
+  height: 64px;
 }
 
-.filter-button[aria-pressed="true"] { /* Bouton du filtre actif */
-  background-color: var(--brand-blue); /* Fond bleu Aixplore */
-  color: var(--header-text-color); /* Texte blanc */
+.christmas-title {
+  display: none; /* visible seulement avec le style de Noël */
 }
 
-.deals-grid { /* Grille des cartes bon plan */
-  display: grid; /* Active la grille */
-  grid-template-columns: repeat(3, 1fr); /* 3 colonnes sur ordinateur */
-  gap: 16px; /* Espace entre les cartes */
+.theme-toggle {
+  padding: 2px 8px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer; /* main au survol */
 }
 
-.deal-card { /* Une carte bon plan */
-  background-color: var(--bg-color); /* Fond blanc par-dessus le fond de la page */
-  display: flex; /* Active flexbox */
-  flex-direction: column; /* Contenu de la carte empilé */
-  padding: 16px; /* Espace à l'intérieur de la carte */
-  border: 1px solid var(--primary-color); /* Bordure foncée */
-  border-radius: 6px; /* Coins arrondis */
+.theme-toggle img {
+  display: block;
+  height: 44px;
 }
 
-.deal-card[hidden] { /* Carte cachée par le filtre */
-  display: none; /* La carte disparaît (sinon display: flex l'emporte sur hidden) */
-}
-
-.deal-card h2 { /* Titre de la carte */
-  margin: 4px 0 8px; /* Espace autour du titre */
-  font-size: 19px; /* Titre un peu plus grand que le texte */
-}
-
-.deal-card p { /* Paragraphes de la carte */
-  margin: 0 0 12px; /* Espace sous chaque paragraphe */
-}
-
-.deal-tag { /* Étiquette de la catégorie (même style que le bouton Itinéraire) */
-  align-self: flex-start; /* L'étiquette garde la taille de son texte */
-  padding: 3px 12px; /* Espace autour du texte */
-  font-size: 14px; /* Texte un peu plus petit */
-  font-weight: bold; /* Texte en gras comme sur le bouton Itinéraire */
-  background-color: var(--brand-blue); /* Fond bleu Aixplore */
-  color: var(--header-text-color); /* Texte blanc */
-  border-radius: 30px; /* Étiquette en forme de pilule */
-  box-shadow: 3px 3px 0 var(--brand-pink); /* Ombre rose décalée comme sur le bouton Itinéraire */
-}
-
-.deal-price { /* Prix ou avantage du bon plan */
-  font-weight: bold; /* Texte en gras */
-  color: var(--accent-color); /* Texte bleu pour le faire ressortir */
-}
-
-.deal-link { /* Lien en savoir plus */
-  margin-top: auto; /* Pousse le lien tout en bas de la carte */
-}
-
-@media (max-width: 900px) { /* Tablette : écran de 900px ou moins */
-  .deals-grid { /* Grille des cartes */
-    grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
-  }
-}
-
-@media (max-width: 600px) { /* Téléphone : écran de 600px ou moins */
-  .deals-grid { /* Grille des cartes */
-    grid-template-columns: 1fr; /* 1 seule colonne */
-  }
-}
-
-.links-grid { /* Grille des liens utiles */
-  list-style: none; /* Enlève les puces */
-  margin: 0 0 32px; /* Espace sous la grille */
-  padding: 0; /* Enlève le décalage à gauche par défaut */
-  display: grid; /* Active la grille */
-  grid-template-columns: repeat(3, 1fr); /* 3 colonnes sur ordinateur */
-  gap: 12px; /* Espace entre les liens */
-}
-
-.link-card { /* Un lien utile */
-  background-color: var(--bg-color); /* Fond blanc par-dessus le fond de la page */
-  display: flex; /* Active flexbox */
-  flex-direction: column; /* Titre au-dessus de la description */
-  height: 100%; /* Toutes les cartes d'une ligne ont la même hauteur */
-  padding: 12px 16px; /* Espace à l'intérieur de la carte */
-  border: 1px solid var(--primary-color); /* Bordure foncée */
-  border-radius: 6px; /* Coins arrondis */
-  color: var(--text-color); /* Texte de la couleur normale */
-  text-decoration: none; /* Enlève le soulignement */
-}
-
-.link-card:hover { /* Survol d'un lien utile */
-  background-color: var(--primary-color); /* Fond foncé au survol */
-  color: var(--header-text-color); /* Texte clair au survol */
-}
-
-.link-title { /* Nom du site */
-  font-weight: bold; /* Texte en gras */
-  margin-bottom: 4px; /* Espace sous le nom */
-}
-
-.link-description { /* Description du site */
-  font-size: 14px; /* Texte un peu plus petit */
-}
+/* ---------- Menu ---------- */
 
-.sources h3 { /* Sous-titres des sources */
-  margin-bottom: 8px; /* Espace sous le sous-titre */
+.main-nav ul {
+  display: flex; /* liens les uns à côté des autres */
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none; /* pas de puces */
 }
 
-.sources-list { /* Liste des sources */
-  margin-top: 0; /* Enlève l'espace au-dessus de la liste */
-  font-size: 14px; /* Texte un peu plus petit */
+.main-nav a {
+  display: block;
+  padding: 6px 10px;
+  color: var(--header-text-color);
+  text-decoration: none;
 }
 
-@media (max-width: 900px) { /* Tablette : écran de 900px ou moins */
-  .links-grid { /* Grille des liens */
-    grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
-  }
+.main-nav a:hover {
+  color: var(--brand-yellow);
 }
 
-@media (max-width: 600px) { /* Téléphone : écran de 600px ou moins */
-  .links-grid { /* Grille des liens */
-    grid-template-columns: 1fr; /* 1 seule colonne */
-  }
+.main-nav a[aria-current="page"] { /* page où on se trouve */
+  font-weight: bold;
+  border-bottom: 3px solid var(--brand-yellow);
 }
 
-/* Page Sports */
-
-.main-content section { /* Chaque partie de la page */
-  margin-bottom: 32px; /* Espace entre les parties */
-}
-
-.place { /* Un lieu (titre + image + texte) */
-  margin-bottom: 24px; /* Espace entre chaque lieu */
-}
-
-.place h3 { /* Nom du lieu */
-  margin: 0 0 8px; /* Espace sous le nom */
-  font-size: 19px; /* Même taille que les titres des cartes */
-}
-
-.place-content { /* Image + texte */
-  display: flex; /* Met l'image et le texte côte à côte */
-  gap: 16px; /* Espace entre l'image et le texte */
-}
-
-.place-content > img { /* Photo du lieu */
-  width: 212px; /* Largeur de la photo */
-  height: 148px; /* Hauteur de la photo */
-  object-fit: cover; /* Remplit le cadre sans déformer l'image */
-  border: 1px solid var(--primary-color); /* Bordure foncée comme les cartes */
-  border-radius: 6px; /* Coins arrondis comme les cartes */
-}
-
-.place-text { /* Texte du lieu */
-  flex: 1; /* Le texte prend toute la place restante */
-  display: flex; /* Active flexbox */
-  flex-direction: column; /* Texte au-dessus du bouton */
-  padding: 16px; /* Espace à l'intérieur du cadre */
-  background-color: var(--bg-color); /* Fond blanc */
-  border: 1px solid var(--primary-color); /* Bordure foncée comme les cartes */
-  border-radius: 6px; /* Coins arrondis comme les cartes */
-}
-
-.place-text p { /* Paragraphes du texte */
-  margin: 0; /* Enlève la marge par défaut */
-}
-
-.route-area { /* Zone du bouton itinéraire */
-  margin-top: auto; /* Pousse le bouton en bas du cadre */
-  padding-top: 12px; /* Espace au-dessus du bouton */
-  text-align: right; /* Place le bouton à droite */
-}
-
-.deal-card .route-area { /* Bouton itinéraire dans une carte (page Soirées) */
-  margin: auto 0 0; /* Pousse le bouton tout en bas de la carte */
-}
-
-.route-button img { /* Image du bouton itinéraire */
-  width: 150px; /* Taille de l'image du bouton */
-  height: auto; /* Garde les proportions */
-  vertical-align: bottom; /* Enlève le petit espace sous l'image */
-}
-
-@media (max-width: 600px) { /* Téléphone : écran de 600px ou moins */
-  .place-content { /* Image + texte */
-    flex-direction: column; /* L'image passe au-dessus du texte */
-  }
-
-  .place-content > img { /* Photo du lieu */
-    width: 100%; /* La photo prend toute la largeur */
-    height: 180px; /* Un peu plus haute sur téléphone */
-  }
-}
-
-/* Écrans plus petits : en-tête et raccourcis de l'accueil */
-
-@media (max-width: 1000px) { /* Écran de 1000px ou moins : le menu ne tient plus à droite du logo */
-  .site-header { /* En-tête */
-    padding-top: 8px; /* Espace en haut */
-    padding-bottom: 8px; /* Espace en bas */
-  }
-
-  .main-nav { /* Menu */
-    grid-column: 1 / -1; /* Prend toute la largeur */
-    grid-row: 2; /* Passe sur une 2e ligne, sous le logo */
-    justify-self: center; /* Menu centré */
-  }
-
-  .main-nav ul { /* Liste du menu */
-    flex-wrap: wrap; /* Les liens passent à la ligne si besoin */
-    justify-content: center; /* Liens centrés */
-    gap: 4px; /* Liens plus serrés */
-  }
-}
-
-@media (max-width: 900px) { /* Tablette : écran de 900px ou moins */
-  .page-cards { /* Raccourcis de l'accueil */
-    grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
-  }
-}
+/* ---------- Contenu ---------- */
 
-@media (max-width: 600px) { /* Téléphone : écran de 600px ou moins */
-  .theme-toggle img { /* Bouton changer de style */
-    height: 30px; /* Plus petit pour que le logo reste bien au milieu */
-  }
-
-  .logo { /* Logo */
-    max-height: 48px; /* Un peu plus petit sur téléphone */
-  }
-
-  .page-cards { /* Raccourcis de l'accueil */
-    grid-template-columns: 1fr; /* 1 seule colonne */
-  }
+.main-content {
+  flex: 1; /* prend la place libre, le bas de page reste en bas */
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto; /* centré */
+  padding: 24px 20px;
 }
 
-/* Style principal */
-
-h1 { /* Titre de la page : grosse pilule bleue comme le bouton Itinéraire */
-  display: inline-block; /* Le fond bleu prend juste la taille du texte */
-  padding: 8px 28px; /* Espace autour du texte */
-  font-weight: 900; /* Très gras */
-  color: var(--header-text-color); /* Texte blanc */
-  background-color: var(--brand-blue); /* Fond bleu Aixplore */
-  border-radius: 40px; /* Forme de pilule */
-  box-shadow: 6px 6px 0 var(--brand-pink); /* Ombre rose décalée */
-  -webkit-transform: rotate(-1.5deg);
-  -ms-transform: rotate(-1.5deg);
-  transform: rotate(-1.5deg); /* Un peu penché comme un autocollant */
+h1 { /* titre de la page dans une pilule bleue */
+  display: inline-block;
+  margin-top: 0;
+  padding: 8px 28px;
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: var(--brand-blue);
+  border-radius: 40px;
+  box-shadow: 6px 6px 0 var(--brand-pink); /* ombre rose */
 }
 
-h1::after { /* Petite étoile après le titre */
-  content: " ✦"; /* Étoile comme sur le logo */
-  color: var(--brand-yellow); /* Jaune des étoiles */
+section > h2 { /* titres des parties en jaune */
+  display: inline-block;
+  padding: 4px 16px;
+  background-color: var(--brand-yellow);
+  border: 2px solid var(--brand-blue);
+  border-radius: 30px;
 }
 
-section > h2 { /* Titre d'une partie : style autocollant */
-  display: inline-block; /* Le fond jaune prend juste la taille du texte */
-  padding: 4px 16px; /* Espace autour du texte */
-  background-color: var(--brand-yellow); /* Fond jaune comme les étoiles */
-  border: 2px solid var(--brand-blue); /* Contour bleu */
-  border-radius: 30px; /* Forme de pilule */
-  -webkit-transform: rotate(-2deg);
-  -ms-transform: rotate(-2deg);
-  transform: rotate(-2deg); /* Un peu penché comme un autocollant */
+.main-content section {
+  margin-bottom: 32px;
 }
 
-.intro, /* Cadres de texte */
+/* cadres blancs pour lire le texte par-dessus le fond */
+.intro,
 .main-content > p,
 .main-content section > p,
-.main-content section > ul,
-.page-card, /* Cartes */
-.deal-card,
-.link-card,
-.place-text,
-.place-content > img, /* Photos */
-.home-video { /* Vidéo */
-  border: 2px solid var(--brand-blue); /* Gros contour bleu */
-  border-radius: 16px; /* Coins bien ronds */
-  box-shadow: 6px 6px 0 var(--brand-pink); /* Ombre rose décalée */
+.main-content section > ul {
+  padding: 12px 16px;
+  background-color: var(--bg-color);
+  border: 2px solid var(--brand-blue);
+  border-radius: 16px;
+  box-shadow: 6px 6px 0 var(--brand-pink);
 }
 
-.page-card, /* Cartes cliquables */
-.deal-card,
-.link-card,
-.submit-button { /* Bouton envoyer */
-  -webkit-transition: -webkit-transform 0.15s;
-  transition: transform 0.15s; /* Animation douce au survol */
+.main-content section > ul {
+  padding-left: 36px; /* place pour les puces */
 }
 
-.page-card:hover, /* Survol d'une carte */
-.deal-card:hover,
-.link-card:hover {
-  -webkit-transform: translate(-3px, -3px);
-  -ms-transform: translate(-3px, -3px);
-  transform: translate(-3px, -3px); /* La carte se soulève */
-  box-shadow: 9px 9px 0 var(--brand-pink); /* L'ombre grandit */
+.intro {
+  margin-bottom: 24px;
 }
 
-.page-card:hover, /* Survol d'une carte cliquable */
-.link-card:hover {
-  background-color: var(--brand-blue); /* Fond bleu Aixplore */
+/* ---------- Accueil ---------- */
+
+.home-video {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  height: auto; /* garde les proportions de la vidéo */
+  background-color: #000000;
+  border: 2px solid var(--brand-blue);
+  border-radius: 16px;
+  box-shadow: 6px 6px 0 var(--brand-pink);
 }
 
-.deal-tag { /* Étiquette de catégorie */
-  -webkit-transform: rotate(-3deg);
-  -ms-transform: rotate(-3deg);
-  transform: rotate(-3deg); /* Un peu penchée comme un autocollant */
+.page-cards { /* les 4 raccourcis vers les pages */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colonnes */
+  gap: 12px;
+  margin: 16px 0 32px;
 }
 
-.deal-price { /* Info importante de la carte */
-  align-self: flex-start; /* Garde la taille du texte */
-  padding: 2px 10px; /* Espace autour du texte */
-  background-color: var(--brand-yellow); /* Surligné en jaune */
-  color: var(--text-color); /* Texte foncé, lisible sur le jaune */
-  border-radius: 30px; /* Forme de pilule */
+.page-card {
+  display: block;
+  padding: 16px;
+  color: var(--text-color);
+  text-decoration: none;
+  background-color: var(--bg-color);
+  border: 2px solid var(--brand-blue);
+  border-radius: 16px;
+  box-shadow: 6px 6px 0 var(--brand-pink);
 }
 
-.review-form input, /* Champs du formulaire */
+.page-card:hover {
+  color: #ffffff;
+  background-color: var(--brand-blue);
+}
+
+/* ---------- Formulaire d'avis ---------- */
+
+.review-form {
+  display: flex;
+  flex-direction: column; /* les champs les uns sous les autres */
+  gap: 6px;
+  max-width: 460px;
+}
+
+.review-form label {
+  margin-top: 8px;
+}
+
+.review-form input,
 .review-form select,
-.review-form textarea,
+.review-form textarea {
+  padding: 8px;
+  font-family: inherit;
+  font-size: 16px;
+  border: 2px solid var(--brand-blue);
+  border-radius: 12px;
+}
+
+.rating { /* groupe des notes */
+  margin: 8px 0 0;
+  padding: 0;
+  border: none;
+}
+
+.rating legend {
+  margin-bottom: 6px;
+  padding: 0;
+}
+
 .review-form .rating label {
-  border: 2px solid var(--brand-blue); /* Contour bleu */
-  border-radius: 12px; /* Coins arrondis */
+  display: inline-block;
+  margin: 0 12px 0 0; /* espace entre les notes */
 }
 
-.review-form .rating label { /* Notes */
-  border-radius: 30px; /* Forme de pilule */
+.submit-button {
+  align-self: flex-start; /* le bouton garde sa taille */
+  margin-top: 12px;
+  padding: 10px 28px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: var(--brand-blue);
+  border: none;
+  border-radius: 30px;
+  box-shadow: 4px 4px 0 var(--brand-pink);
+  cursor: pointer;
 }
 
-.review-form .rating input:checked + label { /* Note choisie */
-  background-color: var(--brand-blue); /* Fond bleu Aixplore */
+.submit-button:hover {
+  background-color: var(--primary-color);
 }
 
-.submit-button { /* Bouton envoyer (même style que le bouton Itinéraire) */
-  padding: 10px 28px; /* Bouton plus gros */
-  font-weight: bold; /* Texte en gras */
-  background-color: var(--brand-blue); /* Fond bleu Aixplore */
-  border-radius: 30px; /* Forme de pilule */
-  box-shadow: 4px 4px 0 var(--brand-pink); /* Ombre rose décalée */
+/* ---------- Filtres ---------- */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap; /* passe à la ligne si pas assez de place */
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
 }
 
-.submit-button:hover { /* Survol du bouton envoyer */
-  background-color: var(--brand-blue); /* Reste bleu */
-  -webkit-transform: translate(-2px, -2px);
-  -ms-transform: translate(-2px, -2px);
-  transform: translate(-2px, -2px); /* Le bouton se soulève */
+.filter-button {
+  padding: 8px 18px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--brand-blue);
+  background-color: var(--bg-color);
+  border: 2px solid var(--brand-blue);
+  border-radius: 30px;
+  box-shadow: 4px 4px 0 var(--brand-pink);
+  cursor: pointer;
 }
 
-/* Mode sombre (bouton pilule) : même présentation, couleurs de nuit */
-
-html.dark { /* Quand la classe "dark" est sur <html>, on change les variables */
-  --bg-color: #161d42; /* Fond des cadres : bleu nuit */
-  --text-color: #eef1ff; /* Texte clair */
-  --primary-color: #eef1ff; /* Bordures claires */
-  --accent-color: #9db4ff; /* Liens bleu clair, lisibles sur le fond sombre */
-  --brand-blue: #5b74ff; /* Bleu Aixplore un peu plus lumineux */
+.filter-button:hover {
+  color: var(--brand-pink);
 }
 
-.dark .page-home, /* Fond de toutes les pages */
-.dark .page-nightlife,
-.dark .page-sports,
-.dark .page-deals,
-.dark .page-links {
-  background-color: #0b1029; /* Bleu presque noir, visible pendant le chargement de l'image */
+.filter-button.active { /* bouton choisi */
+  color: #ffffff;
+  background-color: var(--brand-blue);
 }
 
-.dark .page-home { /* Fond sombre de la page Accueil */
+/* ---------- Cartes (Soirées et Bons plans) ---------- */
+
+.deals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
+  gap: 16px;
+}
+
+.deal-card {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background-color: var(--bg-color);
+  border: 2px solid var(--brand-blue);
+  border-radius: 16px;
+  box-shadow: 6px 6px 0 var(--brand-pink);
+}
+
+.deal-card h2 {
+  margin: 4px 0 8px;
+  font-size: 19px;
+}
+
+.deal-card p {
+  margin: 0 0 12px;
+}
+
+.deal-tag { /* étiquette de la catégorie */
+  align-self: flex-start;
+  padding: 3px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: var(--brand-blue);
+  border-radius: 30px;
+}
+
+.deal-price { /* info importante surlignée en jaune */
+  align-self: flex-start;
+  padding: 2px 10px;
+  font-weight: bold;
+  color: var(--text-color);
+  background-color: var(--brand-yellow);
+  border-radius: 30px;
+}
+
+.deal-link {
+  margin-top: auto; /* lien en bas de la carte */
+}
+
+/* ---------- Liens utiles ---------- */
+
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
+  gap: 12px;
+  margin: 0 0 32px;
+  padding: 0;
+  list-style: none;
+}
+
+.link-card {
+  display: block;
+  height: 100%;
+  padding: 12px 16px;
+  color: var(--text-color);
+  text-decoration: none;
+  background-color: var(--bg-color);
+  border: 2px solid var(--brand-blue);
+  border-radius: 16px;
+  box-shadow: 6px 6px 0 var(--brand-pink);
+}
+
+.link-card:hover {
+  color: #ffffff;
+  background-color: var(--brand-blue);
+}
+
+.link-title {
+  display: block;
+  font-weight: bold;
+}
+
+.link-description {
+  font-size: 14px;
+}
+
+.sources-list {
+  font-size: 14px;
+}
+
+/* ---------- Page Sports ---------- */
+
+.place {
+  margin-bottom: 24px;
+}
+
+.place h3 {
+  margin: 0 0 8px;
+  font-size: 19px;
+}
+
+.place-content { /* photo à gauche, texte à droite */
+  display: flex;
+  gap: 16px;
+}
+
+.place-content > img {
+  width: 212px;
+  height: 148px;
+  object-fit: cover; /* la photo remplit le cadre sans être déformée */
+  border: 2px solid var(--brand-blue);
+  border-radius: 16px;
+  box-shadow: 6px 6px 0 var(--brand-pink);
+}
+
+.place-text {
+  flex: 1; /* prend le reste de la place */
+  padding: 16px;
+  background-color: var(--bg-color);
+  border: 2px solid var(--brand-blue);
+  border-radius: 16px;
+  box-shadow: 6px 6px 0 var(--brand-pink);
+}
+
+.place-text p {
+  margin: 0;
+}
+
+.route-area { /* bouton Itinéraire à droite */
+  margin-top: 12px;
+  text-align: right;
+}
+
+.deal-card .route-area {
+  margin-top: auto; /* dans une carte, le bouton reste en bas */
+}
+
+.route-button img {
+  width: 150px;
+}
+
+/* ---------- Bouton pour remonter en haut ---------- */
+
+.back-to-top {
+  position: fixed; /* reste au même endroit quand on descend */
+  right: 20px;
+  bottom: 20px;
+}
+
+.back-to-top img {
+  display: block;
+  width: 70px;
+}
+
+/* ---------- Bas de page ---------- */
+
+.site-footer {
+  padding: 16px 20px;
+  text-align: center;
+  color: var(--header-text-color);
+  background-color: var(--brand-blue);
+  border-top: 4px solid var(--brand-pink);
+}
+
+.site-footer address {
+  font-style: normal; /* pas d'italique */
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer a {
+  color: var(--header-text-color);
+}
+
+.site-footer .secret-link { /* petite étoile qui active le style de Noël */
+  font-size: 14px;
+  color: var(--brand-yellow);
+  text-decoration: none;
+}
+
+/* ---------- Mode sombre (bouton pilule) ---------- */
+
+html.dark { /* on change les couleurs */
+  --bg-color: #161d42;
+  --text-color: #eef1ff;
+  --accent-color: #9db4ff;
+  --brand-blue: #5b74ff;
+}
+
+.dark .page-home {
   background-image: url("../img/backgrounds/home-dark.webp");
 }
 
-.dark .page-nightlife { /* Fond sombre de la page Soirées */
+.dark .page-nightlife {
   background-image: url("../img/backgrounds/nightlife-dark.webp");
 }
 
-.dark .page-sports { /* Fond sombre de la page Sports */
+.dark .page-sports {
   background-image: url("../img/backgrounds/sports-dark.webp");
 }
 
-.dark .page-deals { /* Fond sombre de la page Bons plans */
+.dark .page-deals {
   background-image: url("../img/backgrounds/deals-dark.webp");
 }
 
-.dark .page-links { /* Fond sombre de la page Liens utiles */
+.dark .page-links {
   background-image: url("../img/backgrounds/links-dark.webp");
 }
 
-.dark .site-header, /* En-tête et pied de page */
+.dark .site-header,
 .dark .site-footer {
-  background-color: #0b1029; /* Même couleur que le fond */
+  background-color: #0b1029;
 }
 
-.dark section > h2, /* Textes posés sur du jaune */
+.dark section > h2,
 .dark .deal-price {
-  color: #1e293b; /* Restent foncés pour être lisibles */
+  color: #1e293b; /* texte foncé sur le jaune */
 }
 
-.dark .review-form input, /* Champs du formulaire */
+.dark .review-form input,
 .dark .review-form select,
 .dark .review-form textarea {
-  background-color: #0b1029; /* Fond sombre */
-  color: var(--text-color); /* Texte clair */
+  color: var(--text-color);
+  background-color: #0b1029;
 }
 
-.dark .theme-toggle img { /* Bouton en pilule version sombre */
+.dark .theme-toggle img { /* image du bouton en version sombre */
   content: url("../img/aixplore/aixplore-style-toggle-dark.webp");
 }
 
-.site-footer address { /* Adresse du département informatique */
-  margin-bottom: 4px; /* Petit espace avant le contact */
-  font-style: normal; /* Pas d'italique */
+/* ---------- Tablette (écran de 1000px ou moins) ---------- */
+
+@media (max-width: 1000px) {
+  .site-header {
+    flex-wrap: wrap; /* le menu passe sous le logo */
+  }
+
+  .main-nav {
+    width: 100%;
+  }
+
+  .main-nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .page-cards,
+  .deals-grid,
+  .links-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
+  }
 }
 
-/* Lien secret (easter egg) : petite étoile du pied de page */
+/* ---------- Téléphone (écran de 600px ou moins) ---------- */
 
-.site-footer .secret-link { /* Étoile discrète qui active le style de Noël */
-  display: inline-block; /* Pour pouvoir la faire tourner */
-  margin-top: 4px; /* Petit espace au-dessus */
-  font-size: 14px; /* Petite */
-  color: var(--brand-yellow); /* Jaune des étoiles */
-  text-decoration: none; /* Pas de soulignement */
-  -webkit-transition: -webkit-transform 0.3s;
-  transition: transform 0.3s; /* Animation douce au survol */
-}
+@media (max-width: 600px) {
+  .logo {
+    height: 48px;
+  }
 
-.secret-link:hover { /* Survol : l'étoile tourne et grossit */
-  -webkit-transform: rotate(72deg) scale(1.5);
-  -ms-transform: rotate(72deg) scale(1.5);
-  transform: rotate(72deg) scale(1.5);
+  .theme-toggle img {
+    height: 30px;
+  }
+
+  .page-cards,
+  .deals-grid,
+  .links-grid {
+    grid-template-columns: 1fr; /* 1 seule colonne */
+  }
+
+  .place-content {
+    flex-direction: column; /* la photo passe au-dessus du texte */
+  }
+
+  .place-content > img {
+    width: 100%;
+    height: 180px;
+  }
 }

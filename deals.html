@@ -40,8 +40,8 @@
   <!-- Feuille de style principale -->
   <link rel="stylesheet" href="css/style.min.css" title="Style par défaut">
 
-  <!-- Feuille de style alternative -->
-  <link rel="alternate stylesheet" href="css/alternate.min.css" title="Style alternatif">
+  <!-- Feuille de style alternative (style de Noël), activée en JavaScript -->
+  <link rel="alternate stylesheet" href="css/alternate.min.css" title="Style alternatif" id="christmas-css">
 
   <!-- Script du mode sombre et du style de Noël (defer : lancé quand la page est prête) -->
   <script src="js/style-switcher.js" defer></script>
@@ -52,15 +52,17 @@
   <!-- En-tête commun à toutes les pages : ne pas modifier -->
   <header class="site-header" id="header">
 
+    <!-- Bouton pour passer en mode sombre -->
+    <button type="button" class="theme-toggle">
+      <img src="img/aixplore/aixplore-style-toggle.webp" alt="Mode sombre">
+    </button>
+
     <!-- Logo qui ramène à l'accueil -->
     <a href="index.html" class="logo-link">
       <img src="img/aixplore/aixplore-logo.webp" alt="Accueil du site" class="logo">
+      <!-- Titre affiché seulement avec le style de Noël -->
+      <span class="christmas-title">L'Avent à Aix</span>
     </a>
-
-    <!-- Permet de changer le style -->
-    <button type="button" class="theme-toggle">
-      <img src="img/aixplore/aixplore-style-toggle.webp" alt="Changer de mode">
-    </button>
 
     <!-- Navigation principale du site -->
     <nav class="main-nav">
@@ -89,14 +91,14 @@
       Se loger, manger, se déplacer et sortir sans se ruiner : voici les meilleures aides et réductions pour les étudiants à Aix-en-Provence.
     </p>
 
-    <!-- Boutons de filtre : data-filter indique la catégorie à afficher -->
+    <!-- Boutons de filtre : data-filter = la catégorie à afficher, "active" = le bouton choisi -->
     <div class="filters">
       <span class="filters-label">Filtres :</span>
-      <button type="button" class="filter-button" data-filter="all" aria-pressed="true">Tous</button>
-      <button type="button" class="filter-button" data-filter="housing" aria-pressed="false">Logement</button>
-      <button type="button" class="filter-button" data-filter="food" aria-pressed="false">Manger</button>
-      <button type="button" class="filter-button" data-filter="transport" aria-pressed="false">Se déplacer</button>
-      <button type="button" class="filter-button" data-filter="culture" aria-pressed="false">Culture</button>
+      <button type="button" class="filter-button active" data-filter="all">Tous</button>
+      <button type="button" class="filter-button" data-filter="housing">Logement</button>
+      <button type="button" class="filter-button" data-filter="food">Manger</button>
+      <button type="button" class="filter-button" data-filter="transport">Se déplacer</button>
+      <button type="button" class="filter-button" data-filter="culture">Culture</button>
     </div>
 
     <!-- Grille des bons plans : data-category indique la catégorie de chaque carte -->
@@ -238,7 +240,7 @@
     </address>
     <p>Nous contacter : <a href="mailto:aixplore.contact@gmail.com">aixplore.contact@gmail.com</a></p>
     <!-- Lien secret (easter egg) : lien en JavaScript qui active ou désactive l'autre feuille de style (css/alternate.min.css) -->
-    <a href="javascript:toggleSetting('christmas')" class="secret-link" aria-label="Activer ou désactiver le style de Noël">✦</a>
+    <a href="javascript:toggleChristmas()" class="secret-link" aria-label="Activer ou désactiver le style de Noël">✦</a>
   </footer>
   <!-- Script des filtres de la page -->
   <script src="js/filter.js"></script>

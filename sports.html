@@ -40,8 +40,8 @@
   <!-- Feuille de style principale -->
   <link rel="stylesheet" href="css/style.min.css" title="Style par défaut">
 
-  <!-- Feuille de style alternative -->
-  <link rel="alternate stylesheet" href="css/alternate.min.css" title="Style alternatif">
+  <!-- Feuille de style alternative (style de Noël), activée en JavaScript -->
+  <link rel="alternate stylesheet" href="css/alternate.min.css" title="Style alternatif" id="christmas-css">
 
   <!-- Script du mode sombre et du style de Noël (defer : lancé quand la page est prête) -->
   <script src="js/style-switcher.js" defer></script>
@@ -52,15 +52,17 @@
   <!-- En-tête commun à toutes les pages : ne pas modifier -->
   <header class="site-header" id="header">
 
+    <!-- Bouton pour passer en mode sombre -->
+    <button type="button" class="theme-toggle">
+      <img src="img/aixplore/aixplore-style-toggle.webp" alt="Mode sombre">
+    </button>
+
     <!-- Logo qui ramène à l'accueil -->
     <a href="index.html" class="logo-link">
       <img src="img/aixplore/aixplore-logo.webp" alt="Accueil du site" class="logo">
+      <!-- Titre affiché seulement avec le style de Noël -->
+      <span class="christmas-title">L'Avent à Aix</span>
     </a>
-
-    <!-- Permet de changer le style -->
-    <button type="button" class="theme-toggle">
-      <img src="img/aixplore/aixplore-style-toggle.webp" alt="Changer de mode">
-    </button>
 
     <!-- Navigation principale du site -->
     <nav class="main-nav">
@@ -86,15 +88,15 @@
       Aix-en-Provence est une ville dynamique où le sport tient une place centrale, offrant un cadre idéal entre nature et infrastructures modernes pour tous les passionnés d'activité physique.
     </p>
 
-    <!-- Boutons de filtre : data-filter indique la catégorie à afficher -->
+    <!-- Boutons de filtre : data-filter = la catégorie à afficher, "active" = le bouton choisi -->
     <div class="filters">
       <span class="filters-label">Filtres :</span>
-      <button type="button" class="filter-button" data-filter="all" aria-pressed="true">Tous</button>
-      <button type="button" class="filter-button" data-filter="student" aria-pressed="false">Étudiant</button>
-      <button type="button" class="filter-button" data-filter="outdoor" aria-pressed="false">Plein air</button>
-      <button type="button" class="filter-button" data-filter="gym" aria-pressed="false">Salles de sport</button>
-      <button type="button" class="filter-button" data-filter="pool" aria-pressed="false">Piscines</button>
-      <button type="button" class="filter-button" data-filter="fan" aria-pressed="false">Supporter</button>
+      <button type="button" class="filter-button active" data-filter="all">Tous</button>
+      <button type="button" class="filter-button" data-filter="student">Étudiant</button>
+      <button type="button" class="filter-button" data-filter="outdoor">Plein air</button>
+      <button type="button" class="filter-button" data-filter="gym">Salles de sport</button>
+      <button type="button" class="filter-button" data-filter="pool">Piscines</button>
+      <button type="button" class="filter-button" data-filter="fan">Supporter</button>
     </div>
 
     <!-- Section sports universitaires -->
@@ -408,7 +410,7 @@
     </address>
     <p>Nous contacter : <a href="mailto:aixplore.contact@gmail.com">aixplore.contact@gmail.com</a></p>
     <!-- Lien secret (easter egg) : lien en JavaScript qui active ou désactive l'autre feuille de style (css/alternate.min.css) -->
-    <a href="javascript:toggleSetting('christmas')" class="secret-link" aria-label="Activer ou désactiver le style de Noël">✦</a>
+    <a href="javascript:toggleChristmas()" class="secret-link" aria-label="Activer ou désactiver le style de Noël">✦</a>
   </footer>
   <!-- Script des filtres de la page (le même que la page Bons plans) -->
   <script src="js/filter.js"></script>

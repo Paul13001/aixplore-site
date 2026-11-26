@@ -40,8 +40,8 @@
   <!-- Feuille de style principale -->
   <link rel="stylesheet" href="css/style.min.css" title="Style par défaut">
 
-  <!-- Feuille de style alternative -->
-  <link rel="alternate stylesheet" href="css/alternate.min.css" title="Style alternatif">
+  <!-- Feuille de style alternative (style de Noël), activée en JavaScript -->
+  <link rel="alternate stylesheet" href="css/alternate.min.css" title="Style alternatif" id="christmas-css">
 
   <!-- Script du mode sombre et du style de Noël (defer : lancé quand la page est prête) -->
   <script src="js/style-switcher.js" defer></script>
@@ -52,15 +52,17 @@
   <!-- En-tête commun à toutes les pages : ne pas modifier -->
   <header class="site-header" id="header">
 
+    <!-- Bouton pour passer en mode sombre -->
+    <button type="button" class="theme-toggle">
+      <img src="img/aixplore/aixplore-style-toggle.webp" alt="Mode sombre">
+    </button>
+
     <!-- Logo qui ramène à l'accueil -->
     <a href="index.html" class="logo-link">
       <img src="img/aixplore/aixplore-logo.webp" alt="Accueil du site" class="logo">
+      <!-- Titre affiché seulement avec le style de Noël -->
+      <span class="christmas-title">L'Avent à Aix</span>
     </a>
-
-    <!-- Permet de changer le style -->
-    <button type="button" class="theme-toggle">
-      <img src="img/aixplore/aixplore-style-toggle.webp" alt="Changer de mode">
-    </button>
 
     <!-- Navigation principale du site -->
     <nav class="main-nav">
@@ -89,14 +91,14 @@
       Aix est une petite ville, et c'est sa force : presque tout se fait à pied, du Cours Mirabeau aux places de la vieille ville.
     </p>
 
-    <!-- Boutons de filtre : data-filter indique la catégorie à afficher -->
+    <!-- Boutons de filtre : data-filter = la catégorie à afficher, "active" = le bouton choisi -->
     <div class="filters">
       <span class="filters-label">Filtres :</span>
-      <button type="button" class="filter-button" data-filter="all" aria-pressed="true">Tous</button>
-      <button type="button" class="filter-button" data-filter="squares" aria-pressed="false">Places</button>
-      <button type="button" class="filter-button" data-filter="music" aria-pressed="false">Musique</button>
-      <button type="button" class="filter-button" data-filter="culture" aria-pressed="false">Culture</button>
-      <button type="button" class="filter-button" data-filter="events" aria-pressed="false">Agenda</button>
+      <button type="button" class="filter-button active" data-filter="all">Tous</button>
+      <button type="button" class="filter-button" data-filter="squares">Places</button>
+      <button type="button" class="filter-button" data-filter="music">Musique</button>
+      <button type="button" class="filter-button" data-filter="culture">Culture</button>
+      <button type="button" class="filter-button" data-filter="events">Agenda</button>
     </div>
 
     <!-- Grille des sorties : data-category indique la catégorie de chaque carte -->
@@ -224,7 +226,7 @@
     </address>
     <p>Nous contacter : <a href="mailto:aixplore.contact@gmail.com">aixplore.contact@gmail.com</a></p>
     <!-- Lien secret (easter egg) : lien en JavaScript qui active ou désactive l'autre feuille de style (css/alternate.min.css) -->
-    <a href="javascript:toggleSetting('christmas')" class="secret-link" aria-label="Activer ou désactiver le style de Noël">✦</a>
+    <a href="javascript:toggleChristmas()" class="secret-link" aria-label="Activer ou désactiver le style de Noël">✦</a>
   </footer>
   <!-- Script des filtres de la page (le même que la page Bons plans) -->
   <script src="js/filter.js"></script>

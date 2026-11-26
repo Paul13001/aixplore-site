@@ -1,28 +1,30 @@
-// Script des filtres (pages Soirées, Sports, Bons plans et Liens utiles) : affiche seulement les éléments de la catégorie choisie
+// Filtres : affiche seulement les éléments de la catégorie choisie
+// (pages Soirées, Sports, Bons plans et Liens utiles)
 
-const filterButtons = document.querySelectorAll(".filter-button"); // Récupère tous les boutons de filtre
-const filterableItems = document.querySelectorAll("[data-category]"); // Récupère tous les éléments filtrables (ceux qui ont un attribut data-category)
+let buttons = document.querySelectorAll(".filter-button"); // les boutons de filtre
+let items = document.querySelectorAll("[data-category]"); // les éléments à filtrer
 
-// Affiche les éléments de la catégorie choisie et cache les autres
+// montre les éléments de la catégorie, cache les autres
 function filterItems(category) {
-  filterableItems.forEach(function (item) { // Pour chaque élément
-    const itemCategory = item.dataset.category; // Lit la catégorie de l'élément (attribut data-category)
-    item.hidden = category !== "all" && itemCategory !== category; // Cache l'élément s'il n'est pas dans la catégorie choisie
-  });
+  for (let i = 0; i < items.length; i++) {
+    if (category === "all" || items[i].getAttribute("data-category") === category) {
+      items[i].style.display = ""; // on montre
+    } else {
+      items[i].style.display = "none"; // on cache
+    }
+  }
 }
 
-// Met en avant le bouton cliqué et retire la mise en avant des autres
-function updateButtons(activeButton) {
-  filterButtons.forEach(function (button) { // Pour chaque bouton
-    button.setAttribute("aria-pressed", "false"); // Le bouton n'est plus actif
+// quand on clique sur un bouton
+for (let i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener("click", function () {
+    // on enlève "active" de tous les boutons
+    for (let j = 0; j < buttons.length; j++) {
+      buttons[j].classList.remove("active");
+    }
+    // on met "active" sur le bouton cliqué
+    buttons[i].classList.add("active");
+    // on filtre avec la catégorie du bouton
+    filterItems(buttons[i].getAttribute("data-filter"));
   });
-  activeButton.setAttribute("aria-pressed", "true"); // Le bouton cliqué devient actif
 }
-
-// Ajoute un écouteur de clic sur chaque bouton de filtre
-filterButtons.forEach(function (button) {
-  button.addEventListener("click", function () { // Quand on clique sur le bouton
-    filterItems(button.dataset.filter); // Filtre les éléments avec la catégorie du bouton (attribut data-filter)
-    updateButtons(button); // Met à jour l'apparence des boutons
-  });
-});
