@@ -28,8 +28,6 @@ body {
   margin: 0; /* Supprime la marge par défaut du navigateur autour du body */
   font-family: var(--font-family); /* Applique la police */
   line-height: 1.5; /* Espace entre les lignes pour mieux lire */
-  -webkit-font-smoothing: antialiased; /* Texte plus net sur Mac (Safari, Chrome) */
-  -moz-osx-font-smoothing: grayscale; /* Texte plus net sur Mac (Firefox) */
   color: var(--text-color); /* Applique la couleur du texte */
   background-color: var(--bg-color); /* Applique la couleur du fond */
   min-height: 100vh; /* Le body fait au moins toute la hauteur de l'écran */
@@ -48,6 +46,10 @@ button:focus { /* Bouton sélectionné au clavier */
 }
 
 .site-header { /* En-tête du site */
+  position: -webkit-sticky; /* Préfixe pour les anciens Safari */
+  position: sticky; /* L'en-tête reste toujours visible en haut quand on descend */
+  top: 0; /* Collé en haut de l'écran */
+  z-index: 5; /* Passe au-dessus du contenu */
   min-height: var(--header-height); /* Hauteur de 80px */
   padding-left: var(--page-padding); /* Espace à gauche */
   padding-right: var(--page-padding); /* Espace à droite */
@@ -773,35 +775,9 @@ html.dark { /* Quand la classe "dark" est sur <html>, on change les variables */
   content: url("../img/aixplore/aixplore-style-toggle-dark.webp");
 }
 
-/*  Accessibilité */
-
-.skip-link { /* Lien "Aller au contenu" : caché hors de l'écran… */
-  position: absolute;
-  top: -100px;
-  left: 16px;
-  z-index: 10; /* Au-dessus de tout */
-  padding: 8px 16px;
-  color: var(--header-text-color);
-  background-color: var(--brand-blue);
-  border-radius: 30px;
-}
-
-.skip-link:focus { /* …et visible quand on arrive dessus avec la touche Tab */
-  top: 16px;
-}
-
 .site-footer address { /* Adresse du département informatique */
   margin-bottom: 4px; /* Petit espace avant le contact */
   font-style: normal; /* Pas d'italique */
-}
-
-@media (prefers-reduced-motion: reduce) { /* Visiteurs qui ont demandé moins d'animations */
-  * { /* Tous les éléments */
-    -webkit-transition: none; /* Préfixe pour les anciens navigateurs */
-    transition: none; /* Pas d'animation au survol */
-    -webkit-animation: none;
-    animation: none; /* Pas de neige qui tombe */
-  }
 }
 
 /* Lien secret (easter egg) : petite étoile du pied de page */
