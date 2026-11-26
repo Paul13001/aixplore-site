@@ -464,6 +464,7 @@ section > h2 { /* Titres des parties : ruban vert */
 .page-links {
   background-image: radial-gradient(circle, rgba(255, 255, 255, 0.45) 2px, transparent 3px); /* Un flocon = un petit rond blanc */
   background-size: 60px 60px; /* Un flocon tous les 60px */
+  background-repeat: repeat; /* Flocons répétés sur toute la page */
   -webkit-animation: snow 6s linear infinite;
   animation: snow 6s linear infinite; /* La neige tombe en boucle */
 }

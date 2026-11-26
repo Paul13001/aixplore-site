@@ -734,6 +734,7 @@ html.dark { /* Quand la classe "dark" est sur <html>, on change les variables */
   background-color: #0b1029; /* Bleu presque noir */
   background-image: radial-gradient(#2b3670 2px, transparent 2px); /* Petits points comme sur les fonds clairs */
   background-size: 48px 48px; /* Un point tous les 48px */
+  background-repeat: repeat; /* Points répétés sur toute la page */
 }
 
 .dark .site-header, /* En-tête et pied de page */
