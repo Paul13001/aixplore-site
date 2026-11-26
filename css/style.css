@@ -244,7 +244,7 @@ h1 { /* Titre principal de la page */
 .review-form textarea { /* Zone du message */
   padding: 8px; /* Espace à l'intérieur du champ */
   font-family: inherit; /* Même police que le reste du site */
-  font-size: 1rem; /* Taille de texte normale */
+  font-size: 16px; /* Taille de texte normale */
   border: 1px solid var(--primary-color); /* Bordure foncée */
   border-radius: 4px; /* Coins arrondis */
 }
@@ -299,7 +299,7 @@ h1 { /* Titre principal de la page */
   margin-top: 12px; /* Espace au-dessus du bouton */
   padding: 8px 24px; /* Espace autour du texte */
   font-family: inherit; /* Même police que le reste du site */
-  font-size: 1rem; /* Taille de texte normale */
+  font-size: 16px; /* Taille de texte normale */
   background-color: var(--primary-color); /* Fond foncé */
   color: var(--header-text-color); /* Texte clair */
   border: none; /* Enlève la bordure par défaut */
@@ -355,7 +355,7 @@ h1 { /* Titre principal de la page */
 .filter-button { /* Un bouton de filtre (même style que le bouton Itinéraire) */
   padding: 8px 18px; /* Espace autour du texte */
   font-family: inherit; /* Même police que le reste du site */
-  font-size: 1rem; /* Taille de texte normale */
+  font-size: 16px; /* Taille de texte normale */
   font-weight: bold; /* Texte en gras comme sur le bouton Itinéraire */
   background-color: var(--bg-color); /* Fond blanc */
   color: var(--brand-blue); /* Texte bleu Aixplore */
@@ -398,7 +398,7 @@ h1 { /* Titre principal de la page */
 
 .deal-card h2 { /* Titre de la carte */
   margin: 4px 0 8px; /* Espace autour du titre */
-  font-size: 1.2rem; /* Titre un peu plus grand que le texte */
+  font-size: 19px; /* Titre un peu plus grand que le texte */
 }
 
 .deal-card p { /* Paragraphes de la carte */
@@ -408,7 +408,7 @@ h1 { /* Titre principal de la page */
 .deal-tag { /* Étiquette de la catégorie (même style que le bouton Itinéraire) */
   align-self: flex-start; /* L'étiquette garde la taille de son texte */
   padding: 3px 12px; /* Espace autour du texte */
-  font-size: 0.85rem; /* Texte un peu plus petit */
+  font-size: 14px; /* Texte un peu plus petit */
   font-weight: bold; /* Texte en gras comme sur le bouton Itinéraire */
   background-color: var(--brand-blue); /* Fond bleu Aixplore */
   color: var(--header-text-color); /* Texte blanc */
@@ -469,7 +469,7 @@ h1 { /* Titre principal de la page */
 }
 
 .link-description { /* Description du site */
-  font-size: 0.9rem; /* Texte un peu plus petit */
+  font-size: 14px; /* Texte un peu plus petit */
 }
 
 .sources h3 { /* Sous-titres des sources */
@@ -478,7 +478,7 @@ h1 { /* Titre principal de la page */
 
 .sources-list { /* Liste des sources */
   margin-top: 0; /* Enlève l'espace au-dessus de la liste */
-  font-size: 0.9rem; /* Texte un peu plus petit */
+  font-size: 14px; /* Texte un peu plus petit */
 }
 
 @media (max-width: 900px) { /* Tablette : écran de 900px ou moins */
@@ -505,7 +505,7 @@ h1 { /* Titre principal de la page */
 
 .place h3 { /* Nom du lieu */
   margin: 0 0 8px; /* Espace sous le nom */
-  font-size: 1.2rem; /* Même taille que les titres des cartes */
+  font-size: 19px; /* Même taille que les titres des cartes */
 }
 
 .place-content { /* Image + texte */
@@ -785,7 +785,7 @@ html.dark { /* Quand la classe "dark" est sur <html>, on change les variables */
 .site-footer .secret-link { /* Étoile discrète qui active le style de Noël */
   display: inline-block; /* Pour pouvoir la faire tourner */
   margin-top: 4px; /* Petit espace au-dessus */
-  font-size: 0.9rem; /* Petite */
+  font-size: 14px; /* Petite */
   color: var(--brand-yellow); /* Jaune des étoiles */
   text-decoration: none; /* Pas de soulignement */
   -webkit-transition: -webkit-transform 0.3s;
