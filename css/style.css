@@ -453,6 +453,25 @@ section > h2 {
 
 .route-button img {
   width: 150px;
+  vertical-align: middle; /* aligné avec le bouton Instagram */
+}
+
+/* Bouton Instagram */
+.insta-button {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 8px 16px;
+  border: 2px solid var(--brand-blue);
+  border-radius: 20px;
+  background-color: var(--brand-pink);
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+.insta-button:hover {
+  background-color: var(--brand-blue);
 }
 
 /* Bouton haut de page */
