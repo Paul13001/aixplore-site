@@ -54,16 +54,16 @@
 
     <!-- Logo qui ramène à l'accueil -->
     <a href="index.html" class="logo-link">
-      <img src="img/aixplore/aixplore-logo.webp" width="148" height="64" alt="Accueil du site" class="logo">
+      <img src="img/aixplore/aixplore-logo.webp" alt="Accueil du site" class="logo">
     </a>
 
     <!-- Permet de changer le style -->
     <button type="button" class="theme-toggle">
-      <img src="img/aixplore/aixplore-style-toggle.webp" width="73" height="44" alt="Changer de mode">
+      <img src="img/aixplore/aixplore-style-toggle.webp" alt="Changer de mode">
     </button>
 
     <!-- Navigation principale du site -->
-    <nav class="main-nav" aria-label="Menu principal">
+    <nav class="main-nav">
       <ul>
         <!-- Liste regroupant nos 5 pages (aria-current indique la page en cours) -->
         <li><a href="index.html">Accueil</a></li>
@@ -87,8 +87,8 @@
     </p>
 
     <!-- Boutons de filtre : data-filter indique la catégorie à afficher -->
-    <div class="filters" role="group" aria-labelledby="filters-label">
-      <span class="filters-label" id="filters-label">Filtres :</span>
+    <div class="filters">
+      <span class="filters-label">Filtres :</span>
       <button type="button" class="filter-button" data-filter="all" aria-pressed="true">Tous</button>
       <button type="button" class="filter-button" data-filter="student" aria-pressed="false">Étudiant</button>
       <button type="button" class="filter-button" data-filter="outdoor" aria-pressed="false">Plein air</button>
@@ -106,14 +106,14 @@
       <div class="place">
         <h3>Le SUAPS</h3>
         <div class="place-content">
-          <img src="img/sports/student/suaps.webp" width="212" height="148" loading="lazy" alt="Logo du SUAPS">
+          <img src="img/sports/student/suaps.webp" loading="lazy" alt="Logo du SUAPS">
           <div class="place-text">
             <p>
               Le Service Universitaire des Activités Physiques et Sportives (SUAPS) propose une large gamme d'activités sportives pour les étudiants, allant des sports collectifs aux activités de bien-être.
             </p>
             <!-- Lien vers Google Maps pour avoir l'itinéraire -->
             <p class="route-area">
-              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=SUAPS%20Aix-en-Provence" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" width="150" height="54" loading="lazy" alt="Itinéraire"></a>
+              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=SUAPS%20Aix-en-Provence" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" loading="lazy" alt="Itinéraire"></a>
             </p>
           </div>
         </div>
@@ -121,7 +121,7 @@
       <div class="place">
         <h3>En association</h3>
         <div class="place-content">
-          <img src="img/sports/student/as-amu.webp" width="212" height="148" loading="lazy" alt="Association sportive d'Aix-Marseille Université">
+          <img src="img/sports/student/as-amu.webp" loading="lazy" alt="Association sportive d'Aix-Marseille Université">
           <div class="place-text">
             <p>
               De nombreuses associations étudiantes organisent des événements sportifs, des tournois et des sorties, favorisant l'esprit d'équipe et la convivialité.
@@ -140,14 +140,14 @@
       <div class="place">
         <h3>La montagne Sainte-Victoire</h3>
         <div class="place-content">
-          <img src="img/sports/outdoor/sainte-victoire.webp" width="212" height="148" loading="lazy" alt="La montagne Sainte-Victoire">
+          <img src="img/sports/outdoor/sainte-victoire.webp" loading="lazy" alt="La montagne Sainte-Victoire">
           <div class="place-text">
             <p>
               Aix-en-Provence est entourée de paysages naturels magnifiques, notamment la montagne Sainte-Victoire, qui offre de nombreuses opportunités de randonnée et d'activités en plein air.
             </p>
             <!-- Lien vers Google Maps pour avoir l'itinéraire -->
             <p class="route-area">
-              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Montagne%20Sainte-Victoire" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" width="150" height="54" loading="lazy" alt="Itinéraire"></a>
+              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Montagne%20Sainte-Victoire" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" loading="lazy" alt="Itinéraire"></a>
             </p>
           </div>
         </div>
@@ -155,14 +155,14 @@
       <div class="place">
         <h3>Le parc Jourdan</h3>
         <div class="place-content">
-          <img src="img/sports/outdoor/parc-jourdan.webp" width="212" height="148" loading="lazy" alt="Le parc Jourdan">
+          <img src="img/sports/outdoor/parc-jourdan.webp" loading="lazy" alt="Le parc Jourdan">
           <div class="place-text">
             <p>
               Le parc Jourdan est un lieu idéal pour le jogging, le yoga en plein air et les activités de fitness, offrant un cadre verdoyant au cœur de la ville.
             </p>
             <!-- Lien vers Google Maps pour avoir l'itinéraire -->
             <p class="route-area">
-              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Parc%20Jourdan%20Aix-en-Provence" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" width="150" height="54" loading="lazy" alt="Itinéraire"></a>
+              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Parc%20Jourdan%20Aix-en-Provence" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" loading="lazy" alt="Itinéraire"></a>
             </p>
           </div>
         </div>
@@ -170,7 +170,7 @@
       <div class="place">
         <h3>Le vélo</h3>
         <div class="place-content">
-          <img src="img/sports/outdoor/bike.webp" width="212" height="148" loading="lazy" alt="Cyclistes autour d'Aix-en-Provence">
+          <img src="img/sports/outdoor/bike.webp" loading="lazy" alt="Cyclistes autour d'Aix-en-Provence">
           <div class="place-text">
             <p>
               La ville dispose de nombreuses pistes cyclables et de sentiers adaptés pour les amateurs de vélo, permettant de découvrir Aix-en-Provence et ses environs à deux roues.
@@ -186,14 +186,14 @@
       <div class="place">
         <h3>Keep Cool</h3>
         <div class="place-content">
-          <img src="img/sports/gyms/keepcool.webp" width="212" height="148" loading="lazy" alt="Salle Keep Cool">
+          <img src="img/sports/gyms/keepcool.webp" loading="lazy" alt="Salle Keep Cool">
           <div class="place-text">
             <p>
               Des salles conviviales et sans complexe, idéales pour s'entraîner à son rythme dans une ambiance détendue.
             </p>
             <!-- Lien vers Google Maps pour avoir l'itinéraire -->
             <p class="route-area">
-              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Keep%20Cool%20Aix-en-Provence" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" width="150" height="54" loading="lazy" alt="Itinéraire"></a>
+              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Keep%20Cool%20Aix-en-Provence" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" loading="lazy" alt="Itinéraire"></a>
             </p>
           </div>
         </div>
@@ -201,14 +201,14 @@
       <div class="place">
         <h3>Basic Fit</h3>
         <div class="place-content">
-          <img src="img/sports/gyms/basic-fit.webp" width="212" height="148" loading="lazy" alt="Salle Basic Fit">
+          <img src="img/sports/gyms/basic-fit.webp" loading="lazy" alt="Salle Basic Fit">
           <div class="place-text">
             <p>
               Des espaces modernes et accessibles dotés d'équipements complets pour tous vos entraînements de musculation et de cardio.
             </p>
             <!-- Lien vers Google Maps pour avoir l'itinéraire -->
             <p class="route-area">
-              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Basic-Fit%20Aix-en-Provence" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" width="150" height="54" loading="lazy" alt="Itinéraire"></a>
+              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Basic-Fit%20Aix-en-Provence" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" loading="lazy" alt="Itinéraire"></a>
             </p>
           </div>
         </div>
@@ -216,14 +216,14 @@
       <div class="place">
         <h3>Fitness Park</h3>
         <div class="place-content">
-          <img src="img/sports/gyms/fitness-park.webp" width="212" height="148" loading="lazy" alt="Salle Fitness Park">
+          <img src="img/sports/gyms/fitness-park.webp" loading="lazy" alt="Salle Fitness Park">
           <div class="place-text">
             <p>
               Un club grand format ultra-équipé, parfait pour repousser ses limites avec du matériel de pointe et des espaces variés.
             </p>
             <!-- Lien vers Google Maps pour avoir l'itinéraire -->
             <p class="route-area">
-              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Fitness%20Park%20Aix-en-Provence" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" width="150" height="54" loading="lazy" alt="Itinéraire"></a>
+              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Fitness%20Park%20Aix-en-Provence" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" loading="lazy" alt="Itinéraire"></a>
             </p>
           </div>
         </div>
@@ -231,14 +231,14 @@
       <div class="place">
         <h3>One Fitness Club</h3>
         <div class="place-content">
-          <img src="img/sports/gyms/one-fitness.webp" width="212" height="148" loading="lazy" alt="Salle One Fitness Club">
+          <img src="img/sports/gyms/one-fitness.webp" loading="lazy" alt="Salle One Fitness Club">
           <div class="place-text">
             <p>
               Un club offrant une expérience complète avec des cours collectifs, des zones de musculation et un suivi professionnel pour atteindre vos objectifs.
             </p>
             <!-- Lien vers Google Maps pour avoir l'itinéraire -->
             <p class="route-area">
-              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=One%20Fitness%20Club%20Aix-en-Provence" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" width="150" height="54" loading="lazy" alt="Itinéraire"></a>
+              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=One%20Fitness%20Club%20Aix-en-Provence" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" loading="lazy" alt="Itinéraire"></a>
             </p>
           </div>
         </div>
@@ -246,14 +246,14 @@
       <div class="place">
         <h3>Gaius Hybrid Club</h3>
         <div class="place-content">
-          <img src="img/sports/gyms/gaius.webp" width="212" height="148" loading="lazy" alt="Salle Gaius Hybrid Club">
+          <img src="img/sports/gyms/gaius.webp" loading="lazy" alt="Salle Gaius Hybrid Club">
           <div class="place-text">
             <p>
               Un club innovant combinant fitness, cross-training et bien-être pour une approche globale de la santé et de la forme physique.
             </p>
             <!-- Lien vers Google Maps pour avoir l'itinéraire -->
             <p class="route-area">
-              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Gaius%20Hybrid%20Club%20Aix-en-Provence" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" width="150" height="54" loading="lazy" alt="Itinéraire"></a>
+              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Gaius%20Hybrid%20Club%20Aix-en-Provence" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" loading="lazy" alt="Itinéraire"></a>
             </p>
           </div>
         </div>
@@ -261,14 +261,14 @@
       <div class="place">
         <h3>On Air</h3>
         <div class="place-content">
-          <img src="img/sports/gyms/on-air.webp" width="212" height="148" loading="lazy" alt="Salle On Air">
+          <img src="img/sports/gyms/on-air.webp" loading="lazy" alt="Salle On Air">
           <div class="place-text">
             <p>
               Un espace moderne et dynamique proposant des cours collectifs variés et des programmes adaptés à tous les niveaux.
             </p>
             <!-- Lien vers Google Maps pour avoir l'itinéraire -->
             <p class="route-area">
-              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=On%20Air%20Fitness%20Aix-en-Provence" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" width="150" height="54" loading="lazy" alt="Itinéraire"></a>
+              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=On%20Air%20Fitness%20Aix-en-Provence" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" loading="lazy" alt="Itinéraire"></a>
             </p>
           </div>
         </div>
@@ -276,14 +276,14 @@
       <div class="place">
         <h3>Biofitnessclub</h3>
         <div class="place-content">
-          <img src="img/sports/gyms/biofitness.webp" width="212" height="148" loading="lazy" alt="Salle Biofitnessclub">
+          <img src="img/sports/gyms/biofitness.webp" loading="lazy" alt="Salle Biofitnessclub">
           <div class="place-text">
             <p>
               Un club mettant l'accent sur le bien-être et la santé, avec des équipements de qualité et des programmes personnalisés pour chaque membre.
             </p>
             <!-- Lien vers Google Maps pour avoir l'itinéraire -->
             <p class="route-area">
-              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Biofitnessclub%20Aix-en-Provence" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" width="150" height="54" loading="lazy" alt="Itinéraire"></a>
+              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Biofitnessclub%20Aix-en-Provence" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" loading="lazy" alt="Itinéraire"></a>
             </p>
           </div>
         </div>
@@ -291,14 +291,14 @@
       <div class="place">
         <h3>Neoness</h3>
         <div class="place-content">
-          <img src="img/sports/gyms/neoness.webp" width="212" height="148" loading="lazy" alt="Salle Neoness">
+          <img src="img/sports/gyms/neoness.webp" loading="lazy" alt="Salle Neoness">
           <div class="place-text">
             <p>
               Un club accessible et convivial, offrant des installations modernes et des cours collectifs pour tous les goûts et tous les niveaux.
             </p>
             <!-- Lien vers Google Maps pour avoir l'itinéraire -->
             <p class="route-area">
-              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Neoness%20Aix-en-Provence" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" width="150" height="54" loading="lazy" alt="Itinéraire"></a>
+              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Neoness%20Aix-en-Provence" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" loading="lazy" alt="Itinéraire"></a>
             </p>
           </div>
         </div>
@@ -314,14 +314,14 @@
       <div class="place">
         <h3>Piscine Raymond Bochet</h3>
         <div class="place-content">
-          <img src="img/sports/pools/raymond-bochet.webp" width="212" height="148" loading="lazy" alt="Piscine Raymond Bochet">
+          <img src="img/sports/pools/raymond-bochet.webp" loading="lazy" alt="Piscine Raymond Bochet">
           <div class="place-text">
             <p>
               La piscine Raymond Bochet est un équipement moderne offrant des installations de qualité pour pratiquer la natation et d'autres activités aquatiques.
             </p>
             <!-- Lien vers Google Maps pour avoir l'itinéraire -->
             <p class="route-area">
-              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Piscine%20Raymond%20Bochet%20Aix-en-Provence" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" width="150" height="54" loading="lazy" alt="Itinéraire"></a>
+              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Piscine%20Raymond%20Bochet%20Aix-en-Provence" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" loading="lazy" alt="Itinéraire"></a>
             </p>
           </div>
         </div>
@@ -329,14 +329,14 @@
       <div class="place">
         <h3>Piscine Yves Blanc</h3>
         <div class="place-content">
-          <img src="img/sports/pools/yves-blanc.webp" width="212" height="148" loading="lazy" alt="Piscine Yves Blanc">
+          <img src="img/sports/pools/yves-blanc.webp" loading="lazy" alt="Piscine Yves Blanc">
           <div class="place-text">
             <p>
               La piscine Yves Blanc propose un cadre agréable pour les séances de sport en eau et les activités de loisir aquatiques.
             </p>
             <!-- Lien vers Google Maps pour avoir l'itinéraire -->
             <p class="route-area">
-              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Piscine%20Yves%20Blanc%20Aix-en-Provence" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" width="150" height="54" loading="lazy" alt="Itinéraire"></a>
+              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Piscine%20Yves%20Blanc%20Aix-en-Provence" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" loading="lazy" alt="Itinéraire"></a>
             </p>
           </div>
         </div>
@@ -344,14 +344,14 @@
       <div class="place">
         <h3>Piscine Claude Bollet</h3>
         <div class="place-content">
-          <img src="img/sports/pools/claude-bollet.webp" width="212" height="148" loading="lazy" alt="Piscine Claude Bollet">
+          <img src="img/sports/pools/claude-bollet.webp" loading="lazy" alt="Piscine Claude Bollet">
           <div class="place-text">
             <p>
               La piscine Claude Bollet est un lieu idéal pour les amateurs de natation et de fitness aquatique, avec des installations adaptées à tous les niveaux.
             </p>
             <!-- Lien vers Google Maps pour avoir l'itinéraire -->
             <p class="route-area">
-              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Piscine%20Claude%20Bollet%20Aix-en-Provence" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" width="150" height="54" loading="lazy" alt="Itinéraire"></a>
+              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Piscine%20Claude%20Bollet%20Aix-en-Provence" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" loading="lazy" alt="Itinéraire"></a>
             </p>
           </div>
         </div>
@@ -364,14 +364,14 @@
       <div class="place">
         <h3>Provence Rugby</h3>
         <div class="place-content">
-          <img src="img/sports/fans/provence-rugby.webp" width="212" height="148" loading="lazy" alt="Match de Provence Rugby">
+          <img src="img/sports/fans/provence-rugby.webp" loading="lazy" alt="Match de Provence Rugby">
           <div class="place-text">
             <p>
               Le club phare de rugby de la région, qui enflamme le stade Maurice-David à chaque match de Pro D2 dans une super ambiance.
             </p>
             <!-- Lien vers Google Maps pour avoir l'itinéraire -->
             <p class="route-area">
-              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Stade%20Maurice%20David%20Aix-en-Provence" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" width="150" height="54" loading="lazy" alt="Itinéraire"></a>
+              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Stade%20Maurice%20David%20Aix-en-Provence" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" loading="lazy" alt="Itinéraire"></a>
             </p>
           </div>
         </div>
@@ -379,14 +379,14 @@
       <div class="place">
         <h3>PAUC</h3>
         <div class="place-content">
-          <img src="img/sports/fans/pauc.webp" width="212" height="148" loading="lazy" alt="Match du PAUC handball">
+          <img src="img/sports/fans/pauc.webp" loading="lazy" alt="Match du PAUC handball">
           <div class="place-text">
             <p>
               Le club de handball d'Aix-en-Provence, qui évolue au meilleur niveau national et propose un spectacle sportif haletant.
             </p>
             <!-- Lien vers Google Maps pour avoir l'itinéraire -->
             <p class="route-area">
-              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Arena%20du%20Pays%20d%27Aix%20Aix-en-Provence" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" width="150" height="54" loading="lazy" alt="Itinéraire"></a>
+              <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Arena%20du%20Pays%20d%27Aix%20Aix-en-Provence" target="_blank"><img src="img/aixplore/aixplore-route-button.webp" loading="lazy" alt="Itinéraire"></a>
             </p>
           </div>
         </div>
@@ -396,7 +396,7 @@
   </main>
   <!-- Image cliquable pour remonter en haut de la page (#top = tout en haut de la page) -->
   <a href="#top" class="back-to-top">
-    <img src="img/aixplore/aixplore-back-to-top.webp" width="70" height="70" alt="Remonter en haut de la page">
+    <img src="img/aixplore/aixplore-back-to-top.webp" alt="Remonter en haut de la page">
   </a>
 
   <!-- Bas de la page contenant les infos pour nous contacter -->

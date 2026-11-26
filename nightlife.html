@@ -54,16 +54,16 @@
 
     <!-- Logo qui ramène à l'accueil -->
     <a href="index.html" class="logo-link">
-      <img src="img/aixplore/aixplore-logo.webp" width="148" height="64" alt="Accueil du site" class="logo">
+      <img src="img/aixplore/aixplore-logo.webp" alt="Accueil du site" class="logo">
     </a>
 
     <!-- Permet de changer le style -->
     <button type="button" class="theme-toggle">
-      <img src="img/aixplore/aixplore-style-toggle.webp" width="73" height="44" alt="Changer de mode">
+      <img src="img/aixplore/aixplore-style-toggle.webp" alt="Changer de mode">
     </button>
 
     <!-- Navigation principale du site -->
-    <nav class="main-nav" aria-label="Menu principal">
+    <nav class="main-nav">
       <ul>
         <!-- Liste regroupant nos 5 pages (aria-current indique la page en cours) -->
         <li><a href="index.html">Accueil</a></li>
@@ -90,8 +90,8 @@
     </p>
 
     <!-- Boutons de filtre : data-filter indique la catégorie à afficher -->
-    <div class="filters" role="group" aria-labelledby="filters-label">
-      <span class="filters-label" id="filters-label">Filtres :</span>
+    <div class="filters">
+      <span class="filters-label">Filtres :</span>
       <button type="button" class="filter-button" data-filter="all" aria-pressed="true">Tous</button>
       <button type="button" class="filter-button" data-filter="squares" aria-pressed="false">Places</button>
       <button type="button" class="filter-button" data-filter="music" aria-pressed="false">Musique</button>
@@ -100,7 +100,7 @@
     </div>
 
     <!-- Grille des sorties : data-category indique la catégorie de chaque carte -->
-    <section class="deals-grid" aria-label="Liste des sorties">
+    <div class="deals-grid">
 
       <article class="deal-card" data-category="squares">
         <p class="deal-tag">Places</p>
@@ -108,7 +108,7 @@
         <p>La grande avenue bordée de platanes est le point de rendez-vous de la ville. Terrasses, fontaines et promenade : idéal pour commencer la soirée.</p>
         <!-- Lien vers Google Maps pour avoir l'itinéraire -->
         <p class="route-area">
-          <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Cours%20Mirabeau%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-route-button.webp" width="150" height="54" loading="lazy" alt="Itinéraire"></a>
+          <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Cours%20Mirabeau%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-route-button.webp" loading="lazy" alt="Itinéraire"></a>
         </p>
       </article>
 
@@ -119,7 +119,7 @@
         <p class="deal-price">Prix abordables</p>
         <!-- Lien vers Google Maps pour avoir l'itinéraire -->
         <p class="route-area">
-          <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Forum%20des%20Cardeurs%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-route-button.webp" width="150" height="54" loading="lazy" alt="Itinéraire"></a>
+          <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Forum%20des%20Cardeurs%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-route-button.webp" loading="lazy" alt="Itinéraire"></a>
         </p>
       </article>
 
@@ -129,7 +129,7 @@
         <p>Marché de fruits et légumes le matin, terrasses le soir : la place change de visage au fil de la journée.</p>
         <!-- Lien vers Google Maps pour avoir l'itinéraire -->
         <p class="route-area">
-          <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Place%20Richelme%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-route-button.webp" width="150" height="54" loading="lazy" alt="Itinéraire"></a>
+          <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Place%20Richelme%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-route-button.webp" loading="lazy" alt="Itinéraire"></a>
         </p>
       </article>
 
@@ -140,7 +140,7 @@
         <p class="deal-price">Tarifs réduits</p>
         <!-- Lien vers Google Maps pour avoir l'itinéraire -->
         <p class="route-area">
-          <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=6MIC%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-route-button.webp" width="150" height="54" loading="lazy" alt="Itinéraire"></a>
+          <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=6MIC%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-route-button.webp" loading="lazy" alt="Itinéraire"></a>
         </p>
       </article>
 
@@ -151,7 +151,7 @@
         <p class="deal-price">Tarif étudiant</p>
         <!-- Lien vers Google Maps pour avoir l'itinéraire -->
         <p class="route-area">
-          <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Cinéma%20Le%20Mazarin%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-route-button.webp" width="150" height="54" loading="lazy" alt="Itinéraire"></a>
+          <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Cinéma%20Le%20Mazarin%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-route-button.webp" loading="lazy" alt="Itinéraire"></a>
         </p>
       </article>
 
@@ -162,7 +162,7 @@
         <p class="deal-price">Tarif réduit moins de 26 ans</p>
         <!-- Lien vers Google Maps pour avoir l'itinéraire -->
         <p class="route-area">
-          <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Grand%20Théâtre%20de%20Provence%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-route-button.webp" width="150" height="54" loading="lazy" alt="Itinéraire"></a>
+          <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Grand%20Théâtre%20de%20Provence%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-route-button.webp" loading="lazy" alt="Itinéraire"></a>
         </p>
       </article>
 
@@ -172,7 +172,7 @@
         <p>Le centre chorégraphique du Ballet Preljocaj, pour découvrir la danse contemporaine.</p>
         <!-- Lien vers Google Maps pour avoir l'itinéraire -->
         <p class="route-area">
-          <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Pavillon%20Noir%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-route-button.webp" width="150" height="54" loading="lazy" alt="Itinéraire"></a>
+          <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Pavillon%20Noir%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-route-button.webp" loading="lazy" alt="Itinéraire"></a>
         </p>
       </article>
 
@@ -196,7 +196,7 @@
         <p>Opéra et concerts dans toute la ville, avec des offres pour les jeunes.</p>
         <p class="deal-price">Juillet</p>
       </article>
-    </section>
+    </div>
 
     <!-- Conseils pour rentrer en sécurité -->
     <section>
@@ -212,7 +212,7 @@
 
   <!-- Image cliquable pour remonter en haut de la page (#top = tout en haut de la page) -->
   <a href="#top" class="back-to-top">
-    <img src="img/aixplore/aixplore-back-to-top.webp" width="70" height="70" alt="Remonter en haut de la page">
+    <img src="img/aixplore/aixplore-back-to-top.webp" alt="Remonter en haut de la page">
   </a>
 
   <!-- Bas de la page contenant les infos pour nous contacter -->

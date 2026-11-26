@@ -54,16 +54,16 @@
 
     <!-- Logo qui ramène à l'accueil -->
     <a href="index.html" class="logo-link">
-      <img src="img/aixplore/aixplore-logo.webp" width="148" height="64" alt="Accueil du site" class="logo">
+      <img src="img/aixplore/aixplore-logo.webp" alt="Accueil du site" class="logo">
     </a>
 
     <!-- Permet de changer le style -->
     <button type="button" class="theme-toggle">
-      <img src="img/aixplore/aixplore-style-toggle.webp" width="73" height="44" alt="Changer de mode">
+      <img src="img/aixplore/aixplore-style-toggle.webp" alt="Changer de mode">
     </button>
 
     <!-- Navigation principale du site -->
-    <nav class="main-nav" aria-label="Menu principal">
+    <nav class="main-nav">
       <ul>
         <!-- Liste regroupant nos 5 pages (aria-current indique la page en cours) -->
         <li><a href="index.html">Accueil</a></li>
@@ -90,8 +90,8 @@
     </p>
 
     <!-- Boutons de filtre : data-filter indique la catégorie à afficher -->
-    <div class="filters" role="group" aria-labelledby="filters-label">
-      <span class="filters-label" id="filters-label">Filtres :</span>
+    <div class="filters">
+      <span class="filters-label">Filtres :</span>
       <button type="button" class="filter-button" data-filter="all" aria-pressed="true">Tous</button>
       <button type="button" class="filter-button" data-filter="housing" aria-pressed="false">Logement</button>
       <button type="button" class="filter-button" data-filter="food" aria-pressed="false">Manger</button>
@@ -100,7 +100,7 @@
     </div>
 
     <!-- Grille des bons plans : data-category indique la catégorie de chaque carte -->
-    <section class="deals-grid" aria-label="Liste des bons plans">
+    <div class="deals-grid">
 
       <article class="deal-card" data-category="housing">
         <p class="deal-tag">Logement</p>
@@ -221,12 +221,12 @@
         <p class="deal-price">Tarif étudiant</p>
         <a href="https://www.pathe.fr/cinemas/ville/aix-en-provence" class="deal-link" target="_blank" rel="noopener">En savoir plus</a>
       </article>
-    </section>
+    </div>
   </main>
 
   <!-- Image cliquable pour remonter en haut de la page (#top = tout en haut de la page) -->
   <a href="#top" class="back-to-top">
-    <img src="img/aixplore/aixplore-back-to-top.webp" width="70" height="70" alt="Remonter en haut de la page">
+    <img src="img/aixplore/aixplore-back-to-top.webp" alt="Remonter en haut de la page">
   </a>
 
   <!-- Bas de la page contenant les infos pour nous contacter -->
