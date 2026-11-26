@@ -7,7 +7,7 @@ function buildMailto() {
   const name = document.querySelector("#name").value; // Nom du visiteur
   const email = document.querySelector("#email").value; // E-mail du visiteur
   const category = document.querySelector("#category").value; // Rubrique choisie
-  const rating = document.querySelector("input[name='Note']:checked").value; // Note cochée
+  const rating = document.querySelector("input[name='rating']:checked").value; // Note cochée
   const message = document.querySelector("#message").value; // Message du visiteur
 
   // Objet de l'e-mail, par exemple : "Avis Aixplore - Soirées - 5/5"

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /noel.html
+Sitemap: https://paul13001.github.io/aixplore-site/sitemap.xml

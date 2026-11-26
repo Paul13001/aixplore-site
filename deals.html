@@ -11,6 +11,37 @@
   <!-- Titre de la page : "Nom de la page | Aixplore" -->
   <title>Bons plans | Aixplore</title>
 
+  <!-- Description de la page pour les moteurs de recherche (référencement) -->
+  <meta name="description" content="Les bons plans étudiants à Aix-en-Provence : logement, repas, transports et culture à petit prix.">
+
+  <!-- Adresse officielle de la page (évite les doublons dans les moteurs de recherche) -->
+  <link rel="canonical" href="https://paul13001.github.io/aixplore-site/deals.html">
+
+  <!-- Référencement local : Aix-en-Provence (coordonnées du département informatique) -->
+  <meta name="geo.region" content="FR-13">
+  <meta name="geo.placename" content="Aix-en-Provence">
+  <meta name="geo.position" content="43.514157;5.451468">
+  <meta name="ICBM" content="43.514157, 5.451468">
+
+  <!-- Réseaux sociaux : aperçu quand on partage le lien (Open Graph : Facebook, LinkedIn, WhatsApp…) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Aixplore">
+  <meta property="og:title" content="Bons plans | Aixplore">
+  <meta property="og:description" content="Les bons plans étudiants à Aix-en-Provence : logement, repas, transports et culture à petit prix.">
+  <meta property="og:url" content="https://paul13001.github.io/aixplore-site/deals.html">
+  <meta property="og:image" content="https://paul13001.github.io/aixplore-site/img/aixplore/aixplore-share.jpg">
+  <meta property="og:image:alt" content="Logo Aixplore">
+
+  <!-- Réseaux sociaux : aperçu sur X (Twitter) -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bons plans | Aixplore">
+  <meta name="twitter:description" content="Les bons plans étudiants à Aix-en-Provence : logement, repas, transports et culture à petit prix.">
+  <meta name="twitter:image" content="https://paul13001.github.io/aixplore-site/img/aixplore/aixplore-share.jpg">
+
+  <!-- Couleur de la barre du navigateur sur téléphone -->
+  <meta name="theme-color" content="#2340d9">
+
   <!-- Icône Aixplore affichée dans l'onglet du navigateur -->
   <link rel="icon" href="img/aixplore/aixplore-favicon.png" type="image/png">
 
@@ -18,31 +49,34 @@
   <link rel="apple-touch-icon" href="img/aixplore/aixplore-apple-touch-icon.png">
 
   <!-- Feuille de style principale -->
-  <link rel="stylesheet" href="css/style.css" title="Style par défaut">
+  <link rel="stylesheet" href="css/style.min.css" title="Style par défaut">
 
   <!-- Feuille de style alternative -->
-  <link rel="alternate stylesheet" href="css/alternate.css" title="Style alternatif">
+  <link rel="alternate stylesheet" href="css/alternate.min.css" title="Style alternatif">
 
   <!-- Script du mode sombre et du style de Noël (dans le head pour éviter un flash de couleur) -->
   <script src="js/style-switcher.js"></script>
 </head>
 
-<body class="page-bons-plans">
+<body class="page-deals">
+  <!-- Lien d'évitement (accessibilité) : permet d'aller directement au contenu au clavier -->
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
   <!-- En-tête commun à toutes les pages : ne pas modifier -->
   <header class="site-header" id="header">
 
     <!-- Logo qui ramène à l'accueil -->
     <a href="index.html" class="logo-link">
-      <img src="aixplore-logo.png" alt="Accueil du site" class="logo">
+      <img src="img/aixplore/aixplore-logo.webp" width="148" height="64" alt="Accueil du site" class="logo">
     </a>
 
     <!-- Permet de changer le style -->
     <button type="button" class="theme-toggle">
-      <img src="aixplore-style-pilule-09-clic.png" alt="Changer de mode">
+      <img src="img/aixplore/aixplore-style-toggle.webp" width="73" height="44" alt="Changer de mode">
     </button>
 
     <!-- Navigation principale du site -->
-    <nav class="main-nav">
+    <nav class="main-nav" aria-label="Menu principal">
       <ul>
         <!-- Liste regroupant nos 5 pages (aria-current indique la page en cours) -->
         <li><a href="index.html">Accueil</a></li>
@@ -59,7 +93,7 @@
   </header>
 
   <!-- Contenu principal de la page -->
-  <main class="main-content">
+  <main class="main-content" id="main">
     <!-- Titre de la page -->
     <h1>Bons plans</h1>
 
@@ -206,14 +240,19 @@
 
   <!-- Image cliquable pour remonter en haut de la page -->
   <a href="#header" class="back-to-top">
-    <img src="aixplore-top-09-clic.png" alt="Remonter en haut de la page">
+    <img src="img/aixplore/aixplore-back-to-top.webp" width="70" height="70" alt="Remonter en haut de la page">
   </a>
 
   <!-- Bas de la page contenant les infos pour nous contacter -->
   <footer class="site-footer">
+    <!-- Adresse du département informatique (référencement local) -->
+    <address>
+      IUT d'Aix-Marseille – Département informatique<br>
+      413 avenue Gaston Berger, 13625 Aix-en-Provence
+    </address>
     <p>Nous contacter : <a href="mailto:aixplore.contact@gmail.com">aixplore.contact@gmail.com</a></p>
   </footer>
   <!-- Script des filtres de la page -->
-  <script src="js/deals-filter.js"></script>
+  <script src="js/filter.js"></script>
 </body>
 </html>

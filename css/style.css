@@ -21,6 +21,8 @@
 *, /* Sélectionne tous les éléments HTML de la page */
 *::before, /* Faux enfant ajouté au début de l'élément */
 *::after { /* Faux enfant ajouté à la fin de l'élément */
+  -webkit-box-sizing: border-box; /* Préfixe pour les anciens Safari / Chrome */
+  -moz-box-sizing: border-box; /* Préfixe pour les anciens Firefox */
   box-sizing: border-box; /* Inclut la bordure et le padding dans la largeur et la hauteur */
 }
 
@@ -28,6 +30,8 @@ body {
   margin: 0; /* Supprime la marge par défaut du navigateur autour du body */
   font-family: var(--font-family); /* Applique la police */
   line-height: 1.5; /* Espace entre les lignes pour mieux lire */
+  -webkit-font-smoothing: antialiased; /* Texte plus net sur Mac (Safari, Chrome) */
+  -moz-osx-font-smoothing: grayscale; /* Texte plus net sur Mac (Firefox) */
   color: var(--text-color); /* Applique la couleur du texte */
   background-color: var(--bg-color); /* Applique la couleur du fond */
   min-height: 100vh; /* Le body fait au moins toute la hauteur de l'écran */
@@ -72,7 +76,7 @@ button:focus { /* Bouton sélectionné au clavier */
 
 .logo { /* Image du logo */
   display: block; /* Enlève l'espace vide sous l'image */
-  max-height: calc(var(--header-height) - 16px); /* Le logo ne dépasse jamais du header */
+  max-height: 64px; /* Le logo ne dépasse jamais du header (80px de haut - 16px de marge) */
   width: auto; /* Garde les proportions de l'image */
 }
 
@@ -142,35 +146,35 @@ h1 { /* Titre principal de la page */
 
 /* ===== Fonds des pages (image fixe derrière toute la page) ===== */
 
-.page-accueil, /* Page Accueil */
-.page-soirees, /* Page Soirées */
+.page-home, /* Page Accueil */
+.page-nightlife, /* Page Soirées */
 .page-sports, /* Page Sports */
-.page-bons-plans, /* Page Bons plans */
-.page-liens-utiles { /* Page Liens utiles */
+.page-deals, /* Page Bons plans */
+.page-links { /* Page Liens utiles */
   background-size: cover; /* L'image remplit tout l'écran */
   background-position: center; /* Image centrée */
   background-repeat: no-repeat; /* L'image n'est pas répétée */
   background-attachment: fixed; /* L'image de fond reste fixe lors du défilement */
 }
 
-.page-accueil { /* Fond de la page Accueil */
-  background-image: url("../aixplore-fond-accueil.png");
+.page-home { /* Fond de la page Accueil */
+  background-image: url("../img/backgrounds/home.webp");
 }
 
-.page-soirees { /* Fond de la page Soirées */
-  background-image: url("../aixplore-fond-soirees.png");
+.page-nightlife { /* Fond de la page Soirées */
+  background-image: url("../img/backgrounds/nightlife.webp");
 }
 
 .page-sports { /* Fond de la page Sports */
-  background-image: url("../aixplore-fond-sports.png");
+  background-image: url("../img/backgrounds/sports.webp");
 }
 
-.page-bons-plans { /* Fond de la page Bons plans */
-  background-image: url("../aixplore-fond-bons-plans.png");
+.page-deals { /* Fond de la page Bons plans */
+  background-image: url("../img/backgrounds/deals.webp");
 }
 
-.page-liens-utiles { /* Fond de la page Liens utiles */
-  background-image: url("../aixplore-fond-liens-utiles.png");
+.page-links { /* Fond de la page Liens utiles */
+  background-image: url("../img/backgrounds/links.webp");
 }
 
 /* Les textes posés sur le fond sont dans un cadre blanc pour rester lisibles */
@@ -273,17 +277,21 @@ h1 { /* Titre principal de la page */
   color: var(--accent-color); /* Texte bleu au survol */
 }
 
-.rating input { /* Bouton radio */
-  accent-color: var(--primary-color); /* Bouton coché de la couleur du site */
+.rating input { /* Bouton radio : caché à l'écran mais toujours utilisable au clavier et par les lecteurs d'écran */
+  position: absolute; /* Sort le bouton du flux */
+  opacity: 0; /* Invisible */
+  width: 1px; /* Tout petit */
+  height: 1px;
 }
 
-.review-form .rating label:has(input:checked) { /* Note choisie */
+.review-form .rating input:checked + label { /* Note choisie (l'étiquette juste après le bouton coché) */
   background-color: var(--primary-color); /* Fond foncé comme le filtre actif */
   color: var(--header-text-color); /* Texte clair */
 }
 
-.review-form .rating label:has(input:checked) input { /* Bouton de la note choisie */
-  accent-color: var(--header-accent-color); /* Bouton clair pour rester visible sur le fond foncé */
+.review-form .rating input:focus + label { /* Note sélectionnée au clavier */
+  outline: 2px solid var(--accent-color); /* Contour visible */
+  outline-offset: 2px;
 }
 
 .submit-button { /* Bouton envoyer */
@@ -358,6 +366,8 @@ h1 { /* Titre principal de la page */
 }
 
 .filter-button:hover { /* Survol d'un bouton de filtre */
+  -webkit-transform: translate(-1px, -1px);
+  -ms-transform: translate(-1px, -1px);
   transform: translate(-1px, -1px); /* Le bouton se soulève un peu */
   box-shadow: 5px 5px 0 var(--brand-pink); /* L'ombre grandit */
 }
@@ -489,21 +499,21 @@ h1 { /* Titre principal de la page */
   margin-bottom: 32px; /* Espace entre les parties */
 }
 
-.lieu { /* Un lieu (titre + image + texte) */
+.place { /* Un lieu (titre + image + texte) */
   margin-bottom: 24px; /* Espace entre chaque lieu */
 }
 
-.lieu h3 { /* Nom du lieu */
+.place h3 { /* Nom du lieu */
   margin: 0 0 8px; /* Espace sous le nom */
   font-size: 1.2rem; /* Même taille que les titres des cartes */
 }
 
-.lieu-contenu { /* Image + texte */
+.place-content { /* Image + texte */
   display: flex; /* Met l'image et le texte côte à côte */
   gap: 16px; /* Espace entre l'image et le texte */
 }
 
-.lieu-contenu > img { /* Photo du lieu */
+.place-content > img { /* Photo du lieu */
   width: 212px; /* Largeur de la photo */
   height: 148px; /* Hauteur de la photo */
   object-fit: cover; /* Remplit le cadre sans déformer l'image */
@@ -511,7 +521,7 @@ h1 { /* Titre principal de la page */
   border-radius: 6px; /* Coins arrondis comme les cartes */
 }
 
-.lieu-texte { /* Texte du lieu */
+.place-text { /* Texte du lieu */
   flex: 1; /* Le texte prend toute la place restante */
   display: flex; /* Active flexbox */
   flex-direction: column; /* Texte au-dessus du bouton */
@@ -521,32 +531,32 @@ h1 { /* Titre principal de la page */
   border-radius: 6px; /* Coins arrondis comme les cartes */
 }
 
-.lieu-texte p { /* Paragraphes du texte */
+.place-text p { /* Paragraphes du texte */
   margin: 0; /* Enlève la marge par défaut */
 }
 
-.zone-bouton { /* Zone du bouton itinéraire */
+.route-area { /* Zone du bouton itinéraire */
   margin-top: auto; /* Pousse le bouton en bas du cadre */
   padding-top: 12px; /* Espace au-dessus du bouton */
   text-align: right; /* Place le bouton à droite */
 }
 
-.deal-card .zone-bouton { /* Bouton itinéraire dans une carte (page Soirées) */
+.deal-card .route-area { /* Bouton itinéraire dans une carte (page Soirées) */
   margin: auto 0 0; /* Pousse le bouton tout en bas de la carte */
 }
 
-.bouton-itineraire img { /* Image du bouton itinéraire */
+.route-button img { /* Image du bouton itinéraire */
   width: 150px; /* Taille de l'image du bouton */
   height: auto; /* Garde les proportions */
   vertical-align: bottom; /* Enlève le petit espace sous l'image */
 }
 
 @media (max-width: 600px) { /* Téléphone : écran de 600px ou moins */
-  .lieu-contenu { /* Image + texte */
+  .place-content { /* Image + texte */
     flex-direction: column; /* L'image passe au-dessus du texte */
   }
 
-  .lieu-contenu > img { /* Photo du lieu */
+  .place-content > img { /* Photo du lieu */
     width: 100%; /* La photo prend toute la largeur */
     height: 180px; /* Un peu plus haute sur téléphone */
   }
@@ -603,6 +613,8 @@ h1 { /* Titre de la page : grosse pilule bleue comme le bouton Itinéraire */
   background-color: var(--brand-blue); /* Fond bleu Aixplore */
   border-radius: 40px; /* Forme de pilule */
   box-shadow: 6px 6px 0 var(--brand-pink); /* Ombre rose décalée */
+  -webkit-transform: rotate(-1.5deg);
+  -ms-transform: rotate(-1.5deg);
   transform: rotate(-1.5deg); /* Un peu penché comme un autocollant */
 }
 
@@ -617,6 +629,8 @@ section > h2 { /* Titre d'une partie : style autocollant */
   background-color: var(--brand-yellow); /* Fond jaune comme les étoiles */
   border: 2px solid var(--brand-blue); /* Contour bleu */
   border-radius: 30px; /* Forme de pilule */
+  -webkit-transform: rotate(-2deg);
+  -ms-transform: rotate(-2deg);
   transform: rotate(-2deg); /* Un peu penché comme un autocollant */
 }
 
@@ -627,8 +641,8 @@ section > h2 { /* Titre d'une partie : style autocollant */
 .page-card, /* Cartes */
 .deal-card,
 .link-card,
-.lieu-texte,
-.lieu-contenu > img, /* Photos */
+.place-text,
+.place-content > img, /* Photos */
 .home-video { /* Vidéo */
   border: 2px solid var(--brand-blue); /* Gros contour bleu */
   border-radius: 16px; /* Coins bien ronds */
@@ -639,12 +653,15 @@ section > h2 { /* Titre d'une partie : style autocollant */
 .deal-card,
 .link-card,
 .submit-button { /* Bouton envoyer */
+  -webkit-transition: -webkit-transform 0.15s;
   transition: transform 0.15s; /* Animation douce au survol */
 }
 
 .page-card:hover, /* Survol d'une carte */
 .deal-card:hover,
 .link-card:hover {
+  -webkit-transform: translate(-3px, -3px);
+  -ms-transform: translate(-3px, -3px);
   transform: translate(-3px, -3px); /* La carte se soulève */
   box-shadow: 9px 9px 0 var(--brand-pink); /* L'ombre grandit */
 }
@@ -655,6 +672,8 @@ section > h2 { /* Titre d'une partie : style autocollant */
 }
 
 .deal-tag { /* Étiquette de catégorie */
+  -webkit-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
   transform: rotate(-3deg); /* Un peu penchée comme un autocollant */
 }
 
@@ -678,7 +697,7 @@ section > h2 { /* Titre d'une partie : style autocollant */
   border-radius: 30px; /* Forme de pilule */
 }
 
-.review-form .rating label:has(input:checked) { /* Note choisie */
+.review-form .rating input:checked + label { /* Note choisie */
   background-color: var(--brand-blue); /* Fond bleu Aixplore */
 }
 
@@ -692,12 +711,14 @@ section > h2 { /* Titre d'une partie : style autocollant */
 
 .submit-button:hover { /* Survol du bouton envoyer */
   background-color: var(--brand-blue); /* Reste bleu */
+  -webkit-transform: translate(-2px, -2px);
+  -ms-transform: translate(-2px, -2px);
   transform: translate(-2px, -2px); /* Le bouton se soulève */
 }
 
 /* ===== Mode sombre (bouton pilule) : même présentation, couleurs de nuit ===== */
 
-html.sombre { /* Quand la classe "sombre" est sur <html>, on change les variables */
+html.dark { /* Quand la classe "dark" est sur <html>, on change les variables */
   --bg-color: #161d42; /* Fond des cadres : bleu nuit */
   --text-color: #eef1ff; /* Texte clair */
   --primary-color: #eef1ff; /* Bordures claires */
@@ -705,33 +726,64 @@ html.sombre { /* Quand la classe "sombre" est sur <html>, on change les variable
   --brand-blue: #5b74ff; /* Bleu Aixplore un peu plus lumineux */
 }
 
-.sombre .page-accueil, /* Fond de toutes les pages */
-.sombre .page-soirees,
-.sombre .page-sports,
-.sombre .page-bons-plans,
-.sombre .page-liens-utiles {
+.dark .page-home, /* Fond de toutes les pages */
+.dark .page-nightlife,
+.dark .page-sports,
+.dark .page-deals,
+.dark .page-links {
   background-color: #0b1029; /* Bleu presque noir */
   background-image: radial-gradient(#2b3670 2px, transparent 2px); /* Petits points comme sur les fonds clairs */
   background-size: 48px 48px; /* Un point tous les 48px */
 }
 
-.sombre .site-header, /* En-tête et pied de page */
-.sombre .site-footer {
+.dark .site-header, /* En-tête et pied de page */
+.dark .site-footer {
   background-color: #0b1029; /* Même couleur que le fond */
 }
 
-.sombre section > h2, /* Textes posés sur du jaune */
-.sombre .deal-price {
+.dark section > h2, /* Textes posés sur du jaune */
+.dark .deal-price {
   color: #1e293b; /* Restent foncés pour être lisibles */
 }
 
-.sombre .review-form input, /* Champs du formulaire */
-.sombre .review-form select,
-.sombre .review-form textarea {
+.dark .review-form input, /* Champs du formulaire */
+.dark .review-form select,
+.dark .review-form textarea {
   background-color: #0b1029; /* Fond sombre */
   color: var(--text-color); /* Texte clair */
 }
 
-.sombre .theme-toggle img { /* Bouton en pilule version sombre */
-  content: url("../img/aixplore/aixplore-style-pilule-09-clic-sombre.png");
+.dark .theme-toggle img { /* Bouton en pilule version sombre */
+  content: url("../img/aixplore/aixplore-style-toggle-dark.webp");
+}
+
+/* ===== Accessibilité ===== */
+
+.skip-link { /* Lien "Aller au contenu" : caché hors de l'écran… */
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 10; /* Au-dessus de tout */
+  padding: 8px 16px;
+  color: var(--header-text-color);
+  background-color: var(--brand-blue);
+  border-radius: 30px;
+}
+
+.skip-link:focus { /* …et visible quand on arrive dessus avec la touche Tab */
+  top: 16px;
+}
+
+.site-footer address { /* Adresse du département informatique */
+  margin-bottom: 4px; /* Petit espace avant le contact */
+  font-style: normal; /* Pas d'italique */
+}
+
+@media (prefers-reduced-motion: reduce) { /* Visiteurs qui ont demandé moins d'animations */
+  * { /* Tous les éléments */
+    -webkit-transition: none; /* Préfixe pour les anciens navigateurs */
+    transition: none; /* Pas d'animation au survol */
+    -webkit-animation: none;
+    animation: none; /* Pas de neige qui tombe */
+  }
 }

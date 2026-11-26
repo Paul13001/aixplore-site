@@ -11,6 +11,37 @@
   <!-- Titre de la page : "Nom de la page | Aixplore" -->
   <title>Soirées | Aixplore</title>
 
+  <!-- Description de la page pour les moteurs de recherche (référencement) -->
+  <meta name="description" content="Sortir le soir à Aix-en-Provence quand on est étudiant : places animées, concerts, cinémas, théâtre et grands rendez-vous de l'année.">
+
+  <!-- Adresse officielle de la page (évite les doublons dans les moteurs de recherche) -->
+  <link rel="canonical" href="https://paul13001.github.io/aixplore-site/nightlife.html">
+
+  <!-- Référencement local : Aix-en-Provence (coordonnées du département informatique) -->
+  <meta name="geo.region" content="FR-13">
+  <meta name="geo.placename" content="Aix-en-Provence">
+  <meta name="geo.position" content="43.514157;5.451468">
+  <meta name="ICBM" content="43.514157, 5.451468">
+
+  <!-- Réseaux sociaux : aperçu quand on partage le lien (Open Graph : Facebook, LinkedIn, WhatsApp…) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Aixplore">
+  <meta property="og:title" content="Soirées | Aixplore">
+  <meta property="og:description" content="Sortir le soir à Aix-en-Provence quand on est étudiant : places animées, concerts, cinémas, théâtre et grands rendez-vous de l'année.">
+  <meta property="og:url" content="https://paul13001.github.io/aixplore-site/nightlife.html">
+  <meta property="og:image" content="https://paul13001.github.io/aixplore-site/img/aixplore/aixplore-share.jpg">
+  <meta property="og:image:alt" content="Logo Aixplore">
+
+  <!-- Réseaux sociaux : aperçu sur X (Twitter) -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Soirées | Aixplore">
+  <meta name="twitter:description" content="Sortir le soir à Aix-en-Provence quand on est étudiant : places animées, concerts, cinémas, théâtre et grands rendez-vous de l'année.">
+  <meta name="twitter:image" content="https://paul13001.github.io/aixplore-site/img/aixplore/aixplore-share.jpg">
+
+  <!-- Couleur de la barre du navigateur sur téléphone -->
+  <meta name="theme-color" content="#2340d9">
+
   <!-- Icône Aixplore affichée dans l'onglet du navigateur -->
   <link rel="icon" href="img/aixplore/aixplore-favicon.png" type="image/png">
 
@@ -18,31 +49,34 @@
   <link rel="apple-touch-icon" href="img/aixplore/aixplore-apple-touch-icon.png">
 
   <!-- Feuille de style principale -->
-  <link rel="stylesheet" href="css/style.css" title="Style par défaut">
+  <link rel="stylesheet" href="css/style.min.css" title="Style par défaut">
 
   <!-- Feuille de style alternative -->
-  <link rel="alternate stylesheet" href="css/alternate.css" title="Style alternatif">
+  <link rel="alternate stylesheet" href="css/alternate.min.css" title="Style alternatif">
 
   <!-- Script du mode sombre et du style de Noël (dans le head pour éviter un flash de couleur) -->
   <script src="js/style-switcher.js"></script>
 </head>
 
-<body class="page-soirees">
+<body class="page-nightlife">
+  <!-- Lien d'évitement (accessibilité) : permet d'aller directement au contenu au clavier -->
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
   <!-- En-tête commun à toutes les pages : ne pas modifier -->
   <header class="site-header" id="header">
 
     <!-- Logo qui ramène à l'accueil -->
     <a href="index.html" class="logo-link">
-      <img src="aixplore-logo.png" alt="Accueil du site" class="logo">
+      <img src="img/aixplore/aixplore-logo.webp" width="148" height="64" alt="Accueil du site" class="logo">
     </a>
 
     <!-- Permet de changer le style -->
     <button type="button" class="theme-toggle">
-      <img src="aixplore-style-pilule-09-clic.png" alt="Changer de mode">
+      <img src="img/aixplore/aixplore-style-toggle.webp" width="73" height="44" alt="Changer de mode">
     </button>
 
     <!-- Navigation principale du site -->
-    <nav class="main-nav">
+    <nav class="main-nav" aria-label="Menu principal">
       <ul>
         <!-- Liste regroupant nos 5 pages (aria-current indique la page en cours) -->
         <li><a href="index.html">Accueil</a></li>
@@ -59,7 +93,7 @@
   </header>
 
   <!-- Contenu principal de la page -->
-  <main class="main-content">
+  <main class="main-content" id="main">
     <!-- Titre de la page -->
     <h1>Soirées</h1>
 
@@ -86,8 +120,8 @@
         <h2>Le Cours Mirabeau</h2>
         <p>La grande avenue bordée de platanes est le point de rendez-vous de la ville. Terrasses, fontaines et promenade : idéal pour commencer la soirée.</p>
         <!-- Lien vers Google Maps pour avoir l'itinéraire -->
-        <p class="zone-bouton">
-          <a class="bouton-itineraire" href="https://www.google.com/maps/dir/?api=1&amp;destination=Cours%20Mirabeau%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-bouton-7-itineraire.png" alt="Itinéraire"></a>
+        <p class="route-area">
+          <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Cours%20Mirabeau%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-route-button.webp" width="150" height="54" loading="lazy" alt="Itinéraire"></a>
         </p>
       </article>
 
@@ -97,8 +131,8 @@
         <p>Derrière l'hôtel de ville, cette grande place piétonne est entourée de restaurants aux prix abordables. C'est l'un des lieux préférés des étudiants.</p>
         <p class="deal-price">Prix abordables</p>
         <!-- Lien vers Google Maps pour avoir l'itinéraire -->
-        <p class="zone-bouton">
-          <a class="bouton-itineraire" href="https://www.google.com/maps/dir/?api=1&amp;destination=Forum%20des%20Cardeurs%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-bouton-7-itineraire.png" alt="Itinéraire"></a>
+        <p class="route-area">
+          <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Forum%20des%20Cardeurs%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-route-button.webp" width="150" height="54" loading="lazy" alt="Itinéraire"></a>
         </p>
       </article>
 
@@ -107,8 +141,8 @@
         <h2>La place Richelme</h2>
         <p>Marché de fruits et légumes le matin, terrasses le soir : la place change de visage au fil de la journée.</p>
         <!-- Lien vers Google Maps pour avoir l'itinéraire -->
-        <p class="zone-bouton">
-          <a class="bouton-itineraire" href="https://www.google.com/maps/dir/?api=1&amp;destination=Place%20Richelme%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-bouton-7-itineraire.png" alt="Itinéraire"></a>
+        <p class="route-area">
+          <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Place%20Richelme%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-route-button.webp" width="150" height="54" loading="lazy" alt="Itinéraire"></a>
         </p>
       </article>
 
@@ -118,8 +152,8 @@
         <p>La salle de musiques actuelles du Pays d'Aix accueille concerts, artistes locaux et têtes d'affiche. Consultez la programmation pour les tarifs réduits.</p>
         <p class="deal-price">Tarifs réduits</p>
         <!-- Lien vers Google Maps pour avoir l'itinéraire -->
-        <p class="zone-bouton">
-          <a class="bouton-itineraire" href="https://www.google.com/maps/dir/?api=1&amp;destination=6MIC%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-bouton-7-itineraire.png" alt="Itinéraire"></a>
+        <p class="route-area">
+          <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=6MIC%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-route-button.webp" width="150" height="54" loading="lazy" alt="Itinéraire"></a>
         </p>
       </article>
 
@@ -129,8 +163,8 @@
         <p>Le Mazarin, le Renoir et le Cézanne proposent films récents et versions originales. Pensez à demander le tarif étudiant.</p>
         <p class="deal-price">Tarif étudiant</p>
         <!-- Lien vers Google Maps pour avoir l'itinéraire -->
-        <p class="zone-bouton">
-          <a class="bouton-itineraire" href="https://www.google.com/maps/dir/?api=1&amp;destination=Cinéma%20Le%20Mazarin%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-bouton-7-itineraire.png" alt="Itinéraire"></a>
+        <p class="route-area">
+          <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Cinéma%20Le%20Mazarin%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-route-button.webp" width="150" height="54" loading="lazy" alt="Itinéraire"></a>
         </p>
       </article>
 
@@ -140,8 +174,8 @@
         <p>Musique classique, danse et grands spectacles. Des places à tarif réduit existent pour les moins de 26 ans.</p>
         <p class="deal-price">Tarif réduit moins de 26 ans</p>
         <!-- Lien vers Google Maps pour avoir l'itinéraire -->
-        <p class="zone-bouton">
-          <a class="bouton-itineraire" href="https://www.google.com/maps/dir/?api=1&amp;destination=Grand%20Théâtre%20de%20Provence%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-bouton-7-itineraire.png" alt="Itinéraire"></a>
+        <p class="route-area">
+          <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Grand%20Théâtre%20de%20Provence%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-route-button.webp" width="150" height="54" loading="lazy" alt="Itinéraire"></a>
         </p>
       </article>
 
@@ -150,8 +184,8 @@
         <h2>Le Pavillon Noir</h2>
         <p>Le centre chorégraphique du Ballet Preljocaj, pour découvrir la danse contemporaine.</p>
         <!-- Lien vers Google Maps pour avoir l'itinéraire -->
-        <p class="zone-bouton">
-          <a class="bouton-itineraire" href="https://www.google.com/maps/dir/?api=1&amp;destination=Pavillon%20Noir%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-bouton-7-itineraire.png" alt="Itinéraire"></a>
+        <p class="route-area">
+          <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Pavillon%20Noir%20Aix-en-Provence" target="_blank" rel="noopener"><img src="img/aixplore/aixplore-route-button.webp" width="150" height="54" loading="lazy" alt="Itinéraire"></a>
         </p>
       </article>
 
@@ -191,14 +225,19 @@
 
   <!-- Image cliquable pour remonter en haut de la page -->
   <a href="#header" class="back-to-top">
-    <img src="aixplore-top-09-clic.png" alt="Remonter en haut de la page">
+    <img src="img/aixplore/aixplore-back-to-top.webp" width="70" height="70" alt="Remonter en haut de la page">
   </a>
 
   <!-- Bas de la page contenant les infos pour nous contacter -->
   <footer class="site-footer">
+    <!-- Adresse du département informatique (référencement local) -->
+    <address>
+      IUT d'Aix-Marseille – Département informatique<br>
+      413 avenue Gaston Berger, 13625 Aix-en-Provence
+    </address>
     <p>Nous contacter : <a href="mailto:aixplore.contact@gmail.com">aixplore.contact@gmail.com</a></p>
   </footer>
   <!-- Script des filtres de la page (le même que la page Bons plans) -->
-  <script src="js/deals-filter.js"></script>
+  <script src="js/filter.js"></script>
 </body>
 </html>

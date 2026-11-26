@@ -12,11 +12,11 @@
   --brand-blue: #9e1b1b; /* Rouge velours */
   --brand-pink: #1f6b3a; /* Vert sapin */
   --brand-yellow: #e9c46a; /* Or */
-  --noel-papier: #fdf3e1; /* Papier crème */
-  --noel-encre: #3b2314; /* Encre marron foncé */
-  --noel-fond: #0f3324; /* Vert très foncé du fond */
+  --xmas-paper: #fdf3e1; /* Papier crème */
+  --xmas-ink: #3b2314; /* Encre marron foncé */
+  --xmas-background: #0f3324; /* Vert très foncé du fond */
   --font-family: "Lora", Georgia, serif; /* Nouvelle police du texte */
-  --noel-titre: "Mountains of Christmas", "Comic Sans MS", cursive; /* Police des titres */
+  --xmas-title-font: "Mountains of Christmas", "Comic Sans MS", cursive; /* Police des titres */
 }
 
 /* ===== Mise en page : menu dans une colonne à gauche ===== */
@@ -24,21 +24,22 @@
 body {
   display: grid; /* Grille : menu à gauche, contenu à droite */
   grid-template-columns: 250px 1fr;
-  color: var(--noel-papier); /* Texte crème sur le fond vert */
+  color: var(--xmas-paper); /* Texte crème sur le fond vert */
 }
 
-.page-accueil, /* Toutes les pages : fond vert sapin */
-.page-soirees,
+.page-home, /* Toutes les pages : fond vert sapin */
+.page-nightlife,
 .page-sports,
-.page-bons-plans,
-.page-liens-utiles {
+.page-deals,
+.page-links {
   background-image: none; /* Enlève les dessins bleus */
-  background-color: var(--noel-fond);
+  background-color: var(--xmas-background);
 }
 
 .site-header { /* L'en-tête devient une colonne à gauche */
   grid-column: 1;
   grid-row: 1 / 3; /* Toute la hauteur */
+  position: -webkit-sticky; /* Préfixe pour les anciens Safari */
   position: sticky; /* Reste visible quand on descend */
   top: 0;
   height: 100vh;
@@ -61,7 +62,7 @@ body {
   white-space: pre; /* Respecte le retour à la ligne */
   display: block;
   text-align: center;
-  font-family: var(--noel-titre);
+  font-family: var(--xmas-title-font);
   font-size: 2.4rem;
   line-height: 1;
   color: var(--brand-yellow);
@@ -128,14 +129,16 @@ h1 { /* Titre de la page : grosse écriture de Noël, crème, centré */
   display: block;
   padding: 0;
   text-align: center;
-  font-family: var(--noel-titre);
+  font-family: var(--xmas-title-font);
   font-size: 3.6rem;
   font-weight: 700;
   text-transform: none;
-  color: var(--noel-papier);
+  color: var(--xmas-paper);
   background-color: transparent;
   border-radius: 0;
   box-shadow: none;
+  -webkit-transform: none;
+  -ms-transform: none;
   transform: none;
   text-shadow: 3px 3px 0 var(--brand-blue); /* Ombre rouge */
 }
@@ -148,21 +151,23 @@ section > h2 { /* Titres des parties : ruban vert */
   display: block;
   padding: 8px 16px;
   text-align: center;
-  font-family: var(--noel-titre);
+  font-family: var(--xmas-title-font);
   font-size: 2rem;
-  color: var(--noel-papier);
+  color: var(--xmas-paper);
   background-color: var(--brand-pink);
   border: none;
   border-top: 3px solid var(--brand-yellow);
   border-bottom: 3px solid var(--brand-yellow);
   border-radius: 0;
+  -webkit-transform: none;
+  -ms-transform: none;
   transform: none;
 }
 
-.lieu h3, /* Petits titres posés sur le fond */
+.place h3, /* Petits titres posés sur le fond */
 .sources h3 {
   text-align: center;
-  font-family: var(--noel-titre);
+  font-family: var(--xmas-title-font);
   font-size: 1.6rem;
   color: var(--brand-yellow);
 }
@@ -173,8 +178,8 @@ section > h2 { /* Titres des parties : ruban vert */
 .main-content > p,
 .main-content section > p,
 .main-content section > ul {
-  color: var(--noel-encre);
-  background-color: var(--noel-papier);
+  color: var(--xmas-ink);
+  background-color: var(--xmas-paper);
   border: none;
   border-radius: 4px;
   box-shadow: 0 6px 0 rgba(0, 0, 0, 0.3); /* Ombre douce en dessous */
@@ -193,32 +198,36 @@ section > h2 { /* Titres des parties : ruban vert */
 .page-cards {
   grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
   gap: 28px;
-  counter-reset: case; /* Compteur des numéros de case, remis à 0 */
+  counter-reset: box; /* Compteur des numéros de case, remis à 0 */
 }
 
 .deal-card,
 .link-card,
 .page-card {
   position: relative; /* Pour placer le numéro dans le coin */
-  counter-increment: case; /* Chaque carte ajoute 1 au compteur */
-  color: var(--noel-papier);
+  counter-increment: box; /* Chaque carte ajoute 1 au compteur */
+  color: var(--xmas-paper);
   background-color: var(--brand-blue); /* Rouge velours */
   border: 3px dashed var(--brand-yellow); /* Couture dorée */
   border-radius: 12px;
   box-shadow: none;
+  -webkit-transform: rotate(-1deg);
+  -ms-transform: rotate(-1deg);
   transform: rotate(-1deg); /* Un peu de travers… */
 }
 
 .deals-grid > :nth-child(even), /* …une carte sur deux dans l'autre sens */
 .links-grid > :nth-child(even) .link-card,
 .page-cards > :nth-child(even) {
+  -webkit-transform: rotate(1deg);
+  -ms-transform: rotate(1deg);
   transform: rotate(1deg);
 }
 
 .deal-card::before, /* Numéro de la case dans une pastille dorée */
 .link-card::before,
 .page-card::before {
-  content: counter(case); /* Affiche le numéro */
+  content: counter(box); /* Affiche le numéro */
   position: absolute;
   top: -16px;
   right: -12px;
@@ -226,7 +235,7 @@ section > h2 { /* Titres des parties : ruban vert */
   height: 44px;
   line-height: 44px;
   text-align: center;
-  font-family: var(--noel-titre);
+  font-family: var(--xmas-title-font);
   font-size: 1.5rem;
   color: var(--brand-blue);
   background-color: var(--brand-yellow);
@@ -236,10 +245,12 @@ section > h2 { /* Titres des parties : ruban vert */
 .deal-card:hover, /* Survol : la case se redresse et grossit */
 .link-card:hover,
 .page-card:hover {
+  -webkit-transform: rotate(0deg) scale(1.03);
+  -ms-transform: rotate(0deg) scale(1.03);
   transform: rotate(0deg) scale(1.03);
   box-shadow: none;
   background-color: var(--brand-pink); /* Devient verte */
-  color: var(--noel-papier);
+  color: var(--xmas-paper);
 }
 
 .deal-tag { /* Étiquette : texte doré en italique */
@@ -250,6 +261,8 @@ section > h2 { /* Titres des parties : ruban vert */
   background-color: transparent;
   border-radius: 0;
   box-shadow: none;
+  -webkit-transform: none;
+  -ms-transform: none;
   transform: none;
 }
 
@@ -258,7 +271,7 @@ section > h2 { /* Titres des parties : ruban vert */
 }
 
 .deal-price { /* Info importante : étiquette verte */
-  color: var(--noel-papier);
+  color: var(--xmas-paper);
   background-color: var(--brand-pink);
   border-radius: 4px;
 }
@@ -270,12 +283,12 @@ section > h2 { /* Titres des parties : ruban vert */
 
 /* ===== Page Sports : les photos deviennent des boules de Noël ===== */
 
-.lieu-contenu {
+.place-content {
   flex-direction: column;
   align-items: center;
 }
 
-.lieu-contenu > img {
+.place-content > img {
   width: 150px;
   height: 150px;
   border: 4px solid var(--brand-yellow);
@@ -284,24 +297,24 @@ section > h2 { /* Titres des parties : ruban vert */
   background-color: var(--brand-blue);
 }
 
-.lieu-texte {
+.place-text {
   width: 100%;
-  color: var(--noel-encre);
-  background-color: var(--noel-papier);
+  color: var(--xmas-ink);
+  background-color: var(--xmas-paper);
   border: none;
   border-radius: 4px;
   box-shadow: 0 6px 0 rgba(0, 0, 0, 0.3);
 }
 
-.zone-bouton {
+.route-area {
   text-align: center;
 }
 
-.bouton-itineraire img { /* On cache l'image du bouton Itinéraire… */
+.route-button img { /* On cache l'image du bouton Itinéraire… */
   display: none;
 }
 
-.bouton-itineraire::after { /* …et on écrit à la place */
+.route-button::after { /* …et on écrit à la place */
   content: "🦌 Y aller";
   display: inline-block;
   padding: 6px 16px;
@@ -326,20 +339,22 @@ section > h2 { /* Titres des parties : ruban vert */
   font-family: var(--font-family);
   font-weight: normal;
   font-style: italic;
-  color: var(--noel-encre);
-  background-color: var(--noel-papier);
+  color: var(--xmas-ink);
+  background-color: var(--xmas-paper);
   border: 2px dashed var(--brand-blue);
   border-radius: 4px 20px 20px 4px; /* Forme d'étiquette de cadeau */
   box-shadow: none;
 }
 
 .filter-button:hover {
+  -webkit-transform: none;
+  -ms-transform: none;
   transform: none;
   box-shadow: none;
 }
 
 .filter-button[aria-pressed="true"] {
-  color: var(--noel-papier);
+  color: var(--xmas-paper);
   background-color: var(--brand-blue);
 }
 
@@ -356,23 +371,25 @@ section > h2 { /* Titres des parties : ruban vert */
   margin: 0 auto;
   padding: 24px 32px;
   max-width: 560px;
-  color: var(--noel-encre);
-  background-color: var(--noel-papier);
-  background-image: repeating-linear-gradient(transparent 0 31px, #e6d3b3 31px 32px); /* Lignes du papier */
+  color: var(--xmas-ink);
+  background-color: var(--xmas-paper);
+  background-image: repeating-linear-gradient(transparent 0, transparent 31px, #e6d3b3 31px, #e6d3b3 32px); /* Lignes du papier */
   border-radius: 4px;
+  -webkit-transform: rotate(-0.5deg);
+  -ms-transform: rotate(-0.5deg);
   transform: rotate(-0.5deg);
 }
 
 .review-form::before { /* En-tête de la lettre */
   content: "Cher Père Noël,";
-  font-family: var(--noel-titre);
+  font-family: var(--xmas-title-font);
   font-size: 2rem;
   color: var(--brand-blue);
 }
 
 .review-form label,
 .rating legend {
-  color: var(--noel-encre);
+  color: var(--xmas-ink);
   font-style: italic;
 }
 
@@ -380,7 +397,7 @@ section > h2 { /* Titres des parties : ruban vert */
 .review-form select,
 .review-form textarea {
   font-family: var(--font-family);
-  color: var(--noel-encre);
+  color: var(--xmas-ink);
   background-color: transparent;
   border: none;
   border-bottom: 2px solid var(--brand-blue);
@@ -388,22 +405,22 @@ section > h2 { /* Titres des parties : ruban vert */
 }
 
 .review-form .rating label {
-  color: var(--noel-encre);
+  color: var(--xmas-ink);
   background-color: transparent;
   border: 1px dashed var(--brand-blue);
   border-radius: 4px;
 }
 
-.review-form .rating label:has(input:checked) {
-  color: var(--noel-papier);
+.review-form .rating input:checked + label {
+  color: var(--xmas-paper);
   background-color: var(--brand-blue);
 }
 
 .submit-button { /* Bouton envoyer : cachet de cire vert */
   align-self: center;
-  font-family: var(--noel-titre);
+  font-family: var(--xmas-title-font);
   font-size: 1.4rem;
-  color: var(--noel-papier);
+  color: var(--xmas-paper);
   background-color: var(--brand-pink);
   border-radius: 4px;
   box-shadow: none;
@@ -415,6 +432,8 @@ section > h2 { /* Titres des parties : ruban vert */
 
 .submit-button:hover {
   background-color: var(--brand-blue);
+  -webkit-transform: none;
+  -ms-transform: none;
   transform: none;
 }
 
@@ -449,10 +468,20 @@ body::before {
   background-size: 60px 60px;
   opacity: 0.4;
   pointer-events: none; /* On peut cliquer à travers la neige */
-  animation: neige 6s linear infinite;
+  -webkit-animation: snow 6s linear infinite;
+  animation: snow 6s linear infinite;
 }
 
-@keyframes neige {
+@-webkit-keyframes snow {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 30px 60px; /* Les flocons descendent */
+  }
+}
+
+@keyframes snow {
   from {
     background-position: 0 0;
   }

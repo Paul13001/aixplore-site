@@ -14,6 +14,66 @@
   <!-- Description de la page pour les moteurs de recherche (référencement) -->
   <meta name="description" content="Aixplore, le guide de la vie étudiante à Aix-en-Provence : soirées, sports, bons plans et liens utiles.">
 
+  <!-- Adresse officielle de la page (évite les doublons dans les moteurs de recherche) -->
+  <link rel="canonical" href="https://paul13001.github.io/aixplore-site/">
+
+  <!-- Référencement local : Aix-en-Provence (coordonnées du département informatique) -->
+  <meta name="geo.region" content="FR-13">
+  <meta name="geo.placename" content="Aix-en-Provence">
+  <meta name="geo.position" content="43.514157;5.451468">
+  <meta name="ICBM" content="43.514157, 5.451468">
+
+  <!-- Réseaux sociaux : aperçu quand on partage le lien (Open Graph : Facebook, LinkedIn, WhatsApp…) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Aixplore">
+  <meta property="og:title" content="Accueil | Aixplore">
+  <meta property="og:description" content="Aixplore, le guide de la vie étudiante à Aix-en-Provence : soirées, sports, bons plans et liens utiles.">
+  <meta property="og:url" content="https://paul13001.github.io/aixplore-site/">
+  <meta property="og:image" content="https://paul13001.github.io/aixplore-site/img/aixplore/aixplore-share.jpg">
+  <meta property="og:image:alt" content="Logo Aixplore">
+
+  <!-- Réseaux sociaux : aperçu sur X (Twitter) -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Accueil | Aixplore">
+  <meta name="twitter:description" content="Aixplore, le guide de la vie étudiante à Aix-en-Provence : soirées, sports, bons plans et liens utiles.">
+  <meta name="twitter:image" content="https://paul13001.github.io/aixplore-site/img/aixplore/aixplore-share.jpg">
+
+  <!-- Couleur de la barre du navigateur sur téléphone -->
+  <meta name="theme-color" content="#2340d9">
+
+  <!-- Données structurées (schema.org) : le site et l'adresse du département informatique, pour Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Aixplore",
+    "url": "https://paul13001.github.io/aixplore-site/",
+    "inLanguage": "fr",
+    "description": "Le guide de la vie étudiante à Aix-en-Provence.",
+    "publisher": {
+      "@type": "CollegeOrUniversity",
+      "name": "IUT d'Aix-Marseille – Département informatique",
+      "email": "iut-aix-informatique@univ-amu.fr",
+      "telephone": "+33 4 13 94 63 79",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "413 avenue Gaston Berger",
+        "postalCode": "13625",
+        "addressLocality": "Aix-en-Provence",
+        "addressRegion": "Provence-Alpes-Côte d'Azur",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 43.514157,
+        "longitude": 5.451468
+      }
+    }
+  }
+  </script>
+
+
   <!-- Icône Aixplore affichée dans l'onglet du navigateur -->
   <link rel="icon" href="img/aixplore/aixplore-favicon.png" type="image/png">
 
@@ -21,31 +81,34 @@
   <link rel="apple-touch-icon" href="img/aixplore/aixplore-apple-touch-icon.png">
 
   <!-- Feuille de style principale -->
-  <link rel="stylesheet" href="css/style.css" title="Style par défaut">
+  <link rel="stylesheet" href="css/style.min.css" title="Style par défaut">
 
   <!-- Feuille de style alternative -->
-  <link rel="alternate stylesheet" href="css/alternate.css" title="Style alternatif">
+  <link rel="alternate stylesheet" href="css/alternate.min.css" title="Style alternatif">
 
   <!-- Script du mode sombre et du style de Noël (dans le head pour éviter un flash de couleur) -->
   <script src="js/style-switcher.js"></script>
 </head>
 
-<body class="page-accueil">
+<body class="page-home">
+  <!-- Lien d'évitement (accessibilité) : permet d'aller directement au contenu au clavier -->
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
   <!-- En-tête commun à toutes les pages : ne pas modifier -->
   <header class="site-header" id="header">
 
     <!-- Logo qui ramène à l'accueil -->
     <a href="index.html" class="logo-link">
-      <img src="aixplore-logo.png" alt="Accueil du site" class="logo">
+      <img src="img/aixplore/aixplore-logo.webp" width="148" height="64" alt="Accueil du site" class="logo">
     </a>
 
     <!-- Permet de changer le style -->
     <button type="button" class="theme-toggle">
-      <img src="aixplore-style-pilule-09-clic.png" alt="Changer de mode">
+      <img src="img/aixplore/aixplore-style-toggle.webp" width="73" height="44" alt="Changer de mode">
     </button>
 
     <!-- Navigation principale du site -->
-    <nav class="main-nav">
+    <nav class="main-nav" aria-label="Menu principal">
       <ul>
         <!-- Liste regroupant nos 5 pages (aria-current indique la page en cours) -->
         <li><a href="index.html" aria-current="page">Accueil</a></li>
@@ -62,7 +125,7 @@
   </header>
 
   <!-- Contenu principal de la page -->
-  <main class="main-content">
+  <main class="main-content" id="main">
     <!-- Titre de la page -->
     <h1>Accueil</h1>
 
@@ -73,7 +136,7 @@
 
     <!-- Vidéo de présentation avec sous-titres -->
     <!-- preload="none" : la vidéo n'est téléchargée que si on appuie sur lecture (page plus légère) -->
-    <video class="home-video" controls preload="none">
+    <video class="home-video" controls preload="none" width="960" height="540">
       <source src="video/aix-capitale-etudiante.mp4" type="video/mp4">
       <!-- Fichier de sous-titres en français -->
       <track src="video/aix-capitale-etudiante.vtt" kind="subtitles" srclang="fr" label="Français" default>
@@ -120,15 +183,15 @@
 
         <!-- Nom du visiteur -->
         <label for="name">Nom</label>
-        <input type="text" id="name" name="Nom" placeholder="Camille Martin" autocomplete="name" minlength="2" maxlength="80" required>
+        <input type="text" id="name" name="name" placeholder="Camille Martin" autocomplete="name" minlength="2" maxlength="80" pattern="[A-Za-zÀ-ÖØ-öø-ÿ' \-]{2,80}" title="Lettres, espaces, apostrophes et tirets uniquement" required>
 
         <!-- Adresse e-mail du visiteur -->
         <label for="email">E-mail</label>
-        <input type="email" id="email" name="E-mail" placeholder="camille.martin@etu.univ-amu.fr" autocomplete="email" required>
+        <input type="email" id="email" name="email" placeholder="camille.martin@etu.univ-amu.fr" autocomplete="email" required>
 
         <!-- Rubrique concernée par l'avis -->
         <label for="category">Rubrique</label>
-        <select id="category" name="Rubrique" required>
+        <select id="category" name="category" required>
           <option value="">-- Choisir une rubrique --</option>
           <option value="Accueil">Accueil</option>
           <option value="Soirées">Soirées</option>
@@ -137,19 +200,24 @@
           <option value="Liens utiles">Liens utiles</option>
         </select>
 
-        <!-- Note de 1 à 5 : boutons radio (une seule note possible) regroupés dans un fieldset -->
+        <!-- Note de 1 à 5 : boutons radio (une seule note possible) regroupés dans un fieldset ; chaque bouton est suivi de son étiquette -->
         <fieldset class="rating">
           <legend>Note</legend>
-          <label><input type="radio" name="Note" value="1/5 - Mauvais" required> 1 ★ Mauvais</label>
-          <label><input type="radio" name="Note" value="2/5 - Décevant"> 2 ★ Décevant</label>
-          <label><input type="radio" name="Note" value="3/5 - Moyen"> 3 ★ Moyen</label>
-          <label><input type="radio" name="Note" value="4/5 - Bien"> 4 ★ Bien</label>
-          <label><input type="radio" name="Note" value="5/5 - Excellent"> 5 ★ Excellent</label>
+          <input type="radio" id="rating-1" name="rating" value="1/5 - Mauvais" required>
+          <label for="rating-1">1 ★ Mauvais</label>
+          <input type="radio" id="rating-2" name="rating" value="2/5 - Décevant">
+          <label for="rating-2">2 ★ Décevant</label>
+          <input type="radio" id="rating-3" name="rating" value="3/5 - Moyen">
+          <label for="rating-3">3 ★ Moyen</label>
+          <input type="radio" id="rating-4" name="rating" value="4/5 - Bien">
+          <label for="rating-4">4 ★ Bien</label>
+          <input type="radio" id="rating-5" name="rating" value="5/5 - Excellent">
+          <label for="rating-5">5 ★ Excellent</label>
         </fieldset>
 
         <!-- Message de l'avis -->
         <label for="message">Message</label>
-        <textarea id="message" name="Message" rows="5" placeholder="Ce qui t'a plu, ce qui manque, un bon plan à partager…" minlength="10" maxlength="1000" required></textarea>
+        <textarea id="message" name="message" rows="5" placeholder="Ce qui t'a plu, ce qui manque, un bon plan à partager…" minlength="10" maxlength="1000" required></textarea>
 
         <!-- Bouton d'envoi -->
         <button type="submit" class="submit-button">Envoyer</button>
@@ -159,11 +227,16 @@
 
   <!-- Image cliquable pour remonter en haut de la page -->
   <a href="#header" class="back-to-top">
-    <img src="aixplore-top-09-clic.png" alt="Remonter en haut de la page">
+    <img src="img/aixplore/aixplore-back-to-top.webp" width="70" height="70" alt="Remonter en haut de la page">
   </a>
 
   <!-- Bas de la page contenant les infos pour nous contacter -->
   <footer class="site-footer">
+    <!-- Adresse du département informatique (référencement local) -->
+    <address>
+      IUT d'Aix-Marseille – Département informatique<br>
+      413 avenue Gaston Berger, 13625 Aix-en-Provence
+    </address>
     <p>Nous contacter : <a href="mailto:aixplore.contact@gmail.com">aixplore.contact@gmail.com</a></p>
   </footer>
   <!-- Script du formulaire d'avis : met en forme l'e-mail -->

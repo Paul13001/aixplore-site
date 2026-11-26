@@ -1,41 +1,41 @@
 // Bouton pilule = mode sombre (même présentation, couleurs de nuit)
-// Style alternatif = style de Noël, secret, activé par la page /noel (noel.html)
+// Style alternatif = style de Noël (autre feuille de style : css/alternate.min.css), activé par la page secrète /noel
 
 // Lit une valeur retenue par le navigateur (try/catch : certains navigateurs bloquent cette mémoire)
-function lire(cle) {
+function readValue(key) {
   try {
-    return localStorage.getItem(cle);
-  } catch (erreur) {
+    return localStorage.getItem(key);
+  } catch (error) {
     return null;
   }
 }
 
 // Retient une valeur dans le navigateur
-function ecrire(cle, valeur) {
+function writeValue(key, value) {
   try {
-    localStorage.setItem(cle, valeur);
-  } catch (erreur) {
+    localStorage.setItem(key, value);
+  } catch (error) {
     // Mémoire bloquée : tant pis, le style ne sera pas retenu d'une page à l'autre
   }
 }
 
-const noelStyle = document.querySelector('link[href="css/alternate.css"]'); // Feuille de style de Noël
+const christmasStyle = document.querySelector('link[href="css/alternate.min.css"]'); // Feuille de style de Noël
 
 // On enlève le title de la feuille de Noël pour pouvoir l'allumer nous-mêmes
 // (avec un title, c'est le navigateur qui choisit seul quelle feuille afficher)
-noelStyle.removeAttribute("title");
+christmasStyle.removeAttribute("title");
 
 // Met le bon style sur la page : Noël, sombre ou normal
 function updateStyle() {
-  if (lire("noel") === "oui") {
-    noelStyle.rel = "stylesheet"; // La feuille de Noël s'applique
-    document.documentElement.classList.remove("sombre"); // Pas de mode sombre pendant Noël
+  if (readValue("christmas") === "on") {
+    christmasStyle.rel = "stylesheet"; // La feuille de Noël s'applique
+    document.documentElement.classList.remove("dark"); // Pas de mode sombre pendant Noël
   } else {
-    noelStyle.rel = "alternate stylesheet"; // La feuille de Noël ne s'applique pas
-    if (lire("sombre") === "oui") {
-      document.documentElement.classList.add("sombre"); // Ajoute la classe "sombre" sur <html>
+    christmasStyle.rel = "alternate stylesheet"; // La feuille de Noël ne s'applique pas
+    if (readValue("dark") === "on") {
+      document.documentElement.classList.add("dark"); // Ajoute la classe "dark" sur <html>
     } else {
-      document.documentElement.classList.remove("sombre");
+      document.documentElement.classList.remove("dark");
     }
   }
 }
@@ -47,12 +47,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const styleButton = document.querySelector(".theme-toggle"); // Bouton pilule de l'en-tête
 
   styleButton.addEventListener("click", function () {
-    if (lire("noel") === "oui") {
-      ecrire("noel", "non"); // Pendant Noël, la pilule sert à sortir de Noël
-    } else if (lire("sombre") === "oui") {
-      ecrire("sombre", "non"); // Repasse en mode clair
+    if (readValue("christmas") === "on") {
+      writeValue("christmas", "off"); // Pendant Noël, la pilule sert à sortir de Noël
+    } else if (readValue("dark") === "on") {
+      writeValue("dark", "off"); // Repasse en mode clair
     } else {
-      ecrire("sombre", "oui"); // Passe en mode sombre
+      writeValue("dark", "on"); // Passe en mode sombre
     }
     updateStyle();
   });
