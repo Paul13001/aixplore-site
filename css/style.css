@@ -731,3 +731,7 @@ html.sombre { /* Quand la classe "sombre" est sur <html>, on change les variable
   background-color: #0b1029; /* Fond sombre */
   color: var(--text-color); /* Texte clair */
 }
+
+.sombre .theme-toggle img { /* Bouton en pilule version sombre */
+  content: url("../img/aixplore/aixplore-style-pilule-09-clic-sombre.png");
+}
