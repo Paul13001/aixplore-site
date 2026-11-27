@@ -1,21 +1,46 @@
 # Aixplore
 
-Site : https://paul13001.github.io/aixplore-site/
+Site web destiné aux étudiants d'Aix-en-Provence : sorties, sport, bons plans et liens officiels réunis au même endroit.
 
-Maquette : https://www.figma.com/design/nGl78aR44cVEAY6RGnqp13/Aixplore-%E2%80%93-Maquette--wireframes-?node-id=0-1&p=f&t=JnCQAMnjrqRTnAvH-0
+**Site en ligne :** https://paul13001.github.io/aixplore-site/
 
-Sujet : https://www.mickael-martin-nevot.com/univ-amu/iut/but-informatique/developpement-d-interfaces-web/?:s18-projet.pdf
+## Pages
 
-## Dossiers
+| Page | Fichier | Contenu |
+|---|---|---|
+| Accueil | `index.html` | Vidéo « Aix, capitale étudiante », liens rapides, formulaire d'avis |
+| Soirées | `nightlife.html` | Places, musique, culture, agenda, conseils de sécurité |
+| Sports | `sports.html` | Sport universitaire, plein air, salles, piscines, clubs à supporter |
+| Bons plans | `deals.html` | Logement, repas, transports, culture |
+| Liens utiles | `links.html` | Sites officiels, réseaux sociaux et sources |
 
-- `css/` : style.css (style normal) et alternate.css (style de Noël), plus les versions .min.css
-- `js/` : filtres, formulaire d'avis et changement de style
-- `img/` : logo, fonds des pages et photos de la page Sports
-- `video/` : vidéo de l'accueil et sous-titres
+## Fonctionnalités
 
-## Minifier le CSS
+- Menu de navigation commun
+- Bouton de changement de mode d'affichage
+- Formulaire d'avis (nom, e-mail, rubrique, note de 1 à 5, message)
+- Vidéo de présentation
+- Liens vers Instagram et Google Maps pour les lieux sportifs
 
-```
-npx csso-cli css/style.css -o css/style.min.css --no-restructure
-npx csso-cli css/alternate.css -o css/alternate.min.css --no-restructure
-```
+## Consulter le site
+
+Ouvrir le [site en ligne](https://paul13001.github.io/aixplore-site/), ou télécharger le projet et ouvrir `index.html` dans un navigateur.
+
+## Hébergement
+
+Le site est publié avec GitHub Pages.
+
+## Équipe
+
+Projet réalisé par BENOLDI Killian, GAILLOT Clément, RIVOAL Loric et TOLZA Paul.
+
+## Crédits
+
+- Textes des pages Accueil, Soirées et Sports : rédigés par le groupe
+- Sous-titres de la vidéo : rédigés par le groupe
+- Logo, favicon, boutons, fonds, animations en javascript : générés avec Claude, l'IA d'Anthropic
+- Autres sources : voir la page [Liens utiles](https://paul13001.github.io/aixplore-site/links.html)
+
+## Contact
+
+aixplore.contact@gmail.com
